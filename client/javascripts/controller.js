@@ -53,6 +53,12 @@
 	        // If anything goes wrong
       	});
 		}
+
+		vm.logout = function(){
+			store.remove('profile');
+			store.remove('token');
+		}
+
 	};
 
 	function d3playerController(){

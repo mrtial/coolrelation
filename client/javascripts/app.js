@@ -29,10 +29,13 @@
 				controller:'generatorController',
 				controllerAs:'vm'
 			})
+
+			// require login to see
 			.when('/showcase',{
 				templateUrl:'./client/views/showcase.html',
 				controller:'showcaseController',
-				controllerAs:'vm'
+				controllerAs:'vm',
+				requiresLogin: true,
 			})
 			.when('/login',{
 				templateUrl:'./client/views/login.html',

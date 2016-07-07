@@ -49,17 +49,18 @@ class MatrixAllApi(Resource):
 		file = request.files['file'].stream.read().decode("UTF8");
 		new_data = csv.reader(file)
 
-		from IPython import embed; embed()
+		# from IPython import embed; embed()
+		d = MatrixData(file)
 
-		db.session.add(file)
+		db.session.add(d)
 		db.session.commit()
-		return file
+		return d
 
 api.add_resource(MatrixAllApi,'/api/data')
 
 
 
-# ROUTES
+# ROUTES for angular
 @app.route('/')
 def root():
 	return render_template('layout.html')

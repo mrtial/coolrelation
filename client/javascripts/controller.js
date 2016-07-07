@@ -22,8 +22,20 @@
 		var vm = this;
 	};
 
-	function generatorController(FileUploader){
+	function generatorController(FileUploader, store){
 		var vm = this;
+		// tutorial page
+		var checked = store.get('tutorial');
+		if(checked){
+			vm.checked = checked;
+		}
+		vm.tutorial = function(){
+			store.set('tutorial', true)
+			vm.checked = true;
+		}
+
+
+		// FILE UPLOAD
 		vm.uploader = new FileUploader();
 
 		// uploader settings
@@ -66,6 +78,7 @@
 		vm.logout = function(){
 			store.remove('profile');
 			store.remove('token');
+			store.remove('tutorial')
 		}
 	};
 
@@ -89,6 +102,6 @@
 	// };
 
 	navbarController.$inject=['auth', 'store'];
-	generatorController.$inject=['FileUploader'];
+	generatorController.$inject=['FileUploader','store'];
 
 })()

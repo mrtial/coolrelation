@@ -2,11 +2,12 @@
 
 	// Config & Dependiencies Injection
 	angular
-		.module('coolrelation',['ngRoute', 'auth0', 'angular-storage', 'angular-jwt'])
+		.module('coolrelation',['ngRoute', 'auth0', 'angular-storage', 'angular-jwt','angularFileUpload'])
 		.config(config)
 		.config(auth0)
 		.run(checkToken)
 
+	// ROUTES using $routeProvider
 	function config($routeProvider, $locationProvider){
 		$routeProvider
 			.when('/',{
@@ -45,7 +46,6 @@
 		$locationProvider.html5Mode(true).hashPrefix('*');
 	}
 
-
 	function auth0(authProvider){
 		//Configure Auth0 with credentials
 		authProvider.init({
@@ -72,7 +72,6 @@
 		authProvider.on('loginFailure', function() {
 		  // If anything goes wrong
 		});
-
 	}
 
 
@@ -99,13 +98,12 @@
 	        auth.refreshIdToken(token);
 	      }
 	    }
-
 	  });
 	}
 
 	
 
-
+	// INJECT
 	config.$inject = ['$routeProvider', '$locationProvider'];
 	auth0.$inject = ['authProvider'];
 	checkToken.$inject = ['$rootScope', 'auth', 'store', 'jwtHelper', '$location'];

@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 from flask_restful import Resource, Api
 from marshmallow import Schema, fields, post_load
 from flask_sqlalchemy import SQLAlchemy 
+import csv
 
 # INIT
 app = Flask(__name__, template_folder='../client/views', static_folder="../client")
@@ -44,15 +45,15 @@ class MatrixAllApi(Resource):
 		return schema.dump(MatrixData.query.all(), many=True)
 
 	def post(self):
+
+		file = request.files['file'].stream.read().decode("UTF8");
+		new_data = csv.reader(file)
+
 		from IPython import embed; embed()
 
-
-		new_data = schema.load(request.form)
-		
-
-		db.session.add(new_data)
+		db.session.add(file)
 		db.session.commit()
-		return schema.dump(new_data)
+		return file
 
 api.add_resource(MatrixAllApi,'/api/data')
 

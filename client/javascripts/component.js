@@ -15,4 +15,5 @@
 			templateUrl:'./client/views/d3player.html'
 		})
 
+
 })()

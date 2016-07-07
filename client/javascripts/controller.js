@@ -22,8 +22,17 @@
 		var vm = this;
 	};
 
-	function generatorController(){
+	function generatorController(FileUploader){
 		var vm = this;
+		vm.uploader = new FileUploader();
+
+		// uploader settings
+		vm.uploader.url = "http://localhost:3000/api/data"
+		vm.uploader.autoUpload = true;
+		vm.uploader.removeAfterUpload = true;
+		vm.uploader.queueLimit = 1;
+
+
 	};
 
 	function showcaseController(){
@@ -58,7 +67,6 @@
 			store.remove('profile');
 			store.remove('token');
 		}
-
 	};
 
 	function d3playerController(){
@@ -81,5 +89,6 @@
 	// };
 
 	navbarController.$inject=['auth', 'store'];
+	generatorController.$inject=['FileUploader'];
 
 })()

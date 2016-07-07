@@ -1,0 +1,19 @@
+{
+  "name": "coolrelation",
+  "version": "1.0.0",
+  "description": "A data visualization web app which turn your correlation matrix data into visually analyzable graphic structure using D3. And other stuff!!!!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrtial/coolrelation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrtial/coolrelation/issues"
+  },
+  "homepage": "https://github.com/mrtial/coolrelation#readme"
+}

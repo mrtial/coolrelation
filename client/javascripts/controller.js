@@ -25,6 +25,7 @@
 	function generatorController(FileUploader, store){
 		var vm = this;
 		// tutorial page
+		// save check in local storage - only show tutorial one time
 		var checked = store.get('tutorial');
 		if(checked){
 			vm.checked = checked;
@@ -36,14 +37,24 @@
 
 
 		// FILE UPLOAD
-		vm.uploader = new FileUploader();
+		vm.uploaderD3 = new FileUploader();
 
-		// uploader settings
-		vm.uploader.url = "http://localhost:3000/api/data"
-		vm.uploader.autoUpload = true;
-		vm.uploader.removeAfterUpload = true;
-		vm.uploader.queueLimit = 1;
+		// uploaderD3 settings
+		vm.uploaderD3.url = "http://localhost:3000/api/generate"
+		vm.uploaderD3.autoUpload = true;
+		vm.uploaderD3.removeAfterUpload = true;
+		vm.uploaderD3.queueLimit = 1;
 
+
+		vm.uploaderD3.onCompleteAll = function(event){
+			console.log("upload completed!")
+		}
+
+		// getting back from resopnse
+		vm.uploaderD3.onCompleteItem = function(item, response, status, headers) {
+			window.response = response;
+		};
+	
 
 	};
 
@@ -56,6 +67,7 @@
 
 		// GET current user from local storage
 		var current = store.get('profile');
+		
 		if(current){
 			vm.username = current.name;
 			vm.picture = current.picture;

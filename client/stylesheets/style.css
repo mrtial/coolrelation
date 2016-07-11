@@ -299,12 +299,16 @@ iframe{
 	display: inline-flex;
 	/*border: 1px solid red;*/
 }
-.contronPanel{
+.controlPanel{
 	width: 25%;
 }
 
 .graphicArea{
 	width: 75%;
+}
+
+.dropzone .nv-file-over{
+	background-color: red;
 }
 
 .panel{
@@ -359,7 +363,7 @@ iframe{
 	/*box-shadow: 0px 2px 5px #888888;*/
 }
 
-.exportTool:before{
+.exportTool:after{
 	content: "";
 	display: block;
 	padding-top: 15%;
@@ -381,6 +385,7 @@ iframe{
 	margin:2%;
 	cursor: pointer;
 }
+
 
 
 

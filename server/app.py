@@ -4,11 +4,12 @@ from marshmallow import Schema, fields, post_load
 from flask_sqlalchemy import SQLAlchemy 
 import csv
 
-# INIT
+# APP INIT
 app = Flask(__name__, template_folder='../client/views', static_folder="../client")
 api = Api(app)
 
-app.config['SQLALCHEMY_DATABASE_URL'] = 'postgres://localhost/coolrelation'
+# DATABASE CONFIG
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/coolrelation'
 app.url_map.strict_slashes = False 
 db = SQLAlchemy(app)
 
@@ -20,9 +21,14 @@ class MatrixData(db.Model):
 
 	id = db.Column(db.Integer, primary_key=True)
 	data = db.Column(db.Text)
+	# user_id = db.Column(db.Text)
 
 	def __init__(self, data):
 		self.data = data
+
+	# display when exame the instance:
+	def __repr__(self):
+	  return 'data : {}'.format(self.data)
 
 db.create_all()
 
@@ -41,22 +47,42 @@ schema = MatrixSchema()
 
 # API ROUTE
 class MatrixAllApi(Resource):
+	# get specific data from query
 	def get(self):
-		return schema.dump(MatrixData.query.all(), many=True)
+		# from IPython import embed; embed()
+		# get id = 1
+		return schema.dump(MatrixData.query.get_or_404(1))
+
 
 	def post(self):
-
 		file = request.files['file'].stream.read().decode("UTF8");
-		new_data = csv.reader(file)
-
-		# from IPython import embed; embed()
 		d = MatrixData(file)
+		result = schema.dump(d)
 
-		db.session.add(d)
-		db.session.commit()
-		return d
+		# [other processes to be implemented]
+		# from myModel import DataProcess
+		# sned to DataProcess()
+		# return data in json and other intitial setting
 
+		# === SAVE TO DATABASE ===
+		# db.session.add(d)
+		# db.session.commit()
+		
+		return result
+
+
+class GenerateD3(Resource):
+	def post(self):
+		file = request.files['file'].stream.read().decode("UTF8");
+		d = MatrixData(file)
+		result = schema.dump(d)
+
+		return result
+
+
+# The route to use this api resource
 api.add_resource(MatrixAllApi,'/api/data')
+api.add_resource(GenerateD3, '/api/generate')
 
 
 
@@ -74,3 +100,5 @@ def catch_all(path):
 # LISTEN
 if __name__ == "__main__":
 	app.run(debug=True, port=3000)
+
+	

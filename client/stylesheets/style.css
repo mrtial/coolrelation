@@ -338,7 +338,9 @@ iframe{
 	padding-top: 57%;
 }
 
-#uploadText{
+#uploadText, 
+#loadingAnimate, 
+#d3SVG{
 	position: absolute;
 	top:50%;
 	left:50%;
@@ -346,6 +348,10 @@ iframe{
 	text-align: center;
 }
 
+.nv-file-over{
+	background-color:#35B729;
+	opacity: .3;
+}
 
 .dropzone.dragover{
 	border-color: black;

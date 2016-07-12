@@ -8,26 +8,32 @@
 
 	<!-- graphic area -->
 	<div class="graphicArea">
+
 		<!-- d3 plot -->
-		<div class="d3plot dropzone" nv-file-over nv-file-drop uploader="vm.uploaderD3">
-			<div id="uploadText">
+		<div class="d3plot dropzone" nv-file-drop nv-file-over uploader="vm.uploaderD3">
+			
+			<!-- UPLOAD AREA -->
+			<div id="uploadText" ng-show="vm.uploadText">
 				<img src="./client/assets/fileupload.png" width="80px" height="80px">
 				<div>choose a file or drag it here</div>
-				<input type="file" nv-file-select uploader="vm.uploaderD3" style="padding-left:100px" placeholder="" =""/>
+				<input type="file" nv-file-select uploader="vm.uploaderD3" style="padding-left:100px"/>
 			</div>
+			
+			<!-- LOADER -->
+			<div id="loadingAnimate" ng-show="vm.loading">
+				<img src="./client/assets/loader.gif">
+			</div>
+			
+			<!-- D3 SVG -->
+			<d3-player id="d3SVG" ng-show="vm.d3show"></d3-player>
+
 		</div>
 
 		<!-- export toolbar -->
-		<div class="exportTool">
-			<div id="toolicons">
-				<img src="./client/assets/save.png" title="open new file">
-				<img src="./client/assets/filedownload.png" title="file download">
-				<img src="./client/assets/share.png" title="share">
-				<img src="./client/assets/archive.png" title="add to clooection">
-			</div>
-		</div>
-	</div>
+		<export-tool-bar></export-tool-bar>
 
 
-	
-</div>
+	</div> <!-- graphicArea -->
+</div> 
+
+

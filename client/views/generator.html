@@ -1,8 +1,6 @@
 <div class="generatorContainer">
-	
 	<!-- Tutorial -->
 	<d3-tutorial class="tutorial" ng-hide="vm.checked" ng-click="vm.tutorial()"></d3-tutorial>
-
 	<!-- control panel -->
 	<d3-control-panel class="controlPanel"></d3-control-panel>
 
@@ -13,19 +11,21 @@
 		<div class="d3plot dropzone" nv-file-drop nv-file-over uploader="vm.uploaderD3">
 			
 			<!-- UPLOAD AREA -->
-			<div id="uploadText" ng-show="vm.uploadText">
+			<div id="uploadText" ng-show="false">
 				<img src="./client/assets/fileupload.png" width="80px" height="80px">
 				<div>choose a file or drag it here</div>
 				<input type="file" nv-file-select uploader="vm.uploaderD3" style="padding-left:100px"/>
 			</div>
 			
 			<!-- LOADER -->
-			<div id="loadingAnimate" ng-show="vm.loading">
+			<div id="loadingAnimate" ng-show="false">
 				<img src="./client/assets/loader.gif">
 			</div>
 			
 			<!-- D3 SVG -->
-			<d3-player id="d3SVG" ng-show="vm.d3show"></d3-player>
+			<div class="d3SVG" ng-controller="forceDirectedController">
+				<nvd3 options="options" data="data"></nvd3>
+			</div>
 
 		</div>
 

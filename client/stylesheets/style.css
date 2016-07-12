@@ -340,7 +340,7 @@ iframe{
 
 #uploadText, 
 #loadingAnimate, 
-#d3SVG{
+.d3SVG{
 	position: absolute;
 	top:50%;
 	left:50%;
@@ -393,8 +393,23 @@ iframe{
 }
 
 
+/* ========== D3 Style ========== */
+.node circle {
+    stroke: #fff;
+    stroke-width: 1.5px;
 
+}
+.link {
+    stroke: #999;
+    stroke-opacity: .6;
+    fill : none  ;
+}
 
+.node text {
+  font: 12px helvetica;
+  font-weight: normal;
+  color : grey;
+}
 
 
 

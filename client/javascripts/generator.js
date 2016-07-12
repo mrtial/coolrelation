@@ -2,7 +2,6 @@
 	angular 
 		.module('coolrelation')
 		.controller("generatorController", generatorController)
-		.controller("forceDirectedController", forceDirectedController)
 
 	function generatorController(FileUploader, store){
 		var vm = this;

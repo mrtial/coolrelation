@@ -9,6 +9,15 @@
 		vm.d3show = false;
 		vm.loading = false;
 
+		// temporary:
+		vm.graph1=true;
+		vm.graph2=false;
+
+		vm.changeChart=function(){
+			vm.graph1 = !vm.graph1;
+			vm.graph2 = !vm.graph2;
+		}
+
 		// tutorial page
 		// save check in local storage - only show tutorial one time
 		var checked = store.get('tutorial');

@@ -5,20 +5,23 @@
 
 	function generatorController(FileUploader, store){
 		var vm = this;
-		vm.uploadText = true;
-		vm.d3show = false;
-		vm.loading = false;
 
+		// ========= CONTROL PANEL =========
 		// temporary:
-		vm.graph1=true;
+		vm.upload=true;
+		vm.graph1=false;
 		vm.graph2=false;
+
+		vm.uploader = function(){
+			vm.upload = !vm.upload;
+		}
 
 		vm.changeChart=function(){
 			vm.graph1 = !vm.graph1;
 			vm.graph2 = !vm.graph2;
 		}
 
-		// tutorial page
+		// ========= TUTORIAL PAGE =========
 		// save check in local storage - only show tutorial one time
 		var checked = store.get('tutorial');
 		if(checked){
@@ -30,36 +33,37 @@
 		}
 
 
-		// FILE UPLOAD
-		vm.uploaderD3 = new FileUploader();
+		// ========= FILE UPLOAD =========
+		// uploading steps show & hide
+		vm.uploadText = true;
+		vm.loading = false;
+		vm.d3show = false;
+
 
 		// uploaderD3 settings
+		vm.uploaderD3 = new FileUploader();
+
 		vm.uploaderD3.url = "http://localhost:3000/api/generate"
 		vm.uploaderD3.autoUpload = true;
 		vm.uploaderD3.removeAfterUpload = true;
 		vm.uploaderD3.queueLimit = 1;
 
-
+		// getting back from resopnse (# process csv in python and send json back)
+		vm.uploaderD3.onCompleteItem = function(item, response, status, headers) {
+			console.log("got reponse!")
+			window.reponse
+			vm.chartData = response.chart_data;
+			vm.option = response.chart_option;
+		};
+	
 		vm.uploaderD3.onCompleteAll = function(event){
 			console.log("upload completed!")
-			// vm.d3show = true;
+			// hide uploadText
 			vm.uploadText = false;
 			vm.loading=true;
 		}
-
-		// getting back from resopnse
-		vm.uploaderD3.onCompleteItem = function(item, response, status, headers) {
-			console.log("on complete!")
-			window.response = response;
-		};
-	
+		
 	};
-
-	function forceDirectedController(){
-		var vm = this;
-
-
-	}
 
 	generatorController.$inject=['FileUploader','store'];
 

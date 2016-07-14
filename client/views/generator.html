@@ -10,7 +10,7 @@
 		<!-- d3 plot -->
 		<div class="d3plot dropzone" nv-file-drop nv-file-over uploader="vm.uploaderD3">
 			<!-- UPLOAD AREA -->
-			<div id="uploadText" ng-show="!true">
+			<div id="uploadText" ng-show="vm.upload">
 				<img src="./client/assets/fileupload.png" width="80px" height="80px">
 				<div>choose a file or drag it here</div>
 				<input type="file" nv-file-select uploader="vm.uploaderD3" style="padding-left:100px"/>
@@ -22,16 +22,15 @@
 			</div>
 			
 			<!-- D3 SVG -->
-			<!-- Force Directed Chart -->
-			<div class="d3SVG" ng-controller="forceDirectedController" ng-show="vm.graph1">
-				<div force-directed-chart chart-data="data" msg="msg"></div>
+			<div class="d3SVG" ng-show="vm.graph1">
+				{{vm.chartData}}
+				<div force-directed-chart chart-data="vm.chartData" chart-option="vm.chartOption"></div>
+				<p>HERE</p>
 			</div>
 
-			<!-- Example Directed Chart -->
-			<div class="d3SVG" ng-controller="exampleController" ng-show="vm.graph2">
-			  <div example-chart chart-data="salesData"></div>
-			</div>
-			<button ng-click="vm.changeChart()">Graph One</button> <button ng-click="vm.changeChart()">Graph Two</button>
+			<button ng-click="vm.uploader()">Upload</button>
+			<button ng-click="vm.changeChart()">Graph One</button>
+			<button ng-click="vm.changeChart()">Graph Two</button>
 		</div>
 		<!-- export toolbar -->
 		<export-tool-bar></export-tool-bar>

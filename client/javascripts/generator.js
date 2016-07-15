@@ -82,6 +82,11 @@
 			vm.chartData="";
 			vm.chartOption="";
 
+			vm.removeNode();
+			
+		}
+
+		vm.removeNode = function(){
 			var svg = document.getElementsByTagName('svg')[0];
 			while (svg.firstChild) {
 			    svg.removeChild(svg.firstChild);

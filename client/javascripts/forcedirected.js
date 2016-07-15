@@ -8,18 +8,39 @@
 				scope: {
 					chartData: '<',
 					chartOption:'<',
+					removeNode:'&',
 				},
 				template:"<svg width='980' height='520'></svg>",
 				link:function(scope, elem, attrs){
 
-					scope.$watchGroup(['chartData','chartOption'],function(){
-						// var chartData = scope[attrs.chartData];
+					// WATCH "chartData":
+					scope.$watchGroup(['chartData'],function(newValue, oldValue, scope){
+						var chartData = scope.chartData;
+						var chartOption = scope.chartOption;
+
+						if(chartData){
+							runD3(chartData,chartOption)
+						}
+					})
+
+					// WATCH "chartOption":
+					scope.$watchCollection('chartOption.option[0]',function(newValue, oldValue){
+						scope.removeNode();
+						console.log("clean nodes");
+
+
 
 						var chartData = scope.chartData;
 						var chartOption = scope.chartOption;
 
-
 						if(chartData){
+							runD3(chartData,chartOption)
+						}
+					})
+
+					
+					function runD3(chartData,chartOption){
+						if(chartData){ 
 
 							// inject d3
 							var d3 = $window.d3;
@@ -38,7 +59,6 @@
 							// FIRST D3 GRAPH
 							// =========================================================
 							if(chartOption.option[0]["chart_type"] === "structure_graph")	{
-							console.log("I watch for chartOption!")
 
 								var force = d3.layout.force()
 										.charge(-1000)
@@ -115,7 +135,6 @@
 							// SECOND D3 GRAPH
 							// =========================================================
 							if(chartOption.option[0]["chart_type"] === "force_directed"){
-							console.log("I watch for chartOption!")
 							
 								var force = d3.layout.force()
 													    .charge(-5000)
@@ -323,17 +342,10 @@
 
 							  force.start();
 							} // chart_type == force_directed
-							
-
-
-
-
-
-
 						} // if(chartData)
+					} // runD3 function
+				} // link function
 
-					}) // $watch 'chartData'
-				} // link
 			} // return
 		}) // directive
 

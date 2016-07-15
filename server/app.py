@@ -103,10 +103,10 @@ class GenerateD3(Resource):
 				link.append({"source":i-3,"target":j-2,"value":df[i-1][j-1]})
 
 		# DEFAULT OPTION
-		option=[]
+		option=[{"chart_type":"structure_graph"}]
 
 		# to json
-		chart_data = json.dumps({"node":node,"link":link})
+		chart_data = json.dumps({"nodes":node,"links":link})
 		chart_option = json.dumps({"option":option})
 		result = {"chart_data":chart_data, "chart_option":chart_option}
 

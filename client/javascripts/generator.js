@@ -51,9 +51,9 @@
 		// getting back from resopnse (# process csv in python and send json back)
 		vm.uploaderD3.onCompleteItem = function(item, response, status, headers) {
 			console.log("got reponse!")
-			window.reponse
-			vm.chartData = response.chart_data;
-			vm.option = response.chart_option;
+			vm.chartData = JSON.parse(response.chart_data);
+			vm.chartOption = JSON.parse(response.chart_option);
+			window.chartData = vm.chartData;
 		};
 	
 		vm.uploaderD3.onCompleteAll = function(event){

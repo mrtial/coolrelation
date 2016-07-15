@@ -318,6 +318,15 @@ iframe{
 	border-radius: 10px;
 	background-color: #f1f1f1;
 	box-shadow: 0px 2px 5px #888888;
+	overflow: hidden;
+}
+
+.panel select{
+	margin:10%;
+}
+
+.panel section{
+	margin-left: 10%;
 }
 
 .d3plot{
@@ -349,7 +358,7 @@ iframe{
 }
 
 .nv-file-over{
-	background-color:#35B729;
+	background-color:#ADD8E6;
 	opacity: .3;
 }
 

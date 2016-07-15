@@ -65,7 +65,7 @@
 		      // profile
 		      // $rootScope.redirectModeProfile = profile
 		    });
-		    $location.url('/');
+		    // $location.url('/'); // location after login.
 		  }]);
 
 		//Called when login fails

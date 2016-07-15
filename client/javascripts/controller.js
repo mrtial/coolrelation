@@ -62,21 +62,6 @@
 	function d3playerController(){
 		var vm = this;
 	}
-	
-	// function loginController(auth, store){
-	// 	var vm = this;
-	// 	vm.login = function(){
-	// 			// Set popup to true to use popup
-	// 			// Store 'profile' & 'token' in local storage
-	// 	    auth.signin({popup: true}, function(profile, token){
-	// 	          store.set('profile', profile);
-	// 	          store.set('token', token);
-	// 	        }, function(err){
-	// 	          // If anything goes wrong
-	// 	        });
-
-	// 	  }
-	// };
 
 	navbarController.$inject=['auth', 'store'];
 	// generatorController.$inject=['FileUploader','store'];

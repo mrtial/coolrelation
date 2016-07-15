@@ -7,24 +7,26 @@
 				restrict:'A',
 				scope: {
 					chartData: '<',
-					chartOption:'<'
+					chartOption:'<',
 				},
 				template:"<svg width='980' height='520'></svg>",
 				link:function(scope, elem, attrs){
 
-
 					scope.$watchGroup(['chartData','chartOption'],function(){
 						// var chartData = scope[attrs.chartData];
+
 						var chartData = scope.chartData;
 						var chartOption = scope.chartOption;
+
 
 						if(chartData){
 
 							// inject d3
 							var d3 = $window.d3;
 
+
 							// Constants for the SVG
-							var width = 1000,
+							var width = 900,
 							    height = 500,
 							    margin = 25,
 							    padding = 1,
@@ -32,7 +34,11 @@
 							    min_dist = 200,
 							    color = d3.scale.category20();
 
+
+							// FIRST D3 GRAPH
+							// =========================================================
 							if(chartOption.option[0]["chart_type"] === "structure_graph")	{
+							console.log("I watch for chartOption!")
 
 								var force = d3.layout.force()
 										.charge(-1000)
@@ -75,15 +81,15 @@
 							 	    .call(force.drag);
 
 							 	node.append("circle")
-							 	    .attr("r", 8)
+							 	    .attr("r", 5)
 							 	    .style("fill", function (d){
 							 	    	return color(d.group);
-							 	    })
+							 	    });
 
 							 	node.append("text")
 							 			.attr("dx", 10)
 							 			.attr("dy", ".35em")
-							 			.text(function(d) { return d.name })
+							 			.text(function(d) { return d.name });
 
 							 	// Now we are giving the SVGs co-ordinates - the force layout is 
 							 	// generating the co-ordinates which this code is using to update 
@@ -106,8 +112,11 @@
 							}	// 	structure_graph
 
 
+							// SECOND D3 GRAPH
+							// =========================================================
 							if(chartOption.option[0]["chart_type"] === "force_directed"){
-								
+							console.log("I watch for chartOption!")
+							
 								var force = d3.layout.force()
 													    .charge(-5000)
 													    .linkDistance(2*radius + padding)

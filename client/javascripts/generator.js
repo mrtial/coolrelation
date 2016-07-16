@@ -134,10 +134,6 @@
 
 
 		// SAVE TO USER'S COLLECTION
-		
-
-
-
 		vm.exportDB = function(chartOption, chartData, user_id){
 			// TODO: move this to service
 			// check authentication === true

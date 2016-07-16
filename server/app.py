@@ -63,14 +63,14 @@ class AllMatrixApi(Resource):
 	def post(self):
 		data = request.json
 
-		chart_option = data[0]
-		chart_data = data[1]
-		user_id = None
+		chart_option = json.dumps(data[0])
+		chart_data = json.dumps(data[1])
+		user_id = json.dumps(None)
 
 
+		# from IPython import embed; embed()
 		# make file a python class instance so it can be store in db
 		d = MatrixData(chart_option, chart_data, user_id)
-		# from IPython import embed; embed()
 	
 		# === SAVE TO DATABASE ===
 		db.session.add(d)

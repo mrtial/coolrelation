@@ -21,15 +21,18 @@ class MatrixData(db.Model):
 	__tablename__ = "matrix_data"
 
 	id = db.Column(db.Integer, primary_key=True)
-	data = db.Column(db.Text)
-	# user_id = db.Column(db.Text)
+	chart_option = db.Column(db.Text)
+	chart_data = db.Column(db.Text)
+	user_id = db.Column(db.Text)
 
-	def __init__(self, data):
-		self.data = data
+	def __init__(self, chart_option, chart_data, user_id=None):
+		self.chart_option = chart_option
+		self.chart_data = chart_data
+		self.user_id = user_id
 
 	# display when exame the instance:
 	def __repr__(self):
-		return 'data : {}'.format(self.data)
+		return 'chart_option : {}, chart+data : {}'.format(self.chart_option, self.chart_data,)
 
 db.create_all()
 
@@ -37,7 +40,9 @@ db.create_all()
 # CREATE SCHEMA
 class MatrixSchema(Schema):
 	id = fields.Integer()
-	data = fields.String()
+	chart_option = fields.Dict()
+	chart_data = fields.Dict()
+
 
 	# @post_load
 	# def make_matrix(self, kwargs):
@@ -47,7 +52,7 @@ schema = MatrixSchema()
 
 
 # API ROUTE
-class MatrixAllApi(Resource):
+class AllMatrixApi(Resource):
 	# get specific data from query
 	def get(self):
 		# from IPython import embed; embed()
@@ -56,19 +61,23 @@ class MatrixAllApi(Resource):
 
 
 	def post(self):
-		file = request.files['file'].stream.read().decode("UTF8");
+		data = request.json
+
+		chart_option = data[0]
+		chart_data = data[1]
+		user_id = None
+
 
 		# make file a python class instance so it can be store in db
-		d = MatrixData(file)
-		result = schema.dump(d)
+		d = MatrixData(chart_option, chart_data, user_id)
+		# from IPython import embed; embed()
 	
-		
-
 		# === SAVE TO DATABASE ===
-		# db.session.add(d)
-		# db.session.commit()
+		db.session.add(d)
+		db.session.commit()
 		
-		return result
+		# return 
+		print ("add to db")
 
 
 class GenerateD3(Resource):
@@ -113,8 +122,10 @@ class GenerateD3(Resource):
 		return result
 
 
+
+
 # API ROUTES:
-api.add_resource(MatrixAllApi,'/api/data')
+api.add_resource(AllMatrixApi,'/api/data')
 api.add_resource(GenerateD3, '/api/generate')
 
 

@@ -3,18 +3,14 @@
 		.module('coolrelation')
 		.controller("generatorController", generatorController)
 
-	function generatorController(FileUploader, store){
+	function generatorController(FileUploader, store, auth, $http ,$rootScope, $location){
 		var vm = this;
-		window.vm=vm;
 		vm.msg = "parent controller"
+		vm.path = $location.path();
 		vm.uploadText=true;
 
 		// ========= CONTROL PANEL =========
-		// vm.setChartType = function(){
 
-		// 	vm.chartOption.option[0].chart_type = "force_directed";
-		// }
-		
 
 
 		// ========= TUTORIAL PAGE =========
@@ -27,7 +23,6 @@
 			store.set('tutorial', true)
 			vm.checked = true;
 		}
-
 
 		// ========= FILE UPLOAD =========
 		// uploading steps show & hide
@@ -71,7 +66,12 @@
 			console.log("there is an error!!!")
 		}
 		
-		// ========= RE-START THE GENERATOR =========
+
+
+		// ========= TOOL BAR FUNCTION ==============
+
+		// RE-START THE GENERATOR 
+		// ######################
 		vm.cleanAll = function(){
 			console.log("click cleanAll")
 			// return to init
@@ -79,23 +79,91 @@
 			vm.loader=false;
 			vm.d3show = false;
 			// clean d3 data & remove svg from DOM
-			vm.chartData="";
-			vm.chartOption="";
-
 			vm.removeNode();
 			
 		}
 
 		vm.removeNode = function(){
+			vm.chartData="";
+			vm.chartOption="";
+
 			var svg = document.getElementsByTagName('svg')[0];
 			while (svg.firstChild) {
 			    svg.removeChild(svg.firstChild);
 			}
 		}
 
+		// DOWNLOAD FILE
+		// #############
+		vm.exportHTML = function(user_id, chartOption, chartData){
+			// TODO: move this to service
+			// check authentication === true
+			if(!$rootScope.isAuthenticated){
+				auth.signin({popup: true},function(){
+					$location.path(vm.path);
+				});
+			}
+
+			// check if this data has already been saved
+			// if not, store data to db
+			// if yes, move on
+			vm.exportDB(chartOption, chartData)
+
+			// set ajex request to get the file
+
+
+		}
+
+		// SHARE PNG FILE
+		// ##############
+		vm.exportPNG = function(user_id, chartOption, chartData){
+			// TODO: move this to service
+			// check authentication === true
+			if(!$rootScope.isAuthenticated){
+				auth.signin({popup: true},function(){
+					$location.path(vm.path);
+				});
+			}
+
+			// check if this data has already been saved
+			// if not, store data to db
+			// if yes, move on
+
+
+		}
+
+
+		// SAVE TO USER'S COLLECTION
+		
+
+
+
+		vm.exportDB = function(chartOption, chartData, user_id){
+			// TODO: move this to service
+			// check authentication === true
+			if(!$rootScope.isAuthenticated){
+				auth.signin({popup: true},function(profile, token){
+					vm.currentUser = profile["user_id"];
+					$location.path(vm.path);
+				});
+			}
+			var data = [chartOption, chartData];
+			
+			// POST data to DB
+			$http.post('/api/data', data).then(function successSend(){
+				// redirect to collection or send flash msg!
+				console.log("post complete!")
+
+			}, function catchErr(){
+				// some error handling
+
+			});
+		}
+
+
 	}; // generator function
 
-	generatorController.$inject=['FileUploader','store'];
+	generatorController.$inject=['FileUploader','store', 'auth', '$http', '$rootScope', '$location'];
 
 })()
 

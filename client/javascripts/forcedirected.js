@@ -25,15 +25,11 @@
 
 					// WATCH "chartOption":
 					scope.$watchCollection('chartOption.option[0]',function(newValue, oldValue){
-						scope.removeNode();
-						console.log("clean nodes");
-
-
-
-						var chartData = scope.chartData;
-						var chartOption = scope.chartOption;
-
-						if(chartData){
+						if(newValue!==oldValue){
+							scope.removeNode();
+							// debugger
+							var chartData = scope.chartData;
+							var chartOption = scope.chartOption;
 							runD3(chartData,chartOption)
 						}
 					})

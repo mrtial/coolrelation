@@ -4,11 +4,9 @@
 		.controller("mainController", mainController)
 		.controller("aboutController", aboutController)
 		.controller("docsController", docsController)
-		// .controller("generatorController", generatorController) --> move out
 		.controller("showcaseController", showcaseController)
 		.controller("navbarController", navbarController)
 		.controller("d3playerController", d3playerController)
-		// .controller('loginController', loginController)
 
 	function mainController(){
 		var vm = this;
@@ -27,9 +25,15 @@
 		var vm = this;
 	};
 
-	function navbarController(auth, store){
+	function navbarController(auth, store, $scope){
 		var vm = this;
+		vm.dropdown = false;
 
+		// debugger
+		// $scope.$watch('vm',function(){
+			// console.log('I watch vm')
+		// })
+		
 		// GET current user from local storage
 		var current = store.get('profile');
 		
@@ -37,13 +41,12 @@
 			vm.username = current.name;
 			vm.picture = current.picture;
 		}
-		
+
+
 		vm.login = function(){
 			// Set popup to true to use popup
 			// Store 'profile' & 'token' in local storage
 	    auth.signin({popup: true}, function(profile, token){
-        store.set('profile', profile);
-        store.set('token', token);
         // set username & picture inside navbar
       	vm.username = profile['name'];
       	vm.picture = profile['picture'];
@@ -63,7 +66,7 @@
 		var vm = this;
 	}
 
-	navbarController.$inject=['auth', 'store'];
+	navbarController.$inject=['auth', 'store','$scope'];
 	// generatorController.$inject=['FileUploader','store'];
 
 })()

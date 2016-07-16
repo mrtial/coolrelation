@@ -1,5 +1,5 @@
 <nav>
-	<ul>
+	<ul id="nav">
 		<!-- LOGO -->
 		<li><a href="/" id="logo">coolrelation</a></li>
 
@@ -11,12 +11,18 @@
 
 		<!-- USER LOGIN -->
 		<li id="login">
-			<a ng-click="vm.login()" ng-hide="vm.username">LOGIN</a>
+			<a id="loginbtm" ng-click="vm.login()" ng-hide="vm.username">LOGIN</a>
 			<a ng-show="vm.username">
 				{{vm.username}}
-				<a ng-show="vm.username" ng-click="vm.logout()" href="https://mrtial.auth0.com/v2/logout?returnTo=http://localhost:3000">logout</a>
 			</a>
-			<span><img src="{{vm.picture || './client/assets/user.png'}}"></span>
+			<span ng-click="vm.dropdown=!vm.dropdown"><img src="{{vm.picture || './client/assets/user.png'}}"></span>
 		</li>
 	</ul>
 </nav>
+<div id="userDropdown" ng-show="vm.dropdown">
+	<ul>
+		<li id="uparrow"></li>
+		<li><a ng-show="vm.username" ng-click="vm.logout()" href="https://mrtial.auth0.com/v2/logout?returnTo=http://localhost:3000">logout</a></li>
+		<li>Collection</li>
+	</ul>
+</div>

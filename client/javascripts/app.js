@@ -52,7 +52,7 @@
 		    domain: 'mrtial.auth0.com',
 		    // TODO: move client id to .env
 		    clientID: 'Uh0BNDPKcj5SGW2GoXN6v6wxqlLlx1T6',
-		    loginUrl: '/login'
+		    // loginUrl: '/login'
 		});
 
 		// CODE FORM AUTH0: 
@@ -63,9 +63,12 @@
 		    // Access to user profile and token
 		    profilePromise.then(function(profile){
 		      // profile
-		      // $rootScope.redirectModeProfile = profile
+		      store.set('profile', profile);
+		      store.set('token', idToken);
+
 		    });
 		    // $location.url('/'); // location after login.
+		    
 		  }]);
 
 		//Called when login fails

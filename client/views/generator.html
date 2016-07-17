@@ -51,7 +51,9 @@
 			<div id="toolicons">
 				<span href="/generator" ng-click="vm.cleanAll()"><img  src="./client/assets/save.png" title="open new file"></span>
 				<span ng-click="vm.exportHTML()"><img src="./client/assets/filedownload.png" title="file download"></span>
-				<span ng-click="vm.exportPNG()"><img src="./client/assets/share.png" title="share"></span>
+
+				<a id="dl" download="Canvas.png" href="#" ng-click="vm.exportPNG()"><img src="./client/assets/share.png" title="share"></a>
+				
 				<span ng-click="vm.exportDB(vm.chartOption,vm.chartData)"><img src="./client/assets/archive.png" title="add to clooection"></span>
 			</div>
 		</div>

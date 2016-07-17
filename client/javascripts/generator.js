@@ -119,15 +119,24 @@
 		vm.exportPNG = function(user_id, chartOption, chartData){
 			// TODO: move this to service
 			var svg = document.getElementsByTagName('svg')[0];
+			// check authentication === true
 			if(svg.childElementCount){
 				if(!auth.isAuthenticated){
 					requireLogin();
 				}
 				// save svg to png
+				var canvas = document.getElementById("canvas");
+				canvg('canvas', document.getElementById('mySvg').innerHTML)
+				// canvg()
 
+				var img = canvas.toDataURL("image/png");
+
+				/* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+				  img = img.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+				  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+				  img = img.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+				  document.getElementById('dl').href = img;
 			}
-			// check authentication === true
-			debugger
 
 
 		}

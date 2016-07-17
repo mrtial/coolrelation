@@ -10,7 +10,7 @@
 					chartOption:'<',
 					removeNode:'&',
 				},
-				template:"<svg width='980' height='520'></svg>",
+				template:"<svg id='mySvg' width='980' height='520'></svg>",
 				link:function(scope, elem, attrs){
 
 					// WATCH "chartData":

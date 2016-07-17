@@ -42,7 +42,7 @@ class MatrixSchema(Schema):
 	id = fields.Integer()
 	chart_option = fields.Dict()
 	chart_data = fields.Dict()
-
+	user_id = fields.String()
 
 	# @post_load
 	# def make_matrix(self, kwargs):
@@ -65,7 +65,7 @@ class AllMatrixApi(Resource):
 
 		chart_option = json.dumps(data[0])
 		chart_data = json.dumps(data[1])
-		user_id = json.dumps(None)
+		user_id = json.dumps(data[2])
 
 
 		# from IPython import embed; embed()

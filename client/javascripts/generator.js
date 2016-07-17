@@ -118,16 +118,16 @@
 		// ##############
 		vm.exportPNG = function(user_id, chartOption, chartData){
 			// TODO: move this to service
-			// check authentication === true
-			if(!$rootScope.isAuthenticated){
-				auth.signin({popup: true},function(){
-					$location.path(vm.path);
-				});
-			}
+			var svg = document.getElementsByTagName('svg')[0];
+			if(svg.childElementCount){
+				if(!auth.isAuthenticated){
+					requireLogin();
+				}
+				// save svg to png
 
-			// check if this data has already been saved
-			// if not, store data to db
-			// if yes, move on
+			}
+			// check authentication === true
+			debugger
 
 
 		}
@@ -135,24 +135,32 @@
 
 		// SAVE TO USER'S COLLECTION
 		vm.exportDB = function(chartOption, chartData, user_id){
-			// TODO: move this to service
-			// check authentication === true
-			if(!$rootScope.isAuthenticated){
-				auth.signin({popup: true},function(profile, token){
-					vm.currentUser = profile["user_id"];
-					$location.path(vm.path);
+			// POST data to DB, only when data exist
+			var svg = document.getElementsByTagName('svg')[0];
+			if(svg.childElementCount){
+				// check authentication & set user info
+				if(!auth.isAuthenticated){
+					requireLogin();
+					var user_id = auth.profile.user_id
+					var data = [chartOption, chartData, user_id];
+				} else{
+					var user_id = auth.profile.user_id
+					var data = [chartOption, chartData, user_id];
+				}
+
+				$http.post('/api/data', data).then(function successSend(){
+					// send flash msg!
+					console.log("post complete!")
+				}, function catchErr(){
+					// some error handling
 				});
-			}
-			var data = [chartOption, chartData];
-			
-			// POST data to DB
-			$http.post('/api/data', data).then(function successSend(){
-				// redirect to collection or send flash msg!
-				console.log("post complete!")
+			} // if(data)
+		} // exportDB
 
-			}, function catchErr(){
-				// some error handling
-
+		// ============= HELPER FUNCTION ==============
+		function requireLogin(){
+			auth.signin({popup: true},function(profile, token){
+				$location.path(vm.path);
 			});
 		}
 

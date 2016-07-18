@@ -3,14 +3,32 @@
 		.module('coolrelation')
 		.controller("generatorController", generatorController)
 
-	function generatorController(FileUploader, store, auth, $http ,$rootScope, $location){
+	function generatorController(FileUploader, store, auth, $http, $location, $scope){
 		var vm = this;
 		window.vm = vm;
-		vm.msg = "parent controller"
 		vm.path = $location.path();
 		vm.uploadText=true;
-
+		
 		// ========= CONTROL PANEL =========
+		// STYLE SETTING
+		vm.sWidth = 0;
+		vm.strokeWidth = function(p){
+			vm.sWidth += Number(p);
+
+			var links = document.querySelectorAll('.link');
+			links.forEach(function(el,idx){
+				var value = Number(el.style.cssText.split(':')[1].replace(';',''));
+				var newValue = value + Number(p);
+				el.style.cssText = "stroke-width:" + newValue;
+			})
+		}
+
+		// STRUCTURE SETTING
+
+
+
+		// SCHEMA SETTING
+
 
 
 
@@ -98,7 +116,7 @@
 		vm.exportHTML = function(user_id, chartOption, chartData){
 			// TODO: move this to service
 			// check authentication === true
-			if(!$rootScope.isAuthenticated){
+			if(!isAuthenticated){
 				auth.signin({popup: true},function(){
 					$location.path(vm.path);
 				});
@@ -116,7 +134,7 @@
 
 		// SHARE PNG FILE
 		// ##############
-		vm.exportPNG = function(chartOption, chartData){
+		vm.exportPNG = function(chartOption, chartData, $event){
 			// TODO: move this to service
 			var svg = document.getElementsByTagName('svg')[0];
 			// check authentication === true
@@ -129,6 +147,7 @@
 					canvg('canvas', document.getElementById('mySvg').innerHTML)
 					// canvg()
 					var img = canvas.toDataURL("image/png");
+					// debugger
 
 					/* Change MIME type to trick the browser to downlaod the file instead of displaying it */
 					  img = img.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
@@ -141,7 +160,7 @@
 					canvg('canvas', document.getElementById('mySvg').innerHTML)
 					// canvg()
 					var img = canvas.toDataURL("image/png");
-
+					// debugger
 					/* Change MIME type to trick the browser to downlaod the file instead of displaying it */
 					  img = img.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
 					  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
@@ -162,25 +181,28 @@
 				// check authentication & set user info
 				if(!auth.isAuthenticated){
 					requireLogin();
-					var user_id = auth.profile.user_id
-					var data = [chartOption, chartData, user_id];
+					// var user_id = auth.profile.user_id;
+					// var data = [chartOption, chartData, user_id];
 				} else{
 					var user_id = auth.profile.user_id
 					var data = [chartOption, chartData, user_id];
-				}
 
-				$http.post('/api/data', data).then(function successSend(){
-					// send flash msg!
-					console.log("post complete!")
-				}, function catchErr(){
-					// some error handling
-				});
+					$http.post('/api/data', data).then(function successSend(){
+						// send flash msg!
+						console.log("post complete!")
+					}, function catchErr(){
+						// some error handling
+					});
+				}
 			} // if(data)
 		} // exportDB
 
 		// ============= HELPER FUNCTION ==============
 		function requireLogin(){
 			auth.signin({popup: true},function(profile, token){
+				// store.set('profile', profile);
+		 	 //  store.set('token', token);
+		    // debugger
 				$location.path(vm.path);
 			});
 		}
@@ -188,7 +210,7 @@
 
 	}; // generator function
 
-	generatorController.$inject=['FileUploader','store', 'auth', '$http', '$rootScope', '$location'];
+	generatorController.$inject=['FileUploader','store', 'auth', '$http', '$location', '$scope'];
 
 })()
 

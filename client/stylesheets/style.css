@@ -145,6 +145,11 @@ li a:hover{
 	z-index: 500;
 }
 
+.dropItem{
+	margin: 0;
+	padding:5px;
+}
+
 
 /* ========== INDEX PAGE ========== */
 .indexContainer{

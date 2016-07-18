@@ -42,15 +42,27 @@
 					function runD3(chartData,chartOption, force){
 						force.stop();
 						console.log("force stop");
+						var user_option = chartOption.option[0];
 
 						// Constants for the SVG
 						var width = 900,
 						    height = 500,
 						    margin = 25,
 						    padding = 1,
-						    radius = 5,
-						    min_dist = 200,
-						    color = d3.scale.category20();
+						    min_dist = 200;
+						 
+
+						// USER OPTIONS OR DEFAULT CHART OPTIONS 
+						var radius = +user_option.radius || 5,
+								color = d3.scale.category20(),
+								link_width = user_option.link_width,
+								cutoff = user_option.cutoff || .5;
+
+						if(user_option.color==="category20b"){color = d3.scale.category20b()}
+						if(user_option.color==="category20c"){color = d3.scale.category20c()}
+
+
+								// debugger
 
 
 						// FIRST D3 GRAPH
@@ -69,7 +81,7 @@
 													.attr("width", width)
 													.attr("height", height)
 
-							graph = chartData;
+							var graph = chartData;
 
 							//Creates the graph data structure out of the json data
 							force.nodes(graph.nodes)
@@ -86,8 +98,8 @@
 						 	    .data(graph.links)
 						 	    .enter().append("line")
 						 	    .attr("class", "link")
-						 	    .style("stroke-width", function (d) {
-						 	    		return Math.max(0.1 ,(d.value-0.5)*10);  // ## user option: cutoff
+						 	    .style("stroke-width", function (d) {  
+							 	    		return Math.max(0.1 ,(d.value-cutoff)*10);  // ## user option: cutoff
 						 	    });
 
 

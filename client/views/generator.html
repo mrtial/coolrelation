@@ -21,9 +21,9 @@
 				<div>
 					<form action="">
 						<label>color plate</label>
-					  <input type="radio" name="colorschema" value="category20"> <img src="./client/assets/color1.png" height="20px" width="auto">
-					  <input type="radio" name="colorschema" value="category20b"> <img src="./client/assets/color2.png" height="20px" width="auto">
-					  <input type="radio" name="colorschema" value="category20c"> <img src="./client/assets/color3.png" height="20px" width="auto">
+					  <input type="radio" name="colorschema" value="category20" ng-click="vm.chartOption.option[0].color = 'category20'"> <img src="./client/assets/color1.png" height="20px" width="auto">
+					  <input type="radio" name="colorschema" value="category20b" ng-click="vm.chartOption.option[0].color = 'category20b'"> <img src="./client/assets/color2.png" height="20px" width="auto">
+					  <input type="radio" name="colorschema" value="category20c" ng-click="vm.chartOption.option[0].color = 'category20c'"> <img src="./client/assets/color3.png" height="20px" width="auto">
 					</form>
 				</div>
 				<div>
@@ -33,8 +33,7 @@
 				</div>
 				<div>
 					<label>link width</label>
-					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue2.value=value" />
-				  <output id="rangevalue2"></output>
+					<button ng-click="vm.strokeWidth(-1)">-</button><button ng-click="vm.strokeWidth(1)">+</button>
 				</div>
 				<div>
 					<label>display cutoff</label>
@@ -109,7 +108,8 @@
 				<span href="/generator" ng-click="vm.cleanAll()"><img  src="./client/assets/save.png" title="open new file"></span>
 				<span ng-click="vm.exportHTML()"><img src="./client/assets/filedownload.png" title="file download"></span>
 
-				<a id="dl" download="Canvas.png" href="#" ng-click="vm.exportPNG(vm.chartOption,vm.chartData,$event)"><img src="./client/assets/share.png" title="share"></a>
+				<!-- <a id="dl" download="Canvas.png" href="#" ng-click="vm.exportPNG(vm.chartOption,vm.chartData,$event)"><img src="./client/assets/share.png" title="share"></a> -->
+				<span id="dl" href="#" ng-click="vm.exportPNG()"><img src="./client/assets/share.png" title="share"></span>
 				
 				<span ng-click="vm.exportDB(vm.chartOption,vm.chartData)"><img src="./client/assets/archive.png" title="add to clooection"></span>
 			</div>

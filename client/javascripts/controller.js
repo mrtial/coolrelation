@@ -25,14 +25,18 @@
 		var vm = this;
 	};
 
-	function navbarController(auth, store, $scope){
+	function navbarController(auth, store, $scope, $rootScope){
 		var vm = this;
 		vm.dropdown = false;
 
-		// debugger
-		// $scope.$watch('vm',function(){
-			// console.log('I watch vm')
-		// })
+		$rootScope.$watch('watch',function(newValue,oldValue){
+			// debugger
+			if($rootScope.watch){
+				var current = store.get('profile');
+				vm.username = current.name;
+				vm.picture = current.picture;
+			}
+		})
 		
 		// GET current user from local storage
 		var current = store.get('profile');
@@ -59,6 +63,7 @@
 			store.remove('profile');
 			store.remove('token');
 			store.remove('tutorial')
+			$rootScope.watch = false;
 		}
 	};
 
@@ -66,7 +71,7 @@
 		var vm = this;
 	}
 
-	navbarController.$inject=['auth', 'store','$scope'];
+	navbarController.$inject=['auth', 'store','$scope','$rootScope'];
 	// generatorController.$inject=['FileUploader','store'];
 
 })()

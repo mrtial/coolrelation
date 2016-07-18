@@ -63,8 +63,10 @@
 		    // Access to user profile and token
 		    profilePromise.then(function(profile){
 		      // profile
+		      // debugger
 		      store.set('profile', profile);
 		      store.set('token', idToken);
+		      $rootScope.watch = true;
 
 		    });
 		    // $location.url('/'); // location after login.

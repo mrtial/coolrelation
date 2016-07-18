@@ -54,15 +54,16 @@
 
 						// USER OPTIONS OR DEFAULT CHART OPTIONS 
 						var radius = +user_option.radius || 5,
-								color = d3.scale.category20(),
 								link_width = user_option.link_width,
-								cutoff = user_option.cutoff || .5;
+								cutoff = Number(user_option.cutoff) || .5,
+								node_size = user_option.node_size || 4,
+								link_strength = Number(user_option.link_strength) || 15;
 
+						var color = d3.scale.category20();
 						if(user_option.color==="category20b"){color = d3.scale.category20b()}
 						if(user_option.color==="category20c"){color = d3.scale.category20c()}
 
 
-								// debugger
 
 
 						// FIRST D3 GRAPH
@@ -90,7 +91,7 @@
 
 						 	//Force Strength
 						 	force.linkStrength(function(link) {
-						 		return link.value/15   // ## user option : Strength
+						 		return link.value/link_strength   // ## user option : Strength
 						 	});
 
 						 	//Create all the line svgs but without locations yet
@@ -111,7 +112,7 @@
 						 	    .call(force.drag);
 
 						 	node.append("circle")
-						 	    .attr("r", 4)  // ## user option : node size
+						 	    .attr("r", node_size)  // ## user option : node size
 						 	    .style("fill", function (d){
 						 	    	return color(d.group);
 						 	    });
@@ -120,6 +121,9 @@
 						 			.attr("dx", 10)
 						 			.attr("dy", ".35em")
 						 			.text(function(d) { return d.name })
+						 			// .attr('transform', function(e){
+						 			// 		return "rotate(25)";
+						 			// 	})
 
 
 						 	// Now we are giving the SVGs co-ordinates - the force layout is 
@@ -162,14 +166,6 @@
 
 							graph = chartData;
 
-							// //initialize nodes position
-							// graph.nodes.forEach(function(node){
-							// 	node.x=Math.random()*width;
-							//   node.y=Math.random()*height;
-							// });
-
-
-
 							//Force Strength
 							force.linkStrength(function(link) {
 								return link.value/15
@@ -193,7 +189,6 @@
 										index:index 
 									});
 								}
-
 							});
 
 							

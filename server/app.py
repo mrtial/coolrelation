@@ -111,8 +111,13 @@ class GenerateD3(Resource):
 				link.append({"source":i-3,"target":j-2,"value":df[i-1][j-1]})
 
 		# DEFAULT OPTION
-		option=[
-			{"chart_type":"structure_graph", "color":"d3.scale.category20()","cutoff":".5","radious":"5"}
+		option=[{
+			"chart_type":"structure_graph", 
+			"color":"",
+			"cutoff":"",
+			"radious":"",
+			"link_strength":""
+			}
 		] 
 		# option=[{"chart_type":"force_directed"}]
 		# to json

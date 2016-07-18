@@ -19,17 +19,14 @@
 			<section class="wrapper">
 				<h3>Style Settings</h3><hr>
 				<div>
-					<form action="">
-						<label>color plate</label>
-					  <input type="radio" name="colorschema" value="category20" ng-click="vm.chartOption.option[0].color = 'category20'"> <img src="./client/assets/color1.png" height="20px" width="auto">
-					  <input type="radio" name="colorschema" value="category20b" ng-click="vm.chartOption.option[0].color = 'category20b'"> <img src="./client/assets/color2.png" height="20px" width="auto">
-					  <input type="radio" name="colorschema" value="category20c" ng-click="vm.chartOption.option[0].color = 'category20c'"> <img src="./client/assets/color3.png" height="20px" width="auto">
-					</form>
+					<label>color plate</label>
+				  <input type="radio" ng-click="vm.chartOption.option[0].color='category20'"> <img src="./client/assets/color1.png" height="20px" width="auto">
+				  <input type="radio" ng-click="vm.chartOption.option[0].color = 'category20b'"> <img src="./client/assets/color2.png" height="20px" width="auto">
+				  <input type="radio" ng-click="vm.chartOption.option[0].color = 'category20c'"> <img src="./client/assets/color3.png" height="20px" width="auto">
 				</div>
 				<div>
 					<label>node size</label>
-					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue1.value=value" />
-				  <output id="rangevalue1"></output>
+					<input class="range" type="range" min="4" max="10" value="4" step="1" onmousemove="rangevalue1.value=value" ng-model="value" ng-change="vm.chartOption.option[0].node_size=value"/><output id="rangevalue1"></output>
 				</div>
 				<div>
 					<label>link width</label>
@@ -37,7 +34,7 @@
 				</div>
 				<div>
 					<label>display cutoff</label>
-					<input class="range" type="range" min="0.0" max="1.0" value=".5" step="0.1" onmousemove="rangevalue3.value=value" />
+					<input class="range" type="range" min="0.0" max="1.0" value=".5" step="0.1" onmousemove="rangevalue3.value=value" ng-model="value" ng-change="vm.chartOption.option[0].cutoff = value" />
 				  <output id="rangevalue3"></output>
 				</div>
 			</section>
@@ -46,8 +43,8 @@
 			<section id="structure" class="wrapper" ng-hide="vm.chartOption.option[0].chart_type=='force_directed'">
 				<h3>Model Settings</h3><hr>
 				<div>
-					<label>link width</label>
-					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue4.value=value" />
+					<label>link strength</label>
+					<input class="range" type="range" min="0" max="30" value="15" step="1" onmousemove="rangevalue4.value=value" ng-model="value" ng-change="vm.chartOption.option[0].link_strength = value"/>
 				  <output id="rangevalue4"></output>
 				</div>
 				<div>
@@ -62,8 +59,8 @@
 			<section id="schema" class="wrapper" ng-show="vm.chartOption.option[0].chart_type=='force_directed'">
 				<h3>Model Settings</h3><hr>
 				<div>
-					<label>link width</label>
-					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue7.value=value" />
+					<label>link strength</label>
+					<input class="range" type="range" min="0" max="30" value="15" step="1" onmousemove="rangevalue6.value=value" ng-model="value" ng-change="vm.chartOption.option[0].link_strength = value"/>
 				  <output id="rangevalue6"></output>
 				</div>
 				<div>

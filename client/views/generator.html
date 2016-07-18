@@ -2,21 +2,78 @@
 
 	<!-- Tutorial -->
 	<d3-tutorial class="tutorial" ng-hide="vm.checked" ng-click="vm.tutorial()"></d3-tutorial>
-
+	
+	<!-- TODO: MOVE TO COMPONENT -->
 	<!-- control panel -->
 	<div class="controlPanel">
 		<div class="panel">
-			<select name="graph_type" ng-model="vm.chartOption.option[0].chart_type">
-				<option value="structure_graph">Structure Graph</option>
-				<option value="force_directed">Schema Graph</option>
-			</select>
-
-			<section id="structure">
-				<p>Control Panel for "Structure Graph"</p>
+			<section class="wrapper">
+				<h3>Graph Type</h3><hr>
+				<select  name="graph_type" ng-model="vm.chartOption.option[0].chart_type">
+					<option value="structure_graph">Structure Graph</option>
+					<option value="force_directed">Schema Graph</option>
+				</select>
+			</section>
+			
+			<!-- COMMON STYLE SETTING -->
+			<section class="wrapper">
+				<h3>Style Settings</h3><hr>
+				<div>
+					<form action="">
+						<label>color plate</label>
+					  <input type="radio" name="colorschema" value="category20"> <img src="./client/assets/color1.png" height="20px" width="auto">
+					  <input type="radio" name="colorschema" value="category20b"> <img src="./client/assets/color2.png" height="20px" width="auto">
+					  <input type="radio" name="colorschema" value="category20c"> <img src="./client/assets/color3.png" height="20px" width="auto">
+					</form>
+				</div>
+				<div>
+					<label>node size</label>
+					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue1.value=value" />
+				  <output id="rangevalue1"></output>
+				</div>
+				<div>
+					<label>link width</label>
+					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue2.value=value" />
+				  <output id="rangevalue2"></output>
+				</div>
+				<div>
+					<label>display cutoff</label>
+					<input class="range" type="range" min="0.0" max="1.0" value=".5" step="0.1" onmousemove="rangevalue3.value=value" />
+				  <output id="rangevalue3"></output>
+				</div>
+			</section>
+			
+			<!-- MODEL SETTING FOR  "STRUCTURE GRAPH"-->
+			<section id="structure" class="wrapper" ng-hide="vm.chartOption.option[0].chart_type=='force_directed'">
+				<h3>Model Settings</h3><hr>
+				<div>
+					<label>link width</label>
+					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue4.value=value" />
+				  <output id="rangevalue4"></output>
+				</div>
+				<div>
+					<label>link width</label>
+					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue5.value=value" />
+				  <output id="rangevalue5"></output>
+				</div>
+				
 			</section>
 
-			<section id="schema">
-				<p>Control Panel for "Schema Graph"</p>
+			<!-- MODEL SETTING FOR  "SCHEMA GRAPH"-->
+			<section id="schema" class="wrapper" ng-show="vm.chartOption.option[0].chart_type=='force_directed'">
+				<h3>Model Settings</h3><hr>
+				<div>
+					<label>link width</label>
+					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue7.value=value" />
+				  <output id="rangevalue6"></output>
+				</div>
+				<div>
+					<label>link width</label>
+					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue7.value=value" />
+				  <output id="rangevalue7"></output>
+				</div>
+
+
 			</section>
 
 		</div>
@@ -52,7 +109,7 @@
 				<span href="/generator" ng-click="vm.cleanAll()"><img  src="./client/assets/save.png" title="open new file"></span>
 				<span ng-click="vm.exportHTML()"><img src="./client/assets/filedownload.png" title="file download"></span>
 
-				<a id="dl" download="Canvas.png" href="#" ng-click="vm.exportPNG()"><img src="./client/assets/share.png" title="share"></a>
+				<a id="dl" download="Canvas.png" href="#" ng-click="vm.exportPNG(vm.chartOption,vm.chartData,$event)"><img src="./client/assets/share.png" title="share"></a>
 				
 				<span ng-click="vm.exportDB(vm.chartOption,vm.chartData)"><img src="./client/assets/archive.png" title="add to clooection"></span>
 			</div>

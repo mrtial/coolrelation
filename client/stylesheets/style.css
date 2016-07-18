@@ -46,6 +46,11 @@ a{
 	display: none;
 }
 
+.wrapper{
+	width: 85%;
+	margin:auto;
+}
+
 /* ========== NAVBAR ========== */
 nav{
 	position: fixed;
@@ -331,6 +336,8 @@ iframe{
 	display: inline-flex;
 	/*border: 1px solid red;*/
 }
+
+/* ========== CONTROL PANEL ========== */
 .controlPanel{
 	width: 25%;
 }
@@ -353,14 +360,29 @@ iframe{
 	overflow: hidden;
 }
 
-.panel select{
-	margin:10%;
+label{
+	width: 110px;
+	margin-bottom: 10px;
+	display: inline-block;
 }
 
-.panel section{
-	margin-left: 10%;
+/*.range {
+  -webkit-appearance: none;
+  vertical-align: middle;
+  outline: none;
+  border: none;
+  padding: 0;
+  background: none;
 }
 
+.range::-webkit-slider-runnable-track {
+  background-color: #d7dbdd;
+  height: 6px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}*/
+
+/* ========== D3 PLOT ========== */
 .d3plot{
 	position: relative;
 	width: 90%;
@@ -437,12 +459,12 @@ iframe{
 /* ========== D3 Style ========== */
 .node circle {
 	stroke: #fff;
-	stroke-width: .2px;
+	stroke-width: 1px;
 }
 
 .link {
 	stroke: #999;
-	stroke-opacity: .3;
+	stroke-opacity: 1;
 	fill : none;
 }
 

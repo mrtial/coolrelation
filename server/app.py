@@ -67,7 +67,6 @@ class AllMatrixApi(Resource):
 		chart_data = json.dumps(data[1])
 		user_id = json.dumps(data[2])
 
-
 		# from IPython import embed; embed()
 		# make file a python class instance so it can be store in db
 		d = MatrixData(chart_option, chart_data, user_id)

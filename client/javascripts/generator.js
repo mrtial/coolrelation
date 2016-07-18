@@ -5,6 +5,7 @@
 
 	function generatorController(FileUploader, store, auth, $http ,$rootScope, $location){
 		var vm = this;
+		window.vm = vm;
 		vm.msg = "parent controller"
 		vm.path = $location.path();
 		vm.uploadText=true;
@@ -79,14 +80,13 @@
 			vm.loader=false;
 			vm.d3show = false;
 			// clean d3 data & remove svg from DOM
+			// vm.chartData="";
+			// vm.chartOption="";
 			vm.removeNode();
 			
 		}
 
 		vm.removeNode = function(){
-			vm.chartData="";
-			vm.chartOption="";
-
 			var svg = document.getElementsByTagName('svg')[0];
 			while (svg.firstChild) {
 			    svg.removeChild(svg.firstChild);
@@ -116,26 +116,38 @@
 
 		// SHARE PNG FILE
 		// ##############
-		vm.exportPNG = function(user_id, chartOption, chartData){
+		vm.exportPNG = function(chartOption, chartData){
 			// TODO: move this to service
 			var svg = document.getElementsByTagName('svg')[0];
 			// check authentication === true
 			if(svg.childElementCount){
 				if(!auth.isAuthenticated){
+					// $event.preventDefault();
 					requireLogin();
+					// save svg to png
+					var canvas = document.getElementById("canvas");
+					canvg('canvas', document.getElementById('mySvg').innerHTML)
+					// canvg()
+					var img = canvas.toDataURL("image/png");
+
+					/* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+					  img = img.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+					  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+					  img = img.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+					  document.getElementById('dl').href = img;
+				} else{
+					// save svg to png
+					var canvas = document.getElementById("canvas");
+					canvg('canvas', document.getElementById('mySvg').innerHTML)
+					// canvg()
+					var img = canvas.toDataURL("image/png");
+
+					/* Change MIME type to trick the browser to downlaod the file instead of displaying it */
+					  img = img.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+					  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
+					  img = img.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+					  document.getElementById('dl').href = img;
 				}
-				// save svg to png
-				var canvas = document.getElementById("canvas");
-				canvg('canvas', document.getElementById('mySvg').innerHTML)
-				// canvg()
-
-				var img = canvas.toDataURL("image/png");
-
-				/* Change MIME type to trick the browser to downlaod the file instead of displaying it */
-				  img = img.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
-				  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
-				  img = img.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
-				  document.getElementById('dl').href = img;
 			}
 
 
@@ -143,7 +155,7 @@
 
 
 		// SAVE TO USER'S COLLECTION
-		vm.exportDB = function(chartOption, chartData, user_id){
+		vm.exportDB = function(chartOption, chartData){
 			// POST data to DB, only when data exist
 			var svg = document.getElementsByTagName('svg')[0];
 			if(svg.childElementCount){

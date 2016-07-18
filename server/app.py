@@ -5,6 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 import pandas as pd 
 import csv, json, re
 
+# import os
+# import psycopg2
+# import urlparse
+
 # APP INIT
 app = Flask(__name__, template_folder='../client/views', static_folder="../client")
 api = Api(app)

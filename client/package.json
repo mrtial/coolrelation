@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/mrtial/coolrelation/issues"
   },
-  "homepage": "https://github.com/mrtial/coolrelation#readme"
+  "homepage": "https://github.com/mrtial/coolrelation#readme",
+  "dependencies": {
+    "angular-file-upload": "^2.3.4",
+    "angular-nvd3": "^1.0.8"
+  }
 }

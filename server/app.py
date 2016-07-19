@@ -4,14 +4,15 @@ from marshmallow import Schema, fields, post_load
 from flask_sqlalchemy import SQLAlchemy 
 from pandas import DataFrame
 import csv, json, re
-
+import os
 
 # APP INIT
 app = Flask(__name__, template_folder='../client/views', static_folder="../client")
 api = Api(app)
 
 # DATABASE CONFIG
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/coolrelation'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://localhost/coolrelation')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/coolrelation'
 app.url_map.strict_slashes = False 
 db = SQLAlchemy(app)
 
@@ -35,7 +36,7 @@ class MatrixData(db.Model):
 	def __repr__(self):
 		return 'chart_option : {}, chart+data : {}'.format(self.chart_option, self.chart_data,)
 
-db.create_all()
+# db.create_all()
 
 
 # CREATE SCHEMA
@@ -155,6 +156,7 @@ def catch_all(path):
 
 # LISTEN
 if __name__ == "__main__":
-	app.run(debug=True,port=3000)
+	port = int(os.environ.get("PORT", 5000))
+	app.run(host='0.0.0.0', port=port)
 
 	

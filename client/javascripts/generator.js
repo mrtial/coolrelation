@@ -11,23 +11,8 @@
 		
 		// ========= CONTROL PANEL =========
 		// STYLE SETTING
-		document.getElementById("value1").defaultValue = "100";
-		document.getElementById("value2").defaultValue = "1";
-		document.getElementById("value3").defaultValue ="0.5";
-		document.getElementById("value4").defaultValue ="1";
-		// document.getElementById("value5").defaultValue ="";
-		document.getElementById("value6").defaultValue ="1";
-		// document.getElementById("value7").defaultValue ="";
-
-
 		// STRUCTURE SETTING
-
-
-
 		// SCHEMA SETTING
-
-
-
 
 		// ========= TUTORIAL PAGE =========
 		// save check in local storage - only show tutorial one time
@@ -123,7 +108,6 @@
 					$location.path(vm.path);
 				});
 			}
-
 			// check if this data has already been saved
 			// if not, store data to db
 			// if yes, move on
@@ -160,9 +144,8 @@
 					// save svg to png
 					var canvas = document.getElementById("canvas");
 					canvg('canvas', document.getElementById('mySvg').innerHTML)
-					// canvg()
 					var img = canvas.toDataURL("image/png");
-					// debugger
+
 					/* Change MIME type to trick the browser to downlaod the file instead of displaying it */
 					  img = img.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
 					  /* In addition to <a>'s "download" attribute, you can define HTTP-style headers */
@@ -170,8 +153,6 @@
 					  document.getElementById('dl').href = img;
 				}
 			}
-
-
 		}
 
 
@@ -202,9 +183,6 @@
 		// ============= HELPER FUNCTION ==============
 		function requireLogin(){
 			auth.signin({popup: true},function(profile, token){
-				// store.set('profile', profile);
-		 	 //  store.set('token', token);
-		    // debugger
 				$location.path(vm.path);
 			});
 		}

@@ -25,12 +25,9 @@
 		var vm = this;
 	};
 
-	function navbarController(auth, store, $scope, $rootScope, $location){
+	function navbarController(auth, store, $scope, $rootScope){
 		var vm = this;
 		vm.dropdown = false;
-
-		var protocol = $location.protocol();
-		var host = $location.host();
 
 		// vm.path = $location.path();
 
@@ -69,7 +66,7 @@
 			store.remove('token');
 			store.remove('tutorial')
 			$rootScope.watch = false;
-			$location.path("/");
+			// $location.path("/");
 		}
 	};
 
@@ -77,7 +74,7 @@
 		var vm = this;
 	}
 
-	navbarController.$inject=['auth', 'store','$scope','$rootScope','$location'];
-	// generatorController.$inject=['FileUploader','store'];
+	navbarController.$inject=['auth', 'store','$scope','$rootScope'];
+
 
 })()

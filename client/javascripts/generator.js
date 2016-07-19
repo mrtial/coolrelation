@@ -112,10 +112,7 @@
 			// if not, store data to db
 			// if yes, move on
 			vm.exportDB(chartOption, chartData)
-
 			// set ajex request to get the file
-
-
 		}
 
 		// SHARE PNG FILE

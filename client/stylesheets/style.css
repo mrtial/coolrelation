@@ -194,9 +194,13 @@ li a:hover{
 #sample img{
 	width: 90px;
 	height: auto;
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
+#footnote{
+	position: relative;
+	top:50px;
+}
 
 /* ========== D3 SCREEN ========== */
 #d3screen{
@@ -375,12 +379,6 @@ label{
   width: calc(100% - (#{$range-label-width + 13px}));
 }
 
-/*.range::-webkit-slider-runnable-track {
-  background-color: #d7dbdd;
-  height: 6px;
-  border-radius: 3px;
-  border: 1px solid transparent;
-}*/
 
 /* ========== D3 PLOT ========== */
 .d3plot{

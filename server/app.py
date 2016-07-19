@@ -3,12 +3,8 @@ from flask_restful import Resource, Api
 from marshmallow import Schema, fields, post_load
 from flask_sqlalchemy import SQLAlchemy 
 from pandas import DataFrame
-
 import csv, json, re
 
-# import os
-# import psycopg2
-# import urlparse
 
 # APP INIT
 app = Flask(__name__, template_folder='../client/views', static_folder="../client")
@@ -65,6 +61,8 @@ class AllMatrixApi(Resource):
 
 
 	def post(self):
+		from IPython import embed; embed()
+
 		data = request.json
 
 		chart_option = json.dumps(data[0])
@@ -122,7 +120,7 @@ class GenerateD3(Resource):
 			"link_strength":""
 			}
 		] 
-		# option=[{"chart_type":"force_directed"}]
+
 		# to json
 		chart_data = json.dumps({"nodes":node,"links":link})
 		chart_option = json.dumps({"option":option})
@@ -143,10 +141,15 @@ api.add_resource(GenerateD3, '/api/generate')
 def root():
 	return render_template('layout.html')
 
-@app.route('/<path:path>')
-def catch_all(path):
-	return render_template('layout.html')
 
+@app.route('/download')
+def download_file(filename):
+	return send_from_directory('../client/assets/',filename, as_attachment=True)
+	# return app.send_static_file('../client/assets/sample_file.csv')
+
+# @app.route('/<path:path>')
+# def catch_all(path):
+# 	return render_template('layout.html')
 
 
 # LISTEN

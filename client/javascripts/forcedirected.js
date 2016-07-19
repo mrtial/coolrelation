@@ -257,11 +257,11 @@
 
 					      d3.selectAll("text")
 					      	.attr("x", function (d) {return width/2 + (d.x-width/2)*(12+Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)))/Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)) ;})
-					      	.attr("y", function (d) {return height/2 + (d.y-height/2)*(12+Math.pow((d.y-height/2)/(height/2),5) *10 +Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)))/Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)) ;})
+					      	.attr("y", function (d) {return height/2 + (d.y-height/2)*(12+Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)))/Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)) ;})
 						      .attr("dx", function(d) { return 0; })
 						      .attr("dy", ".35em")
 						      .attr("text-anchor", function(d) { return d.x < width/2 ? "end" : "start"; });
-						      // .attr("transform", function(d) { return d.x < width/2 ? null : "rotate(180)"; });
+						      // .attr("transform", function(d) { "rotate(180," +d.x+","+d.y+ ")"; });
 						  });
 
 						  // Alpha1 is the force to source and target nodes. 

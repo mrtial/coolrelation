@@ -43,6 +43,7 @@
 				controller:'loginController',
 				controllerAs:'vm'
 			})
+
 		$locationProvider.html5Mode(true).hashPrefix('*');
 	}
 

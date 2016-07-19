@@ -182,7 +182,7 @@
 					// var data = [chartOption, chartData, user_id];
 				} else{
 					var user_id = auth.profile.user_id
-					var data = [chartOption, chartData, user_id];
+					var data = [vm.chartOption, vm.chartData, user_id];
 
 					$http.post('/api/data', data).then(function successSend(){
 						// send flash msg!

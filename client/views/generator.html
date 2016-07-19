@@ -107,13 +107,13 @@
 		<!-- ============ export toolbar ============== -->
 		<div class="exportTool">
 			<div id="toolicons">
-				<span href="/generator" ng-click="vm.cleanAll()"><img  src="./client/assets/save.png" title="open new file"></span>
-				<span ng-click="vm.exportHTML()"><img src="./client/assets/filedownload.png" title="file download"></span>
+				<span href="/generator" ng-click="vm.cleanAll()"><img  src="./client/assets/folder.png" title="open new file"></span>
+				<span ng-click="vm.exportHTML()"><img src="./client/assets/html.png" title="download html"></span>
 
-				<!-- <a id="dl" download="Canvas.png" href="#" ng-click="vm.exportPNG(vm.chartOption,vm.chartData,$event)"><img src="./client/assets/share.png" title="share"></a> -->
-				<span id="dl" href="#" ng-click="vm.exportPNG()"><img src="./client/assets/share.png" title="share"></span>
+				<a id="dl" download="Canvas.png" href="#" ng-click="vm.exportPNG(vm.chartOption,vm.chartData,$event)"><img src="./client/assets/image.png" title="download png"></a>
+				<!-- <span id="dl" href="#" ng-click="vm.exportPNG()"><img src="./client/assets/share.png" title="share"></span> -->
 				
-				<span ng-click="vm.exportDB(vm.chartOption,vm.chartData)"><img src="./client/assets/archive.png" title="add to clooection"></span>
+				<span ng-click="vm.exportDB(vm.chartOption,vm.chartData)"><img src="./client/assets/save.png" title="save to collection"></span>
 			</div>
 		</div>
 

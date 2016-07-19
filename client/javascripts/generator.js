@@ -35,9 +35,14 @@
 		// uploaderD3 settings
 		vm.uploaderD3 = new FileUploader();
 		
+		// get path to decide post url
 		var protocol = $location.protocol();
 		var host = $location.host();
-		var url = protocol+"://"+host+"/api/generate"
+		var url = protocol+"://"+host+"/api/generate";
+
+		if(host==="localhost"){
+			url = "http://localhost:3000/api/generate"
+		}
 
 
 		vm.uploaderD3.url = url;

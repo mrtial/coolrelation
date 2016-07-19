@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath server app.wsgi
+web: python3.5 server/app.py

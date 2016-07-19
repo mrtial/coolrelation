@@ -220,7 +220,7 @@
 														.call(force.drag);
 
 							node.append("circle")
-							    .attr("r", radius)
+							    .attr("r", node_size)
 							    .style("fill", function (d) {
 							    	return color(d.group);
 							    })
@@ -247,7 +247,7 @@
 
 					      d3.selectAll("circle")
 					          .each(circular(0.8))
-					          .each(split(0.5,width/2,height/2))
+					          // .each(split(0.5,width/2,height/2))
 					          .attr("cx", function (d) {return d.x;})
 					          .attr("cy", function (d) {return d.y;});
 

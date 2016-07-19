@@ -3,7 +3,7 @@ from flask_restful import Resource, Api
 from marshmallow import Schema, fields, post_load
 from flask_sqlalchemy import SQLAlchemy 
 from pandas import DataFrame
-# import pandas as pd 
+
 import csv, json, re
 
 # import os
@@ -60,7 +60,6 @@ schema = MatrixSchema()
 class AllMatrixApi(Resource):
 	# get specific data from query
 	def get(self):
-		# from IPython import embed; embed()
 		# get id = 1
 		return schema.dump(MatrixData.query.get_or_404(1))
 
@@ -102,7 +101,6 @@ class GenerateD3(Resource):
 			data.append(s)
 
 		df = DataFrame(data=data)
-
 
 		# CREATE NODE
 		node=[]
@@ -153,6 +151,6 @@ def catch_all(path):
 
 # LISTEN
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(debug=True,port=3000)
 
 	

@@ -54,10 +54,12 @@
 
 						// USER OPTIONS OR DEFAULT CHART OPTIONS 
 						var radius = +user_option.radius || 5,
-								link_width = user_option.link_width,
+								link_width = user_option.link_width || 1,
 								cutoff = Number(user_option.cutoff) || .5,
 								node_size = user_option.node_size || 4,
-								link_strength = Number(user_option.link_strength) || 15;
+								link_strength = Number(user_option.link_strength) || 1;
+
+						if(user_option.cutoff==="0"){ cutoff = 0}
 
 						var color = d3.scale.category20();
 						if(user_option.color==="category20b"){color = d3.scale.category20b()}
@@ -91,7 +93,7 @@
 
 						 	//Force Strength
 						 	force.linkStrength(function(link) {
-						 		return link.value/link_strength   // ## user option : Strength
+						 		return link.value/15*link_strength   // ## user option : Strength
 						 	});
 
 						 	//Create all the line svgs but without locations yet
@@ -100,7 +102,7 @@
 						 	    .enter().append("line")
 						 	    .attr("class", "link")
 						 	    .style("stroke-width", function (d) {  
-							 	    		return Math.max(0.1 ,(d.value-cutoff)*10);  // ## user option: cutoff
+							 	    		return Math.max(0.1 ,(d.value-cutoff)*10)*link_width;  // ## user option: cutoff
 						 	    });
 
 
@@ -130,7 +132,8 @@
 						 	// generating the co-ordinates which this code is using to update 
 						 	// the attributes of the SVG elements
 						 	force.on("tick", function () {
-
+						 		node.attr("cx", function(d) { return d.x = Math.max(10, Math.min(width -10, d.x)); })
+						 				.attr("cy", function(d) { return d.y = Math.max(10, Math.min(height -10, d.y)); });
 						 		link.attr("x1", function (d) {return d.source.x;})
 						 				.attr("y1", function (d) {return d.source.y;})
 						 				.attr("x2", function (d) {return d.target.x;})
@@ -168,7 +171,7 @@
 
 							//Force Strength
 							force.linkStrength(function(link) {
-								return link.value/15
+								return link.value/15*link_strength;   // ## user option : Strength
 							});
 
 							//Create all the line svgs but without locations yet
@@ -197,7 +200,7 @@
 														.enter().append("path")
 														.attr("class", "link")
 														.style("stroke-width", function (d) {
-															return Math.max(0.0, (d.value-0.5)*10);
+															return Math.max(0.0, (d.value-cutoff)*10)*link_width;
 														});
 
 							//Creates the graph data structure out of the json data
@@ -223,6 +226,8 @@
 						      .attr("dy", ".35em")
 						      .text(function(d) { return d.name })
 
+						  
+
 						  // Now we are giving the SVGs co-ordinates - the force 
 						  // layout is generating the co-ordinates which this code 
 						  // is using to update the attributes of the SVG elements
@@ -246,9 +251,17 @@
 						    link.attr("d",function(d){ 
 						    	return "M "+d.source.x + " "+d.source.y + " Q " + itm_nodes[d.index].x + " " + itm_nodes[d.index].y +" "+  d.target.x + " "  + d.target.y;});
 
+					      // d3.selectAll("text")
+					      //   .attr("x", function (d) {return d.x;})
+					      //   .attr("y", function (d) {return d.y;});
+
 					      d3.selectAll("text")
-					        .attr("x", function (d) {return d.x;})
-					        .attr("y", function (d) {return d.y;});
+					      	.attr("x", function (d) {return width/2 + (d.x-width/2)*(12+Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)))/Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)) ;})
+					      	.attr("y", function (d) {return height/2 + (d.y-height/2)*(12+Math.pow((d.y-height/2)/(height/2),5) *10 +Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)))/Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)) ;})
+						      .attr("dx", function(d) { return 0; })
+						      .attr("dy", ".35em")
+						      .attr("text-anchor", function(d) { return d.x < width/2 ? "end" : "start"; });
+						      // .attr("transform", function(d) { return d.x < width/2 ? null : "rotate(180)"; });
 						  });
 
 						  // Alpha1 is the force to source and target nodes. 

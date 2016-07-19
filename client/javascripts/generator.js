@@ -11,17 +11,14 @@
 		
 		// ========= CONTROL PANEL =========
 		// STYLE SETTING
-		vm.sWidth = 0;
-		vm.strokeWidth = function(p){
-			vm.sWidth += Number(p);
+		document.getElementById("value1").defaultValue = "100";
+		document.getElementById("value2").defaultValue = "1";
+		document.getElementById("value3").defaultValue ="0.5";
+		document.getElementById("value4").defaultValue ="1";
+		// document.getElementById("value5").defaultValue ="";
+		document.getElementById("value6").defaultValue ="1";
+		// document.getElementById("value7").defaultValue ="";
 
-			var links = document.querySelectorAll('.link');
-			links.forEach(function(el,idx){
-				var value = Number(el.style.cssText.split(':')[1].replace(';',''));
-				var newValue = value + Number(p);
-				el.style.cssText = "stroke-width:" + newValue;
-			})
-		}
 
 		// STRUCTURE SETTING
 

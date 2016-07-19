@@ -371,16 +371,11 @@ label{
 	display: inline-block;
 }
 
-/*.range {
-  -webkit-appearance: none;
-  vertical-align: middle;
-  outline: none;
-  border: none;
-  padding: 0;
-  background: none;
+.range {
+  width: calc(100% - (#{$range-label-width + 13px}));
 }
 
-.range::-webkit-slider-runnable-track {
+/*.range::-webkit-slider-runnable-track {
   background-color: #d7dbdd;
   height: 6px;
   border-radius: 3px;

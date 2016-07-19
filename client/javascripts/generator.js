@@ -49,8 +49,12 @@
 
 		// uploaderD3 settings
 		vm.uploaderD3 = new FileUploader();
+		
+		var protocol = $location.protocol();
+		var host = $location.host();
+		var url = protocol+"://"+host
 
-		vm.uploaderD3.url = "http://localhost:3000/api/generate"
+		vm.uploaderD3.url = url+"/api/generate";
 		vm.uploaderD3.autoUpload = true;
 		vm.uploaderD3.removeAfterUpload = true;
 		vm.uploaderD3.queueLimit = 1;

@@ -2,7 +2,8 @@ from flask import Flask, request, render_template, redirect, url_for
 from flask_restful import Resource, Api
 from marshmallow import Schema, fields, post_load
 from flask_sqlalchemy import SQLAlchemy 
-import pandas as pd 
+from pandas import DataFrame
+# import pandas as pd 
 import csv, json, re
 
 # import os
@@ -100,7 +101,7 @@ class GenerateD3(Resource):
 			s = re.split('(?!\B"[^"]*),(?![^"]*"\B)',row)
 			data.append(s)
 
-		df = pd.DataFrame(data=data)
+		df = DataFrame(data=data)
 
 
 		# CREATE NODE

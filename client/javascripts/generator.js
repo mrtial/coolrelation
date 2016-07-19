@@ -52,9 +52,10 @@
 		
 		var protocol = $location.protocol();
 		var host = $location.host();
-		var url = protocol+"://"+host
+		var url = protocol+"://"+host+"/api/generate"
 
-		vm.uploaderD3.url = url+"/api/generate";
+
+		vm.uploaderD3.url = url;
 		vm.uploaderD3.autoUpload = true;
 		vm.uploaderD3.removeAfterUpload = true;
 		vm.uploaderD3.queueLimit = 1;

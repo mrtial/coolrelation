@@ -117,7 +117,8 @@ class GenerateD3(Resource):
 			"color":"",
 			"cutoff":"",
 			"radious":"",
-			"link_strength":""
+			"link_strength":"",
+			"schema_size":"",
 			}
 		] 
 
@@ -141,15 +142,15 @@ api.add_resource(GenerateD3, '/api/generate')
 def root():
 	return render_template('layout.html')
 
+@app.route('/<path:path>')
+def catch_all(path):
+	return render_template('layout.html')
 
-@app.route('/download')
-def download_file(filename):
-	return send_from_directory('../client/assets/',filename, as_attachment=True)
+# @app.route('/download')
+# def download_file(filename):
+# 	return send_from_directory('../client/assets/',filename, as_attachment=True)
 	# return app.send_static_file('../client/assets/sample_file.csv')
 
-# @app.route('/<path:path>')
-# def catch_all(path):
-# 	return render_template('layout.html')
 
 
 # LISTEN

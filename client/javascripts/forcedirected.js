@@ -48,16 +48,20 @@
 						var width = 900,
 						    height = 500,
 						    margin = 25,
-						    padding = 1,
-						    min_dist = 200;
+						    padding = 1;
 						 
 
-						// USER OPTIONS OR DEFAULT CHART OPTIONS 
+						// ========== USER OPTIONS OR DEFAULT CHART OPTIONS ============
 						var radius = +user_option.radius || 5,
 								link_width = user_option.link_width || 1,
 								cutoff = Number(user_option.cutoff) || .5,
 								node_size = user_option.node_size || 4,
-								link_strength = Number(user_option.link_strength) || 1;
+								link_strength = Number(user_option.link_strength) || 1,
+						 		schema_size = Number(user_option.schema_size) || 1;
+
+						 		console.log("user_option.schema_size:", user_option.schema_size)
+
+						var min_dist = 200*schema_size;   // ## user option : schema_size
 
 						if(user_option.cutoff==="0"){ cutoff = 0}
 

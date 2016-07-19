@@ -66,15 +66,13 @@
 				<h3>Model Settings</h3><hr>
 				<div>
 					<label>link strength</label>
-					<input id="value6" class="range" type="range" min="0.25" max="4" value="1" step="0.05" ng-model="value6" ng-change="vm.chartOption.option[0].link_strength = value6"/>
-				  {{value6}}
+					<input id="value6" class="range" type="range" min="0.25" max="4" value="1" step="0.05" ng-model="value6" ng-change="vm.chartOption.option[0].link_strength = value6"/>{{value6}}
 				  <!-- <output id="rangevalue6"></output> -->
 				</div>
-<!-- 				<div>
-					<label>link width</label>
-					<input class="range" type="range" min="0" max="100" value="10" step="1" onmousemove="rangevalue7.value=value" />
-				  <output id="rangevalue7"></output>
-				</div> -->
+				<div>
+					<label>schema size</label>
+					<input id="value7" class="range" type="range" min="0.5" max="2" value="1" step="0.1" ng-model="value7" ng-change="vm.chartOption.option[0].schema_size =value7"/>{{value7}}
+				</div>
 			</section>
 
 		</div>

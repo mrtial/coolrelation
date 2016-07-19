@@ -3,10 +3,7 @@ from app import app, db
 
 # this class handels command line script
 from flask_script import Manager
-
 from flask_migrate import Migrate, MigrateCommand
-# Migrate - handels migration initialization
-# MigrateCommand - specifies what command 
 
 # Initialization flask migrate with BOTH the app and our db settings
 migrate = Migrate(app, db)

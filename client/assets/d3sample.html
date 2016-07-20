@@ -1,16216 +1,4968 @@
 <!DOCTYPE html>
-
-
-
 <meta charset="utf-8">
-
-
-
 <style>
-
-
-
 .node circle {
-
-
-
-    stroke: #fff;
-
-
-
-    stroke-width: 1.5px;
-
-
-
+  stroke: #fff;
+  stroke-width: 1px;
 }
-
-
 
 .link {
-
-
-
-    stroke: #999;
-
-
-
-    stroke-opacity: .6;
-
-
-
+  stroke: #999;
+  stroke-opacity: 1;
+  fill : none;
 }
-
-
 
 .node text {
-
-
-
-  font: 12px helvetica;
-
-
-
+font: 10px helvetica;
   font-weight: normal;
-
-
-
   color : grey;
-
-
-
 }
-
-
-
-
-
-
 
 </style>
-
-
-
 <body>
-
-
-
 <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-
-
-
-<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-
-
-
-<script type="text/javascript" src="https://gabelerner.github.io/canvg/rgbcolor.js"></script> 
-
-
-
-<script type="text/javascript" src="https://gabelerner.github.io/canvg/StackBlur.js"></script>
-
-
-
-<script type="text/javascript" src="https://gabelerner.github.io/canvg/canvg.js"></script> 
-
-
-
-
-
-
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://gabelerner.github.io/canvg/rgbcolor.js"></script> 
+<script type="text/javascript" src="http://gabelerner.github.io/canvg/StackBlur.js"></script>
+<script type="text/javascript" src="http://gabelerner.github.io/canvg/canvg.js"></script> 
 
 <script type="application/json" id="mis">
-
-
-
     {
-
-
-
         "nodes": [
-
   {
-
-    "name": "AK",
-
-    "group": 8
-
+    "name": "Argentina",
+    "group": 2
   },
-
   {
-
-    "name": "AL",
-
-    "group": 6
-
+    "name": "Australia",
+    "group": 4
   },
-
   {
-
-    "name": "AR",
-
-    "group": 6
-
+    "name": "Austria",
+    "group": 3
   },
-
   {
-
-    "name": "AZ",
-
+    "name": "Belgium",
+    "group": 3
+  },
+  {
+    "name": "Brazil",
+    "group": 2
+  },
+  {
+    "name": "Canada",
     "group": 1
-
   },
-
   {
-
-    "name": "CA",
-
+    "name": "Chile",
+    "group": 2
+  },
+  {
+    "name": "Colombia",
+    "group": 2
+  },
+  {
+    "name": "Costa Rica",
+    "group": 2
+  },
+  {
+    "name": "Czech Republic",
+    "group": 3
+  },
+  {
+    "name": "Denmark",
+    "group": 3
+  },
+  {
+    "name": "Estonia",
+    "group": 3
+  },
+  {
+    "name": "Finland",
+    "group": 3
+  },
+  {
+    "name": "France",
+    "group": 3
+  },
+  {
+    "name": "Germany",
+    "group": 3
+  },
+  {
+    "name": "Greece",
+    "group": 3
+  },
+  {
+    "name": "Hungary",
+    "group": 3
+  },
+  {
+    "name": "Iceland",
+    "group": 3
+  },
+  {
+    "name": "India",
+    "group": 5
+  },
+  {
+    "name": "Indonesia",
+    "group": 5
+  },
+  {
+    "name": "Ireland",
+    "group": 3
+  },
+  {
+    "name": "Israel",
+    "group": 6
+  },
+  {
+    "name": "Italy",
+    "group": 3
+  },
+  {
+    "name": "Japan",
+    "group": 5
+  },
+  {
+    "name": "Korea",
+    "group": 5
+  },
+  {
+    "name": "Latvia",
+    "group": 3
+  },
+  {
+    "name": "Lithuania",
+    "group": 3
+  },
+  {
+    "name": "Luxembourg",
+    "group": 3
+  },
+  {
+    "name": "Mexico",
+    "group": 2
+  },
+  {
+    "name": "Netherlands",
+    "group": 3
+  },
+  {
+    "name": "New Zealand",
+    "group": 4
+  },
+  {
+    "name": "Norway",
+    "group": 3
+  },
+  {
+    "name": "Poland",
+    "group": 3
+  },
+  {
+    "name": "Portugal",
+    "group": 3
+  },
+  {
+    "name": "Slovak Republic",
+    "group": 3
+  },
+  {
+    "name": "Slovenia",
+    "group": 3
+  },
+  {
+    "name": "South Africa",
+    "group": 6
+  },
+  {
+    "name": "Spain",
+    "group": 3
+  },
+  {
+    "name": "Sweden",
+    "group": 3
+  },
+  {
+    "name": "Switzerland",
+    "group": 3
+  },
+  {
+    "name": "Turkey",
+    "group": 6
+  },
+  {
+    "name": "United Kingdom",
+    "group": 3
+  },
+  {
+    "name": "United States",
     "group": 1
-
-  },
-
-  {
-
-    "name": "CO",
-
-    "group": 7
-
-  },
-
-  {
-
-    "name": "CT",
-
-    "group": 2
-
-  },
-
-  {
-
-    "name": "DC",
-
-    "group": 3
-
-  },
-
-  {
-
-    "name": "DE",
-
-    "group": 3
-
-  },
-
-  {
-
-    "name": "FL",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "GA",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "HI",
-
-    "group": 1
-
-  },
-
-  {
-
-    "name": "IA",
-
-    "group": 5
-
-  },
-
-  {
-
-    "name": "ID",
-
-    "group": 7
-
-  },
-
-  {
-
-    "name": "IL",
-
-    "group": 4
-
-  },
-
-  {
-
-    "name": "IN",
-
-    "group": 4
-
-  },
-
-  {
-
-    "name": "KS",
-
-    "group": 5
-
-  },
-
-  {
-
-    "name": "KY",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "LA",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "MA",
-
-    "group": 2
-
-  },
-
-  {
-
-    "name": "MD",
-
-    "group": 3
-
-  },
-
-  {
-
-    "name": "ME",
-
-    "group": 2
-
-  },
-
-  {
-
-    "name": "MI",
-
-    "group": 4
-
-  },
-
-  {
-
-    "name": "MN",
-
-    "group": 5
-
-  },
-
-  {
-
-    "name": "MO",
-
-    "group": 5
-
-  },
-
-  {
-
-    "name": "MS",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "MT",
-
-    "group": 7
-
-  },
-
-  {
-
-    "name": "NC",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "ND",
-
-    "group": 5
-
-  },
-
-  {
-
-    "name": "NE",
-
-    "group": 5
-
-  },
-
-  {
-
-    "name": "NH",
-
-    "group": 2
-
-  },
-
-  {
-
-    "name": "NJ",
-
-    "group": 3
-
-  },
-
-  {
-
-    "name": "NM",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "NV",
-
-    "group": 1
-
-  },
-
-  {
-
-    "name": "NY",
-
-    "group": 3
-
-  },
-
-  {
-
-    "name": "OH",
-
-    "group": 4
-
-  },
-
-  {
-
-    "name": "OK",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "OR",
-
-    "group": 8
-
-  },
-
-  {
-
-    "name": "PA",
-
-    "group": 3
-
-  },
-
-  {
-
-    "name": "RI",
-
-    "group": 2
-
-  },
-
-  {
-
-    "name": "SC",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "SD",
-
-    "group": 5
-
-  },
-
-  {
-
-    "name": "TN",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "TX",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "UT",
-
-    "group": 7
-
-  },
-
-  {
-
-    "name": "VA",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "VT",
-
-    "group": 2
-
-  },
-
-  {
-
-    "name": "WA",
-
-    "group": 8
-
-  },
-
-  {
-
-    "name": "WI",
-
-    "group": 4
-
-  },
-
-  {
-
-    "name": "WV",
-
-    "group": 6
-
-  },
-
-  {
-
-    "name": "WY",
-
-    "group": 7
-
   }
-
 ],
-
-
-
         "links": [
-
   {
-
     "source": 1,
-
     "target": 0,
-
-    "value": 2,
-
-    "strength": 0.0781
-
+    "value": -0.1324
   },
-
   {
-
     "source": 2,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0021
-
+    "value": -0.1075
   },
-
   {
-
     "source": 2,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.2133
-
+    "value": 0.3363
   },
-
   {
-
     "source": 3,
-
     "target": 0,
-
-    "value": 2,
-
-    "strength": 0.1257
-
+    "value": 0.0038
   },
-
   {
-
     "source": 3,
-
     "target": 1,
-
-    "value": 6,
-
-    "strength": 0.844
-
+    "value": 0.3059
   },
-
   {
-
     "source": 3,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.9246
   },
-
   {
-
     "source": 4,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0931
   },
-
   {
-
     "source": 4,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1594
   },
-
   {
-
     "source": 4,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3493
   },
-
   {
-
     "source": 4,
-
     "target": 3,
-
-    "value": 4,
-
-    "strength": 0.4618
-
+    "value": 0.3769
   },
-
   {
-
     "source": 5,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1137
   },
-
   {
-
     "source": 5,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3335
   },
-
   {
-
     "source": 5,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0142
-
+    "value": 0.6812
   },
-
   {
-
     "source": 5,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6752
   },
-
   {
-
     "source": 5,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0016
-
+    "value": 0.4491
   },
-
   {
-
     "source": 6,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2204
   },
-
   {
-
     "source": 6,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0927
   },
-
   {
-
     "source": 6,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0083
-
+    "value": 0.5497
   },
-
   {
-
     "source": 6,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5293
   },
-
   {
-
     "source": 6,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.005
-
+    "value": 0.6648
   },
-
   {
-
     "source": 6,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5751
   },
-
   {
-
     "source": 7,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.005
-
+    "value": 0.2727
   },
-
   {
-
     "source": 7,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2021
   },
-
   {
-
     "source": 7,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0039
-
+    "value": 0.4008
   },
-
   {
-
     "source": 7,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0001
-
+    "value": 0.4063
   },
-
   {
-
     "source": 7,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0002
-
+    "value": 0.3664
   },
-
   {
-
     "source": 7,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6452
   },
-
   {
-
     "source": 7,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0123
-
+    "value": 0.701
   },
-
   {
-
     "source": 8,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0283
-
+    "value": 0.2504
   },
-
   {
-
     "source": 8,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0689
-
+    "value": 0.3951
   },
-
   {
-
     "source": 8,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5463
   },
-
   {
-
     "source": 8,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.01
-
+    "value": 0.4308
   },
-
   {
-
     "source": 8,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0266
-
+    "value": 0.2803
   },
-
   {
-
     "source": 8,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6463
   },
-
   {
-
     "source": 8,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4656
   },
-
   {
-
     "source": 8,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0117
-
+    "value": 0.6349
   },
-
   {
-
     "source": 9,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.009
-
+    "value": -0.0811
   },
-
   {
-
     "source": 9,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.2668
-
+    "value": 0.1705
   },
-
   {
-
     "source": 9,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.001
-
+    "value": 0.5751
   },
-
   {
-
     "source": 9,
-
     "target": 3,
-
-    "value": 8,
-
-    "strength": 0.9745
-
+    "value": 0.5943
   },
-
   {
-
     "source": 9,
-
     "target": 4,
-
-    "value": 8,
-
-    "strength": 0.97
-
+    "value": 0.4353
   },
-
   {
-
     "source": 9,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4813
   },
-
   {
-
     "source": 9,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6868
   },
-
   {
-
     "source": 9,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0132
-
+    "value": 0.6143
   },
-
   {
-
     "source": 9,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0625
-
+    "value": 0.3136
   },
-
   {
-
     "source": 10,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0361
   },
-
   {
-
     "source": 10,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.1107
-
+    "value": 0.3511
   },
-
   {
-
     "source": 10,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.9026
   },
-
   {
-
     "source": 10,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0059
-
+    "value": 0.9118
   },
-
   {
-
     "source": 10,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0001
-
+    "value": 0.3877
   },
-
   {
-
     "source": 10,
-
     "target": 5,
-
-    "value": 4,
-
-    "strength": 0.559
-
+    "value": 0.7441
   },
-
   {
-
     "source": 10,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.622
   },
-
   {
-
     "source": 10,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5766
   },
-
   {
-
     "source": 10,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0191
-
+    "value": 0.5532
   },
-
   {
-
     "source": 10,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6566
   },
-
   {
-
     "source": 11,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0054
-
+    "value": 0.1358
   },
-
   {
-
     "source": 11,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0277
-
+    "value": 0.2359
   },
-
   {
-
     "source": 11,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.008
-
+    "value": 0.6161
   },
-
   {
-
     "source": 11,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0614
-
+    "value": 0.5626
   },
-
   {
-
     "source": 11,
-
     "target": 4,
-
-    "value": 2,
-
-    "strength": 0.1435
-
+    "value": 0.4318
   },
-
   {
-
     "source": 11,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6667
   },
-
   {
-
     "source": 11,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7996
   },
-
   {
-
     "source": 11,
-
     "target": 7,
-
-    "value": 2,
-
-    "strength": 0.1321
-
+    "value": 0.6503
   },
-
   {
-
     "source": 11,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.1754
-
+    "value": 0.6002
   },
-
   {
-
     "source": 11,
-
     "target": 9,
-
-    "value": 4,
-
-    "strength": 0.5978
-
+    "value": 0.6147
   },
-
   {
-
     "source": 11,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6704
   },
-
   {
-
     "source": 12,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0942
   },
-
   {
-
     "source": 12,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0213
-
+    "value": 0.3263
   },
-
   {
-
     "source": 12,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.0856
-
+    "value": 0.8316
   },
-
   {
-
     "source": 12,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.8293
   },
-
   {
-
     "source": 12,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.525
   },
-
   {
-
     "source": 12,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0568
-
+    "value": 0.8289
   },
-
   {
-
     "source": 12,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7122
   },
-
   {
-
     "source": 12,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6685
   },
-
   {
-
     "source": 12,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6206
   },
-
   {
-
     "source": 12,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6012
   },
-
   {
-
     "source": 12,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.2996
-
+    "value": 0.885
   },
-
   {
-
     "source": 12,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7509
   },
-
   {
-
     "source": 13,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0683
-
+    "value": 0.1246
   },
-
   {
-
     "source": 13,
-
     "target": 1,
-
-    "value": 4,
-
-    "strength": 0.6427
-
+    "value": 0.3662
   },
-
   {
-
     "source": 13,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0177
-
+    "value": 0.7098
   },
-
   {
-
     "source": 13,
-
     "target": 3,
-
-    "value": 2,
-
-    "strength": 0.2388
-
+    "value": 0.8106
   },
-
   {
-
     "source": 13,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0005
-
+    "value": 0.4745
   },
-
   {
-
     "source": 13,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.8033
   },
-
   {
-
     "source": 13,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6153
   },
-
   {
-
     "source": 13,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0033
-
+    "value": 0.5965
   },
-
   {
-
     "source": 13,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.0739
-
+    "value": 0.4488
   },
-
   {
-
     "source": 13,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0387
-
+    "value": 0.5653
   },
-
   {
-
     "source": 13,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0169
-
+    "value": 0.8254
   },
-
   {
-
     "source": 13,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0.0082
-
+    "value": 0.591
   },
-
   {
-
     "source": 13,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0025
-
+    "value": 0.8493
   },
-
   {
-
     "source": 14,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0007
-
+    "value": 0.2444
   },
-
   {
-
     "source": 14,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.2604
-
+    "value": 0.1076
   },
-
   {
-
     "source": 14,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.003
-
+    "value": 0.6369
   },
-
   {
-
     "source": 14,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6803
   },
-
   {
-
     "source": 14,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.538
   },
-
   {
-
     "source": 14,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7557
   },
-
   {
-
     "source": 14,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0038
-
+    "value": 0.789
   },
-
   {
-
     "source": 14,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7442
   },
-
   {
-
     "source": 14,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.0884
-
+    "value": 0.5308
   },
-
   {
-
     "source": 14,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0153
-
+    "value": 0.7305
   },
-
   {
-
     "source": 14,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0433
-
+    "value": 0.7567
   },
-
   {
-
     "source": 14,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0.005
-
+    "value": 0.7102
   },
-
   {
-
     "source": 14,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0386
-
+    "value": 0.8221
   },
-
   {
-
     "source": 14,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.052
-
+    "value": 0.8214
   },
-
   {
-
     "source": 15,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.2175
   },
-
   {
-
     "source": 15,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0286
-
+    "value": 0.4133
   },
-
   {
-
     "source": 15,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0031
-
+    "value": 0.6786
   },
-
   {
-
     "source": 15,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6176
   },
-
   {
-
     "source": 15,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1554
   },
-
   {
-
     "source": 15,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.068
-
+    "value": 0.2781
   },
-
   {
-
     "source": 15,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0023
-
+    "value": 0.0589
   },
-
   {
-
     "source": 15,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0404
   },
-
   {
-
     "source": 15,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2677
   },
-
   {
-
     "source": 15,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2108
   },
-
   {
-
     "source": 15,
-
     "target": 10,
-
-    "value": 4,
-
-    "strength": 0.4552
-
+    "value": 0.5697
   },
-
   {
-
     "source": 15,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2015
   },
-
   {
-
     "source": 15,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.3926
-
+    "value": 0.4431
   },
-
   {
-
     "source": 15,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3298
   },
-
   {
-
     "source": 15,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0109
-
+    "value": 0.1127
   },
-
   {
-
     "source": 16,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0021
-
+    "value": -0.0326
   },
-
   {
-
     "source": 16,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.2622
-
+    "value": 0.3909
   },
-
   {
-
     "source": 16,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.1841
-
+    "value": 0.8147
   },
-
   {
-
     "source": 16,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0017
-
+    "value": 0.8049
   },
-
   {
-
     "source": 16,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2442
   },
-
   {
-
     "source": 16,
-
     "target": 5,
-
-    "value": 4,
-
-    "strength": 0.5916
-
+    "value": 0.6563
   },
-
   {
-
     "source": 16,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3633
   },
-
   {
-
     "source": 16,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3771
   },
-
   {
-
     "source": 16,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0046
-
+    "value": 0.5441
   },
-
   {
-
     "source": 16,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.51
   },
-
   {
-
     "source": 16,
-
     "target": 10,
-
-    "value": 4,
-
-    "strength": 0.3404
-
+    "value": 0.7678
   },
-
   {
-
     "source": 16,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5822
   },
-
   {
-
     "source": 16,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.5951
-
+    "value": 0.739
   },
-
   {
-
     "source": 16,
-
     "target": 13,
-
-    "value": 2,
-
-    "strength": 0.2242
-
+    "value": 0.6989
   },
-
   {
-
     "source": 16,
-
     "target": 14,
-
-    "value": 2,
-
-    "strength": 0.0739
-
+    "value": 0.6095
   },
-
   {
-
     "source": 16,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0468
-
+    "value": 0.5734
   },
-
   {
-
     "source": 17,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0008
   },
-
   {
-
     "source": 17,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.0753
-
+    "value": 0.5144
   },
-
   {
-
     "source": 17,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.1684
-
+    "value": 0.4142
   },
-
   {
-
     "source": 17,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4253
   },
-
   {
-
     "source": 17,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0798
   },
-
   {
-
     "source": 17,
-
     "target": 5,
-
-    "value": 2,
-
-    "strength": 0.1358
-
+    "value": 0.5084
   },
-
   {
-
     "source": 17,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0175
-
+    "value": 0.2789
   },
-
   {
-
     "source": 17,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4591
   },
-
   {
-
     "source": 17,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0021
-
+    "value": 0.607
   },
-
   {
-
     "source": 17,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.477
   },
-
   {
-
     "source": 17,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.1946
-
+    "value": 0.5078
   },
-
   {
-
     "source": 17,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4811
   },
-
   {
-
     "source": 17,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.5074
-
+    "value": 0.4933
   },
-
   {
-
     "source": 17,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.004
-
+    "value": 0.4372
   },
-
   {
-
     "source": 17,
-
     "target": 14,
-
-    "value": 2,
-
-    "strength": 0.2234
-
+    "value": 0.3602
   },
-
   {
-
     "source": 17,
-
     "target": 15,
-
-    "value": 2,
-
-    "strength": 0.2074
-
+    "value": 0.2297
   },
-
   {
-
     "source": 17,
-
     "target": 16,
-
-    "value": 4,
-
-    "strength": 0.4803
-
+    "value": 0.4692
   },
-
   {
-
     "source": 18,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0294
-
+    "value": 0.2417
   },
-
   {
-
     "source": 18,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.1614
-
+    "value": 0.216
   },
-
   {
-
     "source": 18,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0048
-
+    "value": 0.2212
   },
-
   {
-
     "source": 18,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0003
-
+    "value": 0.2059
   },
-
   {
-
     "source": 18,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2089
   },
-
   {
-
     "source": 18,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3954
   },
-
   {
-
     "source": 18,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0007
-
+    "value": 0.3316
   },
-
   {
-
     "source": 18,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5863
   },
-
   {
-
     "source": 18,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.1749
-
+    "value": 0.3294
   },
-
   {
-
     "source": 18,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0356
   },
-
   {
-
     "source": 18,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.1794
-
+    "value": 0.2521
   },
-
   {
-
     "source": 18,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4023
   },
-
   {
-
     "source": 18,
-
     "target": 12,
-
-    "value": 2,
-
-    "strength": 0.0963
-
+    "value": 0.4037
   },
-
   {
-
     "source": 18,
-
     "target": 13,
-
-    "value": 2,
-
-    "strength": 0.2121
-
+    "value": 0.2702
   },
-
   {
-
     "source": 18,
-
     "target": 14,
-
-    "value": 2,
-
-    "strength": 0.0786
-
+    "value": 0.2173
   },
-
   {
-
     "source": 18,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0051
-
+    "value": 0.1499
   },
-
   {
-
     "source": 18,
-
     "target": 16,
-
-    "value": 2,
-
-    "strength": 0.1397
-
+    "value": 0.1524
   },
-
   {
-
     "source": 18,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0077
-
+    "value": 0.1812
   },
-
   {
-
     "source": 19,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0892
   },
-
   {
-
     "source": 19,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0113
   },
-
   {
-
     "source": 19,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.075
   },
-
   {
-
     "source": 19,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0925
   },
-
   {
-
     "source": 19,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0031
-
+    "value": 0.4992
   },
-
   {
-
     "source": 19,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0687
-
+    "value": 0.1119
   },
-
   {
-
     "source": 19,
-
     "target": 6,
-
-    "value": 2,
-
-    "strength": 0.0918
-
+    "value": 0.5512
   },
-
   {
-
     "source": 19,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.024
-
+    "value": 0.5626
   },
-
   {
-
     "source": 19,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0222
   },
-
   {
-
     "source": 19,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4369
   },
-
   {
-
     "source": 19,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1548
   },
-
   {
-
     "source": 19,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4614
   },
-
   {
-
     "source": 19,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2805
   },
-
   {
-
     "source": 19,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1839
   },
-
   {
-
     "source": 19,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2657
   },
-
   {
-
     "source": 19,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0072
-
+    "value": 0.0119
   },
-
   {
-
     "source": 19,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0026
   },
-
   {
-
     "source": 19,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0055
-
+    "value": 0.1289
   },
-
   {
-
     "source": 19,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2078
   },
-
   {
-
     "source": 20,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0016
-
+    "value": 0.02
   },
-
   {
-
     "source": 20,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0587
-
+    "value": 0.2842
   },
-
   {
-
     "source": 20,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0115
-
+    "value": 0.5527
   },
-
   {
-
     "source": 20,
-
     "target": 3,
-
-    "value": 2,
-
-    "strength": 0.1854
-
+    "value": 0.614
   },
-
   {
-
     "source": 20,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0465
-
+    "value": -0.1255
   },
-
   {
-
     "source": 20,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5373
   },
-
   {
-
     "source": 20,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2503
   },
-
   {
-
     "source": 20,
-
     "target": 7,
-
-    "value": 2,
-
-    "strength": 0.071
-
+    "value": 0.3321
   },
-
   {
-
     "source": 20,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.2461
-
+    "value": 0.2668
   },
-
   {
-
     "source": 20,
-
     "target": 9,
-
-    "value": 2,
-
-    "strength": 0.2468
-
+    "value": 0.3575
   },
-
   {
-
     "source": 20,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6361
   },
-
   {
-
     "source": 20,
-
     "target": 11,
-
-    "value": 4,
-
-    "strength": 0.5412
-
+    "value": 0.3526
   },
-
   {
-
     "source": 20,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5516
   },
-
   {
-
     "source": 20,
-
     "target": 13,
-
-    "value": 2,
-
-    "strength": 0.0736
-
+    "value": 0.665
   },
-
   {
-
     "source": 20,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4551
   },
-
   {
-
     "source": 20,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3558
   },
-
   {
-
     "source": 20,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4799
   },
-
   {
-
     "source": 20,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0026
-
+    "value": 0.4581
   },
-
   {
-
     "source": 20,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2144
   },
-
   {
-
     "source": 20,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0621
   },
-
   {
-
     "source": 21,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0572
   },
-
   {
-
     "source": 21,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3776
   },
-
   {
-
     "source": 21,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.014
-
+    "value": 0.4687
   },
-
   {
-
     "source": 21,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.593
   },
-
   {
-
     "source": 21,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0022
-
+    "value": 0.4646
   },
-
   {
-
     "source": 21,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0023
-
+    "value": 0.6485
   },
-
   {
-
     "source": 21,
-
     "target": 6,
-
-    "value": 4,
-
-    "strength": 0.3372
-
+    "value": 0.513
   },
-
   {
-
     "source": 21,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.068
-
+    "value": 0.5708
   },
-
   {
-
     "source": 21,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0091
-
+    "value": 0.3265
   },
-
   {
-
     "source": 21,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5378
   },
-
   {
-
     "source": 21,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6013
   },
-
   {
-
     "source": 21,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0.0337
-
+    "value": 0.3749
   },
-
   {
-
     "source": 21,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0026
-
+    "value": 0.6687
   },
-
   {
-
     "source": 21,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7375
   },
-
   {
-
     "source": 21,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.66
   },
-
   {
-
     "source": 21,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0085
-
+    "value": 0.0864
   },
-
   {
-
     "source": 21,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3788
   },
-
   {
-
     "source": 21,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0392
-
+    "value": 0.4645
   },
-
   {
-
     "source": 21,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1418
   },
-
   {
-
     "source": 21,
-
     "target": 19,
-
-    "value": 2,
-
-    "strength": 0.154
-
+    "value": 0.124
   },
-
   {
-
     "source": 21,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0386
-
+    "value": 0.515
   },
-
   {
-
     "source": 22,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2418
   },
-
   {
-
     "source": 22,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2272
   },
-
   {
-
     "source": 22,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7405
   },
-
   {
-
     "source": 22,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.79
   },
-
   {
-
     "source": 22,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4385
   },
-
   {
-
     "source": 22,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0287
-
+    "value": 0.713
   },
-
   {
-
     "source": 22,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.71
   },
-
   {
-
     "source": 22,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0029
-
+    "value": 0.6519
   },
-
   {
-
     "source": 22,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4899
   },
-
   {
-
     "source": 22,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6669
   },
-
   {
-
     "source": 22,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0106
-
+    "value": 0.811
   },
-
   {
-
     "source": 22,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6355
   },
-
   {
-
     "source": 22,
-
     "target": 12,
-
-    "value": 2,
-
-    "strength": 0.2177
-
+    "value": 0.849
   },
-
   {
-
     "source": 22,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.8782
   },
-
   {
-
     "source": 22,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.8749
   },
-
   {
-
     "source": 22,
-
     "target": 15,
-
-    "value": 2,
-
-    "strength": 0.2146
-
+    "value": 0.3564
   },
-
   {
-
     "source": 22,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0.0426
-
+    "value": 0.6952
   },
-
   {
-
     "source": 22,
-
     "target": 17,
-
-    "value": 2,
-
-    "strength": 0.1153
-
+    "value": 0.3628
   },
-
   {
-
     "source": 22,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3336
   },
-
   {
-
     "source": 22,
-
     "target": 19,
-
-    "value": 2,
-
-    "strength": 0.1022
-
+    "value": 0.2849
   },
-
   {
-
     "source": 22,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6581
   },
-
   {
-
     "source": 22,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0064
-
+    "value": 0.6092
   },
-
   {
-
     "source": 23,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0777
   },
-
   {
-
     "source": 23,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2482
   },
-
   {
-
     "source": 23,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5452
   },
-
   {
-
     "source": 23,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5846
   },
-
   {
-
     "source": 23,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0325
-
+    "value": 0.6145
   },
-
   {
-
     "source": 23,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0035
-
+    "value": 0.6049
   },
-
   {
-
     "source": 23,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6814
   },
-
   {
-
     "source": 23,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0298
-
+    "value": 0.5205
   },
-
   {
-
     "source": 23,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4668
   },
-
   {
-
     "source": 23,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0505
-
+    "value": 0.7033
   },
-
   {
-
     "source": 23,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0047
-
+    "value": 0.5899
   },
-
   {
-
     "source": 23,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6595
   },
-
   {
-
     "source": 23,
-
     "target": 12,
-
-    "value": 2,
-
-    "strength": 0.0962
-
+    "value": 0.6497
   },
-
   {
-
     "source": 23,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5854
   },
-
   {
-
     "source": 23,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0051
-
+    "value": 0.7511
   },
-
   {
-
     "source": 23,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0166
-
+    "value": 0.2142
   },
-
   {
-
     "source": 23,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0.0215
-
+    "value": 0.4936
   },
-
   {
-
     "source": 23,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0133
-
+    "value": 0.459
   },
-
   {
-
     "source": 23,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1478
   },
-
   {
-
     "source": 23,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0.0376
-
+    "value": 0.3615
   },
-
   {
-
     "source": 23,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2601
   },
-
   {
-
     "source": 23,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0097
-
+    "value": 0.6225
   },
-
   {
-
     "source": 23,
-
     "target": 22,
-
-    "value": 4,
-
-    "strength": 0.4348
-
+    "value": 0.5856
   },
-
   {
-
     "source": 24,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0428
   },
-
   {
-
     "source": 24,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0363
-
+    "value": 0.193
   },
-
   {
-
     "source": 24,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.1025
-
+    "value": 0.5854
   },
-
   {
-
     "source": 24,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6656
   },
-
   {
-
     "source": 24,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0004
-
+    "value": 0.5796
   },
-
   {
-
     "source": 24,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0668
-
+    "value": 0.4985
   },
-
   {
-
     "source": 24,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5087
   },
-
   {
-
     "source": 24,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0219
-
+    "value": 0.4458
   },
-
   {
-
     "source": 24,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0173
-
+    "value": 0.1857
   },
-
   {
-
     "source": 24,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0385
-
+    "value": 0.5139
   },
-
   {
-
     "source": 24,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.198
-
+    "value": 0.5908
   },
-
   {
-
     "source": 24,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4175
   },
-
   {
-
     "source": 24,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.5413
-
+    "value": 0.6382
   },
-
   {
-
     "source": 24,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0228
-
+    "value": 0.5194
   },
-
   {
-
     "source": 24,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0041
-
+    "value": 0.5612
   },
-
   {
-
     "source": 24,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0098
-
+    "value": 0.2972
   },
-
   {
-
     "source": 24,
-
     "target": 16,
-
-    "value": 4,
-
-    "strength": 0.6194
-
+    "value": 0.3983
   },
-
   {
-
     "source": 24,
-
     "target": 17,
-
-    "value": 2,
-
-    "strength": 0.192
-
+    "value": 0.1393
   },
-
   {
-
     "source": 24,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0109
-
+    "value": 0.2377
   },
-
   {
-
     "source": 24,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2624
   },
-
   {
-
     "source": 24,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0014
-
+    "value": 0.2219
   },
-
   {
-
     "source": 24,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0055
-
+    "value": 0.6253
   },
-
   {
-
     "source": 24,
-
     "target": 22,
-
-    "value": 2,
-
-    "strength": 0.0826
-
+    "value": 0.5192
   },
-
   {
-
     "source": 24,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0672
-
+    "value": 0.6402
   },
-
   {
-
     "source": 25,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0135
-
+    "value": 0.0835
   },
-
   {
-
     "source": 25,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.1552
-
+    "value": 0.2235
   },
-
   {
-
     "source": 25,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0109
-
+    "value": 0.6272
   },
-
   {
-
     "source": 25,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5721
   },
-
   {
-
     "source": 25,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4102
   },
-
   {
-
     "source": 25,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0311
-
+    "value": 0.6243
   },
-
   {
-
     "source": 25,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7971
   },
-
   {
-
     "source": 25,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6669
   },
-
   {
-
     "source": 25,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.0724
-
+    "value": 0.6081
   },
-
   {
-
     "source": 25,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6962
   },
-
   {
-
     "source": 25,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.2511
-
+    "value": 0.6932
   },
-
   {
-
     "source": 25,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.9505
   },
-
   {
-
     "source": 25,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0316
-
+    "value": 0.7285
   },
-
   {
-
     "source": 25,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0625
-
+    "value": 0.5999
   },
-
   {
-
     "source": 25,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0532
-
+    "value": 0.7496
   },
-
   {
-
     "source": 25,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0111
-
+    "value": 0.2042
   },
-
   {
-
     "source": 25,
-
     "target": 16,
-
-    "value": 2,
-
-    "strength": 0.1733
-
+    "value": 0.6018
   },
-
   {
-
     "source": 25,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0431
-
+    "value": 0.4785
   },
-
   {
-
     "source": 25,
-
     "target": 18,
-
-    "value": 6,
-
-    "strength": 0.7732
-
+    "value": 0.2233
   },
-
   {
-
     "source": 25,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4141
   },
-
   {
-
     "source": 25,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3625
   },
-
   {
-
     "source": 25,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3927
   },
-
   {
-
     "source": 25,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6635
   },
-
   {
-
     "source": 25,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6749
   },
-
   {
-
     "source": 25,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0167
-
+    "value": 0.354
   },
-
   {
-
     "source": 26,
-
     "target": 0,
-
-    "value": 2,
-
-    "strength": 0.1692
-
+    "value": 0.2049
   },
-
   {
-
     "source": 26,
-
     "target": 1,
-
-    "value": 6,
-
-    "strength": 0.8928
-
+    "value": 0.0899
   },
-
   {
-
     "source": 26,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0201
-
+    "value": 0.5323
   },
-
   {
-
     "source": 26,
-
     "target": 3,
-
-    "value": 2,
-
-    "strength": 0.1256
-
+    "value": 0.5278
   },
-
   {
-
     "source": 26,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0129
-
+    "value": 0.5335
   },
-
   {
-
     "source": 26,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5631
   },
-
   {
-
     "source": 26,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0028
-
+    "value": 0.728
   },
-
   {
-
     "source": 26,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0009
-
+    "value": 0.498
   },
-
   {
-
     "source": 26,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.1831
-
+    "value": 0.4658
   },
-
   {
-
     "source": 26,
-
     "target": 9,
-
-    "value": 2,
-
-    "strength": 0.1939
-
+    "value": 0.5655
   },
-
   {
-
     "source": 26,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.0721
-
+    "value": 0.5954
   },
-
   {
-
     "source": 26,
-
     "target": 11,
-
-    "value": 2,
-
-    "strength": 0.1236
-
+    "value": 0.8843
   },
-
   {
-
     "source": 26,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7014
   },
-
   {
-
     "source": 26,
-
     "target": 13,
-
-    "value": 6,
-
-    "strength": 0.7983
-
+    "value": 0.5756
   },
-
   {
-
     "source": 26,
-
     "target": 14,
-
-    "value": 4,
-
-    "strength": 0.3275
-
+    "value": 0.697
   },
-
   {
-
     "source": 26,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1933
   },
-
   {
-
     "source": 26,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0.019
-
+    "value": 0.5619
   },
-
   {
-
     "source": 26,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3459
   },
-
   {
-
     "source": 26,
-
     "target": 18,
-
-    "value": 4,
-
-    "strength": 0.4901
-
+    "value": 0.2963
   },
-
   {
-
     "source": 26,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5334
   },
-
   {
-
     "source": 26,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0334
-
+    "value": 0.1998
   },
-
   {
-
     "source": 26,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2855
   },
-
   {
-
     "source": 26,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6205
   },
-
   {
-
     "source": 26,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6674
   },
-
   {
-
     "source": 26,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3925
   },
-
   {
-
     "source": 26,
-
     "target": 25,
-
-    "value": 2,
-
-    "strength": 0.0728
-
+    "value": 0.8604
   },
-
   {
-
     "source": 27,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0782
   },
-
   {
-
     "source": 27,
-
     "target": 1,
-
-    "value": 8,
-
-    "strength": 0.9762
-
+    "value": 0.3391
   },
-
   {
-
     "source": 27,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.1947
-
+    "value": 0.6562
   },
-
   {
-
     "source": 27,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0396
-
+    "value": 0.6792
   },
-
   {
-
     "source": 27,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3314
   },
-
   {
-
     "source": 27,
-
     "target": 5,
-
-    "value": 2,
-
-    "strength": 0.1249
-
+    "value": 0.7666
   },
-
   {
-
     "source": 27,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5391
   },
-
   {
-
     "source": 27,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6849
   },
-
   {
-
     "source": 27,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0097
-
+    "value": 0.5577
   },
-
   {
-
     "source": 27,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6131
   },
-
   {
-
     "source": 27,
-
     "target": 10,
-
-    "value": 4,
-
-    "strength": 0.6074
-
+    "value": 0.7612
   },
-
   {
-
     "source": 27,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5736
   },
-
   {
-
     "source": 27,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.3046
-
+    "value": 0.7846
   },
-
   {
-
     "source": 27,
-
     "target": 13,
-
-    "value": 2,
-
-    "strength": 0.2554
-
+    "value": 0.7931
   },
-
   {
-
     "source": 27,
-
     "target": 14,
-
-    "value": 2,
-
-    "strength": 0.1123
-
+    "value": 0.8337
   },
-
   {
-
     "source": 27,
-
     "target": 15,
-
-    "value": 4,
-
-    "strength": 0.6796
-
+    "value": 0.2772
   },
-
   {
-
     "source": 27,
-
     "target": 16,
-
-    "value": 6,
-
-    "strength": 0.7425
-
+    "value": 0.667
   },
-
   {
-
     "source": 27,
-
     "target": 17,
-
-    "value": 4,
-
-    "strength": 0.5385
-
+    "value": 0.5511
   },
-
   {
-
     "source": 27,
-
     "target": 18,
-
-    "value": 4,
-
-    "strength": 0.3577
-
+    "value": 0.2525
   },
-
   {
-
     "source": 27,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.013
   },
-
   {
-
     "source": 27,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0142
-
+    "value": 0.5594
   },
-
   {
-
     "source": 27,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7243
   },
-
   {
-
     "source": 27,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0003
-
+    "value": 0.7538
   },
-
   {
-
     "source": 27,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6214
   },
-
   {
-
     "source": 27,
-
     "target": 24,
-
-    "value": 2,
-
-    "strength": 0.0963
-
+    "value": 0.4698
   },
-
   {
-
     "source": 27,
-
     "target": 25,
-
-    "value": 2,
-
-    "strength": 0.2495
-
+    "value": 0.5911
   },
-
   {
-
     "source": 27,
-
     "target": 26,
-
-    "value": 2,
-
-    "strength": 0.0737
-
+    "value": 0.4817
   },
-
   {
-
     "source": 28,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0447
-
+    "value": 0.2411
   },
-
   {
-
     "source": 28,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0014
-
+    "value": 0.0106
   },
-
   {
-
     "source": 28,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0036
-
+    "value": 0.4046
   },
-
   {
-
     "source": 28,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4684
   },
-
   {
-
     "source": 28,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4109
   },
-
   {
-
     "source": 28,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6475
   },
-
   {
-
     "source": 28,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7008
   },
-
   {
-
     "source": 28,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0013
-
+    "value": 0.7014
   },
-
   {
-
     "source": 28,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5204
   },
-
   {
-
     "source": 28,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5497
   },
-
   {
-
     "source": 28,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5581
   },
-
   {
-
     "source": 28,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0.0051
-
+    "value": 0.6057
   },
-
   {
-
     "source": 28,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0147
-
+    "value": 0.6055
   },
-
   {
-
     "source": 28,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0113
-
+    "value": 0.5772
   },
-
   {
-
     "source": 28,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0033
-
+    "value": 0.6776
   },
-
   {
-
     "source": 28,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0263
   },
-
   {
-
     "source": 28,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3574
   },
-
   {
-
     "source": 28,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0035
-
+    "value": 0.4788
   },
-
   {
-
     "source": 28,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0146
-
+    "value": 0.3565
   },
-
   {
-
     "source": 28,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1015
   },
-
   {
-
     "source": 28,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0001
-
+    "value": 0.3489
   },
-
   {
-
     "source": 28,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7259
   },
-
   {
-
     "source": 28,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0008
-
+    "value": 0.5031
   },
-
   {
-
     "source": 28,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0212
-
+    "value": 0.5099
   },
-
   {
-
     "source": 28,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.277
   },
-
   {
-
     "source": 28,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0.0056
-
+    "value": 0.5824
   },
-
   {
-
     "source": 28,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0119
-
+    "value": 0.5012
   },
-
   {
-
     "source": 28,
-
     "target": 27,
-
-    "value": 0,
-
-    "strength": 0.0011
-
+    "value": 0.6989
   },
-
   {
-
     "source": 29,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1541
   },
-
   {
-
     "source": 29,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0312
-
+    "value": 0.3075
   },
-
   {
-
     "source": 29,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0083
-
+    "value": 0.7557
   },
-
   {
-
     "source": 29,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.8136
   },
-
   {
-
     "source": 29,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5344
   },
-
   {
-
     "source": 29,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0684
-
+    "value": 0.8547
   },
-
   {
-
     "source": 29,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6589
   },
-
   {
-
     "source": 29,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6878
   },
-
   {
-
     "source": 29,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5493
   },
-
   {
-
     "source": 29,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5746
   },
-
   {
-
     "source": 29,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.1431
-
+    "value": 0.8595
   },
-
   {
-
     "source": 29,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6248
   },
-
   {
-
     "source": 29,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.5433
-
+    "value": 0.9178
   },
-
   {
-
     "source": 29,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0157
-
+    "value": 0.9214
   },
-
   {
-
     "source": 29,
-
     "target": 14,
-
-    "value": 2,
-
-    "strength": 0.1158
-
+    "value": 0.853
   },
-
   {
-
     "source": 29,
-
     "target": 15,
-
-    "value": 2,
-
-    "strength": 0.2177
-
+    "value": 0.3799
   },
-
   {
-
     "source": 29,
-
     "target": 16,
-
-    "value": 4,
-
-    "strength": 0.5287
-
+    "value": 0.666
   },
-
   {
-
     "source": 29,
-
     "target": 17,
-
-    "value": 4,
-
-    "strength": 0.3743
-
+    "value": 0.478
   },
-
   {
-
     "source": 29,
-
     "target": 18,
-
-    "value": 2,
-
-    "strength": 0.1117
-
+    "value": 0.3692
   },
-
   {
-
     "source": 29,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1915
   },
-
   {
-
     "source": 29,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6404
   },
-
   {
-
     "source": 29,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7647
   },
-
   {
-
     "source": 29,
-
     "target": 22,
-
-    "value": 2,
-
-    "strength": 0.1149
-
+    "value": 0.8839
   },
-
   {
-
     "source": 29,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0.058
-
+    "value": 0.6446
   },
-
   {
-
     "source": 29,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0476
-
+    "value": 0.6164
   },
-
   {
-
     "source": 29,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0.0461
-
+    "value": 0.6126
   },
-
   {
-
     "source": 29,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0111
-
+    "value": 0.5853
   },
-
   {
-
     "source": 29,
-
     "target": 27,
-
-    "value": 2,
-
-    "strength": 0.2657
-
+    "value": 0.8286
   },
-
   {
-
     "source": 29,
-
     "target": 28,
-
-    "value": 2,
-
-    "strength": 0.1027
-
+    "value": 0.6514
   },
-
   {
-
     "source": 30,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.2105
   },
-
   {
-
     "source": 30,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5187
   },
-
   {
-
     "source": 30,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0062
-
+    "value": 0.5956
   },
-
   {
-
     "source": 30,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5568
   },
-
   {
-
     "source": 30,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0071
-
+    "value": 0.4886
   },
-
   {
-
     "source": 30,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0159
-
+    "value": 0.6133
   },
-
   {
-
     "source": 30,
-
     "target": 6,
-
-    "value": 2,
-
-    "strength": 0.0741
-
+    "value": 0.4237
   },
-
   {
-
     "source": 30,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0042
-
+    "value": 0.514
   },
-
   {
-
     "source": 30,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3953
   },
-
   {
-
     "source": 30,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.513
   },
-
   {
-
     "source": 30,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6548
   },
-
   {
-
     "source": 30,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5051
   },
-
   {
-
     "source": 30,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0041
-
+    "value": 0.6222
   },
-
   {
-
     "source": 30,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5508
   },
-
   {
-
     "source": 30,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5597
   },
-
   {
-
     "source": 30,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0109
-
+    "value": 0.469
   },
-
   {
-
     "source": 30,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5573
   },
-
   {
-
     "source": 30,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0217
-
+    "value": 0.3479
   },
-
   {
-
     "source": 30,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.108
   },
-
   {
-
     "source": 30,
-
     "target": 19,
-
-    "value": 4,
-
-    "strength": 0.3322
-
+    "value": 0.162
   },
-
   {
-
     "source": 30,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.001
-
+    "value": 0.208
   },
-
   {
-
     "source": 30,
-
     "target": 21,
-
-    "value": 4,
-
-    "strength": 0.4204
-
+    "value": 0.4771
   },
-
   {
-
     "source": 30,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0372
-
+    "value": 0.4609
   },
-
   {
-
     "source": 30,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0131
-
+    "value": 0.6016
   },
-
   {
-
     "source": 30,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0024
-
+    "value": 0.6568
   },
-
   {
-
     "source": 30,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5038
   },
-
   {
-
     "source": 30,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.436
   },
-
   {
-
     "source": 30,
-
     "target": 27,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6464
   },
-
   {
-
     "source": 30,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2712
   },
-
   {
-
     "source": 30,
-
     "target": 29,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.585
   },
-
   {
-
     "source": 31,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0892
   },
-
   {
-
     "source": 31,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1783
   },
-
   {
-
     "source": 31,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0038
-
+    "value": 0.6846
   },
-
   {
-
     "source": 31,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7083
   },
-
   {
-
     "source": 31,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0236
-
+    "value": 0.599
   },
-
   {
-
     "source": 31,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6941
   },
-
   {
-
     "source": 31,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0182
-
+    "value": 0.7053
   },
-
   {
-
     "source": 31,
-
     "target": 7,
-
-    "value": 2,
-
-    "strength": 0.1728
-
+    "value": 0.6824
   },
-
   {
-
     "source": 31,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.0993
-
+    "value": 0.4199
   },
-
   {
-
     "source": 31,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0001
-
+    "value": 0.6237
   },
-
   {
-
     "source": 31,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7584
   },
-
   {
-
     "source": 31,
-
     "target": 11,
-
-    "value": 4,
-
-    "strength": 0.3073
-
+    "value": 0.6521
   },
-
   {
-
     "source": 31,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.8081
   },
-
   {
-
     "source": 31,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6985
   },
-
   {
-
     "source": 31,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7282
   },
-
   {
-
     "source": 31,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3796
   },
-
   {
-
     "source": 31,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4548
   },
-
   {
-
     "source": 31,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4019
   },
-
   {
-
     "source": 31,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.343
   },
-
   {
-
     "source": 31,
-
     "target": 19,
-
-    "value": 2,
-
-    "strength": 0.1029
-
+    "value": 0.3721
   },
-
   {
-
     "source": 31,
-
     "target": 20,
-
-    "value": 2,
-
-    "strength": 0.0835
-
+    "value": 0.383
   },
-
   {
-
     "source": 31,
-
     "target": 21,
-
-    "value": 2,
-
-    "strength": 0.1947
-
+    "value": 0.6098
   },
-
   {
-
     "source": 31,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6861
   },
-
   {
-
     "source": 31,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0019
-
+    "value": 0.6826
   },
-
   {
-
     "source": 31,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0011
-
+    "value": 0.7113
   },
-
   {
-
     "source": 31,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6257
   },
-
   {
-
     "source": 31,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6129
   },
-
   {
-
     "source": 31,
-
     "target": 27,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6593
   },
-
   {
-
     "source": 31,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6045
   },
-
   {
-
     "source": 31,
-
     "target": 29,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7968
   },
-
   {
-
     "source": 31,
-
     "target": 30,
-
-    "value": 2,
-
-    "strength": 0.1159
-
+    "value": 0.6362
   },
-
   {
-
     "source": 32,
-
     "target": 0,
-
-    "value": 4,
-
-    "strength": 0.3502
-
+    "value": 0.2839
   },
-
   {
-
     "source": 32,
-
     "target": 1,
-
-    "value": 8,
-
-    "strength": 0.9713
-
+    "value": 0.2324
   },
-
   {
-
     "source": 32,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.128
-
+    "value": 0.5357
   },
-
   {
-
     "source": 32,
-
     "target": 3,
-
-    "value": 2,
-
-    "strength": 0.1902
-
+    "value": 0.5207
   },
-
   {
-
     "source": 32,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4248
   },
-
   {
-
     "source": 32,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4727
   },
-
   {
-
     "source": 32,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6979
   },
-
   {
-
     "source": 32,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6449
   },
-
   {
-
     "source": 32,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.2276
-
+    "value": 0.4412
   },
-
   {
-
     "source": 32,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0199
-
+    "value": 0.437
   },
-
   {
-
     "source": 32,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0132
-
+    "value": 0.5906
   },
-
   {
-
     "source": 32,
-
     "target": 11,
-
-    "value": 2,
-
-    "strength": 0.2579
-
+    "value": 0.5278
   },
-
   {
-
     "source": 32,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0177
-
+    "value": 0.6598
   },
-
   {
-
     "source": 32,
-
     "target": 13,
-
-    "value": 4,
-
-    "strength": 0.3971
-
+    "value": 0.5256
   },
-
   {
-
     "source": 32,
-
     "target": 14,
-
-    "value": 2,
-
-    "strength": 0.1536
-
+    "value": 0.599
   },
-
   {
-
     "source": 32,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2362
   },
-
   {
-
     "source": 32,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0.055
-
+    "value": 0.3038
   },
-
   {
-
     "source": 32,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0255
-
+    "value": 0.2976
   },
-
   {
-
     "source": 32,
-
     "target": 18,
-
-    "value": 4,
-
-    "strength": 0.5593
-
+    "value": 0.4422
   },
-
   {
-
     "source": 32,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3361
   },
-
   {
-
     "source": 32,
-
     "target": 20,
-
-    "value": 2,
-
-    "strength": 0.1141
-
+    "value": 0.3962
   },
-
   {
-
     "source": 32,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5098
   },
-
   {
-
     "source": 32,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6524
   },
-
   {
-
     "source": 32,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4713
   },
-
   {
-
     "source": 32,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0061
-
+    "value": 0.4374
   },
-
   {
-
     "source": 32,
-
     "target": 25,
-
-    "value": 2,
-
-    "strength": 0.1484
-
+    "value": 0.4902
   },
-
   {
-
     "source": 32,
-
     "target": 26,
-
-    "value": 6,
-
-    "strength": 0.914
-
+    "value": 0.4475
   },
-
   {
-
     "source": 32,
-
     "target": 27,
-
-    "value": 4,
-
-    "strength": 0.4856
-
+    "value": 0.5365
   },
-
   {
-
     "source": 32,
-
     "target": 28,
-
-    "value": 2,
-
-    "strength": 0.0767
-
+    "value": 0.5994
   },
-
   {
-
     "source": 32,
-
     "target": 29,
-
-    "value": 0,
-
-    "strength": 0.0198
-
+    "value": 0.6156
   },
-
   {
-
     "source": 32,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3479
   },
-
   {
-
     "source": 32,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5897
   },
-
   {
-
     "source": 33,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1169
   },
-
   {
-
     "source": 33,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.0857
-
+    "value": 0.3651
   },
-
   {
-
     "source": 33,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0019
-
+    "value": 0.7813
   },
-
   {
-
     "source": 33,
-
     "target": 3,
-
-    "value": 4,
-
-    "strength": 0.5574
-
+    "value": 0.805
   },
-
   {
-
     "source": 33,
-
     "target": 4,
-
-    "value": 6,
-
-    "strength": 0.7103
-
+    "value": 0.3081
   },
-
   {
-
     "source": 33,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7487
   },
-
   {
-
     "source": 33,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4822
   },
-
   {
-
     "source": 33,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4755
   },
-
   {
-
     "source": 33,
-
     "target": 8,
-
-    "value": 4,
-
-    "strength": 0.3282
-
+    "value": 0.534
   },
-
   {
-
     "source": 33,
-
     "target": 9,
-
-    "value": 8,
-
-    "strength": 0.9537
-
+    "value": 0.5034
   },
-
   {
-
     "source": 33,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0058
-
+    "value": 0.8259
   },
-
   {
-
     "source": 33,
-
     "target": 11,
-
-    "value": 6,
-
-    "strength": 0.7727
-
+    "value": 0.496
   },
-
   {
-
     "source": 33,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7961
   },
-
   {
-
     "source": 33,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0389
-
+    "value": 0.7919
   },
-
   {
-
     "source": 33,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0405
-
+    "value": 0.6879
   },
-
   {
-
     "source": 33,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6257
   },
-
   {
-
     "source": 33,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0.0064
-
+    "value": 0.7135
   },
-
   {
-
     "source": 33,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0629
-
+    "value": 0.4763
   },
-
   {
-
     "source": 33,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0009
-
+    "value": 0.3322
   },
-
   {
-
     "source": 33,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0231
   },
-
   {
-
     "source": 33,
-
     "target": 20,
-
-    "value": 4,
-
-    "strength": 0.553
-
+    "value": 0.7086
   },
-
   {
-
     "source": 33,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0006
-
+    "value": 0.5669
   },
-
   {
-
     "source": 33,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.006
-
+    "value": 0.7995
   },
-
   {
-
     "source": 33,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0192
-
+    "value": 0.5541
   },
-
   {
-
     "source": 33,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0067
-
+    "value": 0.4646
   },
-
   {
-
     "source": 33,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5058
   },
-
   {
-
     "source": 33,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0345
-
+    "value": 0.4379
   },
-
   {
-
     "source": 33,
-
     "target": 27,
-
-    "value": 2,
-
-    "strength": 0.1035
-
+    "value": 0.7635
   },
-
   {
-
     "source": 33,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0.0007
-
+    "value": 0.4812
   },
-
   {
-
     "source": 33,
-
     "target": 29,
-
-    "value": 0,
-
-    "strength": 0.0006
-
+    "value": 0.8381
   },
-
   {
-
     "source": 33,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5456
   },
-
   {
-
     "source": 33,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0.0467
-
+    "value": 0.6311
   },
-
   {
-
     "source": 33,
-
     "target": 32,
-
-    "value": 0,
-
-    "strength": 0.0373
-
+    "value": 0.571
   },
-
   {
-
     "source": 34,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0845
   },
-
   {
-
     "source": 34,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1595
   },
-
   {
-
     "source": 34,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0045
-
+    "value": 0.6006
   },
-
   {
-
     "source": 34,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6059
   },
-
   {
-
     "source": 34,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0433
-
+    "value": 0.5844
   },
-
   {
-
     "source": 34,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.463
   },
-
   {
-
     "source": 34,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0359
-
+    "value": 0.7159
   },
-
   {
-
     "source": 34,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0345
-
+    "value": 0.606
   },
-
   {
-
     "source": 34,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0609
-
+    "value": 0.4841
   },
-
   {
-
     "source": 34,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0058
-
+    "value": 0.7497
   },
-
   {
-
     "source": 34,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6872
   },
-
   {
-
     "source": 34,
-
     "target": 11,
-
-    "value": 4,
-
-    "strength": 0.3478
-
+    "value": 0.736
   },
-
   {
-
     "source": 34,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6747
   },
-
   {
-
     "source": 34,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5538
   },
-
   {
-
     "source": 34,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.015
-
+    "value": 0.739
   },
-
   {
-
     "source": 34,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3296
   },
-
   {
-
     "source": 34,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5379
   },
-
   {
-
     "source": 34,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4167
   },
-
   {
-
     "source": 34,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1964
   },
-
   {
-
     "source": 34,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0.0666
-
+    "value": 0.4082
   },
-
   {
-
     "source": 34,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0485
-
+    "value": 0.247
   },
-
   {
-
     "source": 34,
-
     "target": 21,
-
-    "value": 2,
-
-    "strength": 0.2196
-
+    "value": 0.3672
   },
-
   {
-
     "source": 34,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6448
   },
-
   {
-
     "source": 34,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7881
   },
-
   {
-
     "source": 34,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4876
   },
-
   {
-
     "source": 34,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.776
   },
-
   {
-
     "source": 34,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.8057
   },
-
   {
-
     "source": 34,
-
     "target": 27,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5434
   },
-
   {
-
     "source": 34,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4461
   },
-
   {
-
     "source": 34,
-
     "target": 29,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6087
   },
-
   {
-
     "source": 34,
-
     "target": 30,
-
-    "value": 2,
-
-    "strength": 0.1968
-
+    "value": 0.5261
   },
-
   {
-
     "source": 34,
-
     "target": 31,
-
-    "value": 6,
-
-    "strength": 0.713
-
+    "value": 0.6374
   },
-
   {
-
     "source": 34,
-
     "target": 32,
-
-    "value": 0,
-
-    "strength": 0.004
-
+    "value": 0.4738
   },
-
   {
-
     "source": 34,
-
     "target": 33,
-
-    "value": 0,
-
-    "strength": 0.0166
-
+    "value": 0.5375
   },
-
   {
-
     "source": 35,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1064
   },
-
   {
-
     "source": 35,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2086
   },
-
   {
-
     "source": 35,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0171
-
+    "value": 0.4574
   },
-
   {
-
     "source": 35,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5154
   },
-
   {
-
     "source": 35,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0011
-
+    "value": 0.4783
   },
-
   {
-
     "source": 35,
-
     "target": 5,
-
-    "value": 2,
-
-    "strength": 0.2012
-
+    "value": 0.4328
   },
-
   {
-
     "source": 35,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5688
   },
-
   {
-
     "source": 35,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6326
   },
-
   {
-
     "source": 35,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2874
   },
-
   {
-
     "source": 35,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4922
   },
-
   {
-
     "source": 35,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.0941
-
+    "value": 0.5884
   },
-
   {
-
     "source": 35,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5417
   },
-
   {
-
     "source": 35,
-
     "target": 12,
-
-    "value": 2,
-
-    "strength": 0.0923
-
+    "value": 0.5656
   },
-
   {
-
     "source": 35,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4357
   },
-
   {
-
     "source": 35,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0249
-
+    "value": 0.4651
   },
-
   {
-
     "source": 35,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.047
-
+    "value": 0.3491
   },
-
   {
-
     "source": 35,
-
     "target": 16,
-
-    "value": 2,
-
-    "strength": 0.0861
-
+    "value": 0.2722
   },
-
   {
-
     "source": 35,
-
     "target": 17,
-
-    "value": 2,
-
-    "strength": 0.1757
-
+    "value": 0.4336
   },
-
   {
-
     "source": 35,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2988
   },
-
   {
-
     "source": 35,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0.0366
-
+    "value": 0.2972
   },
-
   {
-
     "source": 35,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3959
   },
-
   {
-
     "source": 35,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0056
-
+    "value": 0.455
   },
-
   {
-
     "source": 35,
-
     "target": 22,
-
-    "value": 2,
-
-    "strength": 0.2116
-
+    "value": 0.4498
   },
-
   {
-
     "source": 35,
-
     "target": 23,
-
-    "value": 2,
-
-    "strength": 0.1929
-
+    "value": 0.5592
   },
-
   {
-
     "source": 35,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.068
-
+    "value": 0.5077
   },
-
   {
-
     "source": 35,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0.0047
-
+    "value": 0.5373
   },
-
   {
-
     "source": 35,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4833
   },
-
   {
-
     "source": 35,
-
     "target": 27,
-
-    "value": 0,
-
-    "strength": 0.0035
-
+    "value": 0.4348
   },
-
   {
-
     "source": 35,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0.0076
-
+    "value": 0.5812
   },
-
   {
-
     "source": 35,
-
     "target": 29,
-
-    "value": 2,
-
-    "strength": 0.1015
-
+    "value": 0.5284
   },
-
   {
-
     "source": 35,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0.0282
-
+    "value": 0.4658
   },
-
   {
-
     "source": 35,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6328
   },
-
   {
-
     "source": 35,
-
     "target": 32,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.543
   },
-
   {
-
     "source": 35,
-
     "target": 33,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5402
   },
-
   {
-
     "source": 35,
-
     "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5628
   },
-
   {
-
     "source": 36,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.001
-
+    "value": 0.0889
   },
-
   {
-
     "source": 36,
-
     "target": 1,
-
-    "value": 4,
-
-    "strength": 0.3278
-
+    "value": 0.1231
   },
-
   {
-
     "source": 36,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.2322
-
+    "value": 0.6369
   },
-
   {
-
     "source": 36,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6422
   },
-
   {
-
     "source": 36,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6462
   },
-
   {
-
     "source": 36,
-
     "target": 5,
-
-    "value": 2,
-
-    "strength": 0.1155
-
+    "value": 0.6336
   },
-
   {
-
     "source": 36,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7855
   },
-
   {
-
     "source": 36,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7076
   },
-
   {
-
     "source": 36,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4663
   },
-
   {
-
     "source": 36,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6966
   },
-
   {
-
     "source": 36,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0549
-
+    "value": 0.7604
   },
-
   {
-
     "source": 36,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7861
   },
-
   {
-
     "source": 36,
-
     "target": 12,
-
-    "value": 2,
-
-    "strength": 0.1615
-
+    "value": 0.773
   },
-
   {
-
     "source": 36,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0638
-
+    "value": 0.6642
   },
-
   {
-
     "source": 36,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0291
-
+    "value": 0.7779
   },
-
   {
-
     "source": 36,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0234
-
+    "value": 0.3035
   },
-
   {
-
     "source": 36,
-
     "target": 16,
-
-    "value": 2,
-
-    "strength": 0.2781
-
+    "value": 0.537
   },
-
   {
-
     "source": 36,
-
     "target": 17,
-
-    "value": 4,
-
-    "strength": 0.417
-
+    "value": 0.3329
   },
-
   {
-
     "source": 36,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0466
-
+    "value": 0.1502
   },
-
   {
-
     "source": 36,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5027
   },
-
   {
-
     "source": 36,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2649
   },
-
   {
-
     "source": 36,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4903
   },
-
   {
-
     "source": 36,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6584
   },
-
   {
-
     "source": 36,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7208
   },
-
   {
-
     "source": 36,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0115
-
+    "value": 0.5743
   },
-
   {
-
     "source": 36,
-
     "target": 25,
-
-    "value": 2,
-
-    "strength": 0.148
-
+    "value": 0.8224
   },
-
   {
-
     "source": 36,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0136
-
+    "value": 0.781
   },
-
   {
-
     "source": 36,
-
     "target": 27,
-
-    "value": 4,
-
-    "strength": 0.429
-
+    "value": 0.582
   },
-
   {
-
     "source": 36,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0.0341
-
+    "value": 0.5058
   },
-
   {
-
     "source": 36,
-
     "target": 29,
-
-    "value": 2,
-
-    "strength": 0.102
-
+    "value": 0.7035
   },
-
   {
-
     "source": 36,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6369
   },
-
   {
-
     "source": 36,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.781
   },
-
   {
-
     "source": 36,
-
     "target": 32,
-
-    "value": 2,
-
-    "strength": 0.1725
-
+    "value": 0.4806
   },
-
   {
-
     "source": 36,
-
     "target": 33,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5469
   },
-
   {
-
     "source": 36,
-
     "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.805
   },
-
   {
-
     "source": 36,
-
     "target": 35,
-
-    "value": 0,
-
-    "strength": 0.0417
-
+    "value": 0.5819
   },
-
   {
-
     "source": 37,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0021
-
+    "value": -0.0548
   },
-
   {
-
     "source": 37,
-
     "target": 1,
-
-    "value": 8,
-
-    "strength": 0.9626
-
+    "value": 0.4014
   },
-
   {
-
     "source": 37,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.1214
-
+    "value": 0.9263
   },
-
   {
-
     "source": 37,
-
     "target": 3,
-
-    "value": 2,
-
-    "strength": 0.2888
-
+    "value": 0.9172
   },
-
   {
-
     "source": 37,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0028
-
+    "value": 0.2264
   },
-
   {
-
     "source": 37,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.003
-
+    "value": 0.6506
   },
-
   {
-
     "source": 37,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5105
   },
-
   {
-
     "source": 37,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4557
   },
-
   {
-
     "source": 37,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0128
-
+    "value": 0.5343
   },
-
   {
-
     "source": 37,
-
     "target": 9,
-
-    "value": 2,
-
-    "strength": 0.145
-
+    "value": 0.6157
   },
-
   {
-
     "source": 37,
-
     "target": 10,
-
-    "value": 2,
-
-    "strength": 0.1378
-
+    "value": 0.9181
   },
-
   {
-
     "source": 37,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0.0059
-
+    "value": 0.6115
   },
-
   {
-
     "source": 37,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.3058
-
+    "value": 0.8056
   },
-
   {
-
     "source": 37,
-
     "target": 13,
-
-    "value": 4,
-
-    "strength": 0.4453
-
+    "value": 0.7393
   },
-
   {
-
     "source": 37,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.069
-
+    "value": 0.6406
   },
-
   {
-
     "source": 37,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0626
-
+    "value": 0.7032
   },
-
   {
-
     "source": 37,
-
     "target": 16,
-
-    "value": 4,
-
-    "strength": 0.3033
-
+    "value": 0.8292
   },
-
   {
-
     "source": 37,
-
     "target": 17,
-
-    "value": 2,
-
-    "strength": 0.1798
-
+    "value": 0.5086
   },
-
   {
-
     "source": 37,
-
     "target": 18,
-
-    "value": 2,
-
-    "strength": 0.155
-
+    "value": 0.2348
   },
-
   {
-
     "source": 37,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0731
   },
-
   {
-
     "source": 37,
-
     "target": 20,
-
-    "value": 2,
-
-    "strength": 0.0738
-
+    "value": 0.6942
   },
-
   {
-
     "source": 37,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4767
   },
-
   {
-
     "source": 37,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7882
   },
-
   {
-
     "source": 37,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5052
   },
-
   {
-
     "source": 37,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0372
-
+    "value": 0.5015
   },
-
   {
-
     "source": 37,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0.0497
-
+    "value": 0.6474
   },
-
   {
-
     "source": 37,
-
     "target": 26,
-
-    "value": 4,
-
-    "strength": 0.3598
-
+    "value": 0.5027
   },
-
   {
-
     "source": 37,
-
     "target": 27,
-
-    "value": 8,
-
-    "strength": 0.9392
-
+    "value": 0.6823
   },
-
   {
-
     "source": 37,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3816
   },
-
   {
-
     "source": 37,
-
     "target": 29,
-
-    "value": 2,
-
-    "strength": 0.0931
-
+    "value": 0.7622
   },
-
   {
-
     "source": 37,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5641
   },
-
   {
-
     "source": 37,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6271
   },
-
   {
-
     "source": 37,
-
     "target": 32,
-
-    "value": 6,
-
-    "strength": 0.7603
-
+    "value": 0.5341
   },
-
   {
-
     "source": 37,
-
     "target": 33,
-
-    "value": 2,
-
-    "strength": 0.1457
-
+    "value": 0.8593
   },
-
   {
-
     "source": 37,
-
     "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6077
   },
-
   {
-
     "source": 37,
-
     "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5258
   },
-
   {
-
     "source": 37,
-
     "target": 36,
-
-    "value": 4,
-
-    "strength": 0.3084
-
+    "value": 0.6156
   },
-
   {
-
     "source": 38,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0002
-
+    "value": -0.0122
   },
-
   {
-
     "source": 38,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.1174
-
+    "value": 0.2601
   },
-
   {
-
     "source": 38,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.0832
-
+    "value": 0.5308
   },
-
   {
-
     "source": 38,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4932
   },
-
   {
-
     "source": 38,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0059
-
+    "value": 0.3285
   },
-
   {
-
     "source": 38,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.511
   },
-
   {
-
     "source": 38,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0191
-
+    "value": 0.6496
   },
-
   {
-
     "source": 38,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0207
-
+    "value": 0.6568
   },
-
   {
-
     "source": 38,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.0941
-
+    "value": 0.3396
   },
-
   {
-
     "source": 38,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0594
-
+    "value": 0.6916
   },
-
   {
-
     "source": 38,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5327
   },
-
   {
-
     "source": 38,
-
     "target": 11,
-
-    "value": 4,
-
-    "strength": 0.3246
-
+    "value": 0.6947
   },
-
   {
-
     "source": 38,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0053
-
+    "value": 0.5731
   },
-
   {
-
     "source": 38,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0122
-
+    "value": 0.4881
   },
-
   {
-
     "source": 38,
-
     "target": 14,
-
-    "value": 2,
-
-    "strength": 0.1236
-
+    "value": 0.4863
   },
-
   {
-
     "source": 38,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3117
   },
-
   {
-
     "source": 38,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7608
   },
-
   {
-
     "source": 38,
-
     "target": 17,
-
-    "value": 2,
-
-    "strength": 0.0877
-
+    "value": 0.2692
   },
-
   {
-
     "source": 38,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0017
-
+    "value": 0.2885
   },
-
   {
-
     "source": 38,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2621
   },
-
   {
-
     "source": 38,
-
     "target": 20,
-
-    "value": 2,
-
-    "strength": 0.2198
-
+    "value": 0.5322
   },
-
   {
-
     "source": 38,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0455
-
+    "value": 0.7106
   },
-
   {
-
     "source": 38,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6397
   },
-
   {
-
     "source": 38,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4462
   },
-
   {
-
     "source": 38,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0026
-
+    "value": 0.537
   },
-
   {
-
     "source": 38,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7128
   },
-
   {
-
     "source": 38,
-
     "target": 26,
-
-    "value": 2,
-
-    "strength": 0.166
-
+    "value": 0.5967
   },
-
   {
-
     "source": 38,
-
     "target": 27,
-
-    "value": 0,
-
-    "strength": 0.0616
-
+    "value": 0.3896
   },
-
   {
-
     "source": 38,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0.0114
-
+    "value": -0.0126
   },
-
   {
-
     "source": 38,
-
     "target": 29,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5771
   },
-
   {
-
     "source": 38,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0.0049
-
+    "value": 0.4191
   },
-
   {
-
     "source": 38,
-
     "target": 31,
-
-    "value": 2,
-
-    "strength": 0.2005
-
+    "value": 0.4191
   },
-
   {
-
     "source": 38,
-
     "target": 32,
-
-    "value": 4,
-
-    "strength": 0.3239
-
+    "value": 0.6452
   },
-
   {
-
     "source": 38,
-
     "target": 33,
-
-    "value": 2,
-
-    "strength": 0.2028
-
+    "value": 0.5702
   },
-
   {
-
     "source": 38,
-
     "target": 34,
-
-    "value": 2,
-
-    "strength": 0.1376
-
+    "value": 0.3761
   },
-
   {
-
     "source": 38,
-
     "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5125
   },
-
   {
-
     "source": 38,
-
     "target": 36,
-
-    "value": 0,
-
-    "strength": 0.009
-
+    "value": 0.4194
   },
-
   {
-
     "source": 38,
-
     "target": 37,
-
-    "value": 2,
-
-    "strength": 0.1259
-
+    "value": 0.5733
   },
-
   {
-
     "source": 39,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2614
   },
-
   {
-
     "source": 39,
-
     "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3325
   },
-
   {
-
     "source": 39,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0014
-
+    "value": 0.3448
   },
-
   {
-
     "source": 39,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3814
   },
-
   {
-
     "source": 39,
-
     "target": 4,
-
-    "value": 2,
-
-    "strength": 0.2788
-
+    "value": 0.5785
   },
-
   {
-
     "source": 39,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4926
   },
-
   {
-
     "source": 39,
-
     "target": 6,
-
-    "value": 2,
-
-    "strength": 0.1235
-
+    "value": 0.5517
   },
-
   {
-
     "source": 39,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0.049
-
+    "value": 0.6116
   },
-
   {
-
     "source": 39,
-
     "target": 8,
-
-    "value": 2,
-
-    "strength": 0.1001
-
+    "value": 0.352
   },
-
   {
-
     "source": 39,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0479
-
+    "value": 0.3527
   },
-
   {
-
     "source": 39,
-
     "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.469
   },
-
   {
-
     "source": 39,
-
     "target": 11,
-
-    "value": 2,
-
-    "strength": 0.2229
-
+    "value": 0.4865
   },
-
   {
-
     "source": 39,
-
     "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6105
   },
-
   {
-
     "source": 39,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6521
   },
-
   {
-
     "source": 39,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0036
-
+    "value": 0.6192
   },
-
   {
-
     "source": 39,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1058
   },
-
   {
-
     "source": 39,
-
     "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2828
   },
-
   {
-
     "source": 39,
-
     "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0272
-
+    "value": 0.2517
   },
-
   {
-
     "source": 39,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3235
   },
-
   {
-
     "source": 39,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0.0618
-
+    "value": 0.319
   },
-
   {
-
     "source": 39,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0557
-
+    "value": 0.2114
   },
-
   {
-
     "source": 39,
-
     "target": 21,
-
-    "value": 4,
-
-    "strength": 0.3238
-
+    "value": 0.5609
   },
-
   {
-
     "source": 39,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0017
-
+    "value": 0.5596
   },
-
   {
-
     "source": 39,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0244
-
+    "value": 0.4973
   },
-
   {
-
     "source": 39,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.003
-
+    "value": 0.3852
   },
-
   {
-
     "source": 39,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4661
   },
-
   {
-
     "source": 39,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0166
-
+    "value": 0.4896
   },
-
   {
-
     "source": 39,
-
     "target": 27,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5759
   },
-
   {
-
     "source": 39,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4303
   },
-
   {
-
     "source": 39,
-
     "target": 29,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6297
   },
-
   {
-
     "source": 39,
-
     "target": 30,
-
-    "value": 2,
-
-    "strength": 0.1183
-
+    "value": 0.432
   },
-
   {
-
     "source": 39,
-
     "target": 31,
-
-    "value": 2,
-
-    "strength": 0.2084
-
+    "value": 0.6064
   },
-
   {
-
     "source": 39,
-
     "target": 32,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4898
   },
-
   {
-
     "source": 39,
-
     "target": 33,
-
-    "value": 2,
-
-    "strength": 0.1359
-
+    "value": 0.4174
   },
-
   {
-
     "source": 39,
-
     "target": 34,
-
-    "value": 2,
-
-    "strength": 0.1888
-
+    "value": 0.4889
   },
-
   {
-
     "source": 39,
-
     "target": 35,
-
-    "value": 0,
-
-    "strength": 0.0074
-
+    "value": 0.2643
   },
-
   {
-
     "source": 39,
-
     "target": 36,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6274
   },
-
   {
-
     "source": 39,
-
     "target": 37,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3213
   },
-
   {
-
     "source": 39,
-
     "target": 38,
-
-    "value": 2,
-
-    "strength": 0.1372
-
+    "value": 0.2056
   },
-
   {
-
     "source": 40,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0961
   },
-
   {
-
     "source": 40,
-
     "target": 1,
-
-    "value": 4,
-
-    "strength": 0.6135
-
+    "value": 0.2904
   },
-
   {
-
     "source": 40,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.1332
-
+    "value": 0.425
   },
-
   {
-
     "source": 40,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0148
-
+    "value": 0.4249
   },
-
   {
-
     "source": 40,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5537
   },
-
   {
-
     "source": 40,
-
     "target": 5,
-
-    "value": 2,
-
-    "strength": 0.2348
-
+    "value": 0.4906
   },
-
   {
-
     "source": 40,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0064
-
+    "value": 0.7169
   },
-
   {
-
     "source": 40,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5965
   },
-
   {
-
     "source": 40,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.431
   },
-
   {
-
     "source": 40,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6204
   },
-
   {
-
     "source": 40,
-
     "target": 10,
-
-    "value": 4,
-
-    "strength": 0.7
-
+    "value": 0.5068
   },
-
   {
-
     "source": 40,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6081
   },
-
   {
-
     "source": 40,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.5463
-
+    "value": 0.6099
   },
-
   {
-
     "source": 40,
-
     "target": 13,
-
-    "value": 2,
-
-    "strength": 0.2823
-
+    "value": 0.5265
   },
-
   {
-
     "source": 40,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0663
-
+    "value": 0.6022
   },
-
   {
-
     "source": 40,
-
     "target": 15,
-
-    "value": 4,
-
-    "strength": 0.4541
-
+    "value": 0.0698
   },
-
   {
-
     "source": 40,
-
     "target": 16,
-
-    "value": 4,
-
-    "strength": 0.667
-
+    "value": 0.27
   },
-
   {
-
     "source": 40,
-
     "target": 17,
-
-    "value": 4,
-
-    "strength": 0.4413
-
+    "value": 0.4798
   },
-
   {
-
     "source": 40,
-
     "target": 18,
-
-    "value": 2,
-
-    "strength": 0.2051
-
+    "value": 0.3461
   },
-
   {
-
     "source": 40,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5318
   },
-
   {
-
     "source": 40,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2383
   },
-
   {
-
     "source": 40,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0001
-
+    "value": 0.6204
   },
-
   {
-
     "source": 40,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0043
-
+    "value": 0.5493
   },
-
   {
-
     "source": 40,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6546
   },
-
   {
-
     "source": 40,
-
     "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0403
-
+    "value": 0.4733
   },
-
   {
-
     "source": 40,
-
     "target": 25,
-
-    "value": 2,
-
-    "strength": 0.0704
-
+    "value": 0.5607
   },
-
   {
-
     "source": 40,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0545
-
+    "value": 0.5838
   },
-
   {
-
     "source": 40,
-
     "target": 27,
-
-    "value": 8,
-
-    "strength": 0.946
-
+    "value": 0.5028
   },
-
   {
-
     "source": 40,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5485
   },
-
   {
-
     "source": 40,
-
     "target": 29,
-
-    "value": 2,
-
-    "strength": 0.1197
-
+    "value": 0.5987
   },
-
   {
-
     "source": 40,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4025
   },
-
   {
-
     "source": 40,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6128
   },
-
   {
-
     "source": 40,
-
     "target": 32,
-
-    "value": 2,
-
-    "strength": 0.0755
-
+    "value": 0.6797
   },
-
   {
-
     "source": 40,
-
     "target": 33,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4164
   },
-
   {
-
     "source": 40,
-
     "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5832
   },
-
   {
-
     "source": 40,
-
     "target": 35,
-
-    "value": 0,
-
-    "strength": 0.0211
-
+    "value": 0.4799
   },
-
   {
-
     "source": 40,
-
     "target": 36,
-
-    "value": 4,
-
-    "strength": 0.351
-
+    "value": 0.5531
   },
-
   {
-
     "source": 40,
-
     "target": 37,
-
-    "value": 6,
-
-    "strength": 0.8697
-
+    "value": 0.375
   },
-
   {
-
     "source": 40,
-
     "target": 38,
-
-    "value": 0,
-
-    "strength": 0.0216
-
+    "value": 0.4053
   },
-
   {
-
     "source": 40,
-
     "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5226
   },
-
   {
-
     "source": 41,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": -0.0632
   },
-
   {
-
     "source": 41,
-
     "target": 1,
-
-    "value": 2,
-
-    "strength": 0.146
-
+    "value": 0.2953
   },
-
   {
-
     "source": 41,
-
     "target": 2,
-
-    "value": 2,
-
-    "strength": 0.1211
-
+    "value": 0.7384
   },
-
   {
-
     "source": 41,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7365
   },
-
   {
-
     "source": 41,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2358
   },
-
   {
-
     "source": 41,
-
     "target": 5,
-
-    "value": 2,
-
-    "strength": 0.1848
-
+    "value": 0.6601
   },
-
   {
-
     "source": 41,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0321
-
+    "value": 0.4927
   },
-
   {
-
     "source": 41,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4433
   },
-
   {
-
     "source": 41,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0016
-
+    "value": 0.3694
   },
-
   {
-
     "source": 41,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5959
   },
-
   {
-
     "source": 41,
-
     "target": 10,
-
-    "value": 4,
-
-    "strength": 0.3405
-
+    "value": 0.7476
   },
-
   {
-
     "source": 41,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6667
   },
-
   {
-
     "source": 41,
-
     "target": 12,
-
-    "value": 4,
-
-    "strength": 0.375
-
+    "value": 0.7068
   },
-
   {
-
     "source": 41,
-
     "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0442
-
+    "value": 0.6854
   },
-
   {
-
     "source": 41,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0107
-
+    "value": 0.5837
   },
-
   {
-
     "source": 41,
-
     "target": 15,
-
-    "value": 0,
-
-    "strength": 0.0699
-
+    "value": 0.4765
   },
-
   {
-
     "source": 41,
-
     "target": 16,
-
-    "value": 4,
-
-    "strength": 0.6197
-
+    "value": 0.6596
   },
-
   {
-
     "source": 41,
-
     "target": 17,
-
-    "value": 4,
-
-    "strength": 0.5181
-
+    "value": 0.5199
   },
-
   {
-
     "source": 41,
-
     "target": 18,
-
-    "value": 4,
-
-    "strength": 0.4702
-
+    "value": 0.2447
   },
-
   {
-
     "source": 41,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.2804
   },
-
   {
-
     "source": 41,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6103
   },
-
   {
-
     "source": 41,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0566
-
+    "value": 0.4737
   },
-
   {
-
     "source": 41,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.002
-
+    "value": 0.6679
   },
-
   {
-
     "source": 41,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.605
   },
-
   {
-
     "source": 41,
-
     "target": 24,
-
-    "value": 2,
-
-    "strength": 0.1885
-
+    "value": 0.5627
   },
-
   {
-
     "source": 41,
-
     "target": 25,
-
-    "value": 2,
-
-    "strength": 0.2359
-
+    "value": 0.6363
   },
-
   {
-
     "source": 41,
-
     "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0165
-
+    "value": 0.5979
   },
-
   {
-
     "source": 41,
-
     "target": 27,
-
-    "value": 4,
-
-    "strength": 0.6609
-
+    "value": 0.6053
   },
-
   {
-
     "source": 41,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3255
   },
-
   {
-
     "source": 41,
-
     "target": 29,
-
-    "value": 2,
-
-    "strength": 0.1308
-
+    "value": 0.71
   },
-
   {
-
     "source": 41,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0.0164
-
+    "value": 0.5793
   },
-
   {
-
     "source": 41,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7123
   },
-
   {
-
     "source": 41,
-
     "target": 32,
-
-    "value": 4,
-
-    "strength": 0.3507
-
+    "value": 0.3912
   },
-
   {
-
     "source": 41,
-
     "target": 33,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6641
   },
-
   {
-
     "source": 41,
-
     "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5556
   },
-
   {
-
     "source": 41,
-
     "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.56
   },
-
   {
-
     "source": 41,
-
     "target": 36,
-
-    "value": 2,
-
-    "strength": 0.2662
-
+    "value": 0.5948
   },
-
   {
-
     "source": 41,
-
     "target": 37,
-
-    "value": 4,
-
-    "strength": 0.3891
-
+    "value": 0.7262
   },
-
   {
-
     "source": 41,
-
     "target": 38,
-
-    "value": 0,
-
-    "strength": 0.0116
-
+    "value": 0.6589
   },
-
   {
-
     "source": 41,
-
     "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3229
   },
-
   {
-
     "source": 41,
-
     "target": 40,
-
-    "value": 4,
-
-    "strength": 0.6926
-
+    "value": 0.4755
   },
-
   {
-
     "source": 42,
-
     "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.0458
   },
-
   {
-
     "source": 42,
-
     "target": 1,
-
-    "value": 4,
-
-    "strength": 0.4904
-
+    "value": 0.341
   },
-
   {
-
     "source": 42,
-
     "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0085
-
+    "value": 0.7754
   },
-
   {
-
     "source": 42,
-
     "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0463
-
+    "value": 0.7681
   },
-
   {
-
     "source": 42,
-
     "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.3563
   },
-
   {
-
     "source": 42,
-
     "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0419
-
+    "value": 0.8796
   },
-
   {
-
     "source": 42,
-
     "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6076
   },
-
   {
-
     "source": 42,
-
     "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.6326
   },
-
   {
-
     "source": 42,
-
     "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0025
-
+    "value": 0.6681
   },
-
   {
-
     "source": 42,
-
     "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0041
-
+    "value": 0.6474
   },
-
   {
-
     "source": 42,
-
     "target": 10,
-
-    "value": 4,
-
-    "strength": 0.4955
-
+    "value": 0.8135
   },
-
   {
-
     "source": 42,
-
     "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.699
   },
-
   {
-
     "source": 42,
-
     "target": 12,
-
-    "value": 2,
-
-    "strength": 0.1143
-
+    "value": 0.8499
   },
-
   {
-
     "source": 42,
-
     "target": 13,
-
-    "value": 2,
-
-    "strength": 0.2329
-
+    "value": 0.7521
   },
-
   {
-
     "source": 42,
-
     "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0422
-
+    "value": 0.7716
   },
-
   {
-
     "source": 42,
-
     "target": 15,
-
-    "value": 2,
-
-    "strength": 0.1237
-
+    "value": 0.3466
   },
-
   {
-
     "source": 42,
-
     "target": 16,
-
-    "value": 2,
-
-    "strength": 0.235
-
+    "value": 0.6877
   },
-
   {
-
     "source": 42,
-
     "target": 17,
-
-    "value": 2,
-
-    "strength": 0.0786
-
+    "value": 0.6804
   },
-
   {
-
     "source": 42,
-
     "target": 18,
-
-    "value": 0,
-
-    "strength": 0.036
-
+    "value": 0.3199
   },
-
   {
-
     "source": 42,
-
     "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.1042
   },
-
   {
-
     "source": 42,
-
     "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0152
-
+    "value": 0.6394
   },
-
   {
-
     "source": 42,
-
     "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7136
   },
-
   {
-
     "source": 42,
-
     "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0094
-
+    "value": 0.747
   },
-
   {
-
     "source": 42,
-
     "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7062
   },
-
   {
-
     "source": 42,
-
     "target": 24,
-
-    "value": 2,
-
-    "strength": 0.0807
-
+    "value": 0.5494
   },
-
   {
-
     "source": 42,
-
     "target": 25,
-
-    "value": 0,
-
-    "strength": 0.0462
-
+    "value": 0.6875
   },
-
   {
-
     "source": 42,
-
     "target": 26,
-
-    "value": 2,
-
-    "strength": 0.1737
-
+    "value": 0.5597
   },
-
   {
-
     "source": 42,
-
     "target": 27,
-
-    "value": 4,
-
-    "strength": 0.6876
-
+    "value": 0.8325
   },
-
   {
-
     "source": 42,
-
     "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7015
   },
-
   {
-
     "source": 42,
-
     "target": 29,
-
-    "value": 2,
-
-    "strength": 0.1068
-
+    "value": 0.8446
   },
-
   {
-
     "source": 42,
-
     "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5795
   },
-
   {
-
     "source": 42,
-
     "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.7324
   },
-
   {
-
     "source": 42,
-
     "target": 32,
-
-    "value": 2,
-
-    "strength": 0.0839
-
+    "value": 0.5433
   },
-
   {
-
     "source": 42,
-
     "target": 33,
-
-    "value": 0,
-
-    "strength": 0.0249
-
+    "value": 0.791
   },
-
   {
-
     "source": 42,
-
     "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.5845
   },
-
   {
-
     "source": 42,
-
     "target": 35,
-
-    "value": 0,
-
-    "strength": 0.0161
-
+    "value": 0.5796
   },
-
   {
-
     "source": 42,
-
     "target": 36,
-
-    "value": 0,
-
-    "strength": 0.0234
-
+    "value": 0.6228
   },
-
   {
-
     "source": 42,
-
     "target": 37,
-
-    "value": 4,
-
-    "strength": 0.5239
-
+    "value": 0.7637
   },
-
   {
-
     "source": 42,
-
     "target": 38,
-
-    "value": 0,
-
-    "strength": 0.0114
-
+    "value": 0.5496
   },
-
   {
-
     "source": 42,
-
     "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
+    "value": 0.4028
   },
-
   {
-
     "source": 42,
-
     "target": 40,
-
-    "value": 4,
-
-    "strength": 0.6919
-
+    "value": 0.6035
   },
-
   {
-
     "source": 42,
-
     "target": 41,
-
-    "value": 0,
-
-    "strength": 0.0199
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 1,
-
-    "value": 4,
-
-    "strength": 0.4546
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0158
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0003
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 5,
-
-    "value": 6,
-
-    "strength": 0.9259
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 10,
-
-    "value": 6,
-
-    "strength": 0.7062
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0425
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 13,
-
-    "value": 2,
-
-    "strength": 0.0984
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0412
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 15,
-
-    "value": 2,
-
-    "strength": 0.1119
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 16,
-
-    "value": 4,
-
-    "strength": 0.6132
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 17,
-
-    "value": 2,
-
-    "strength": 0.1849
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0116
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0034
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0.011
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 25,
-
-    "value": 2,
-
-    "strength": 0.1905
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0182
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 27,
-
-    "value": 4,
-
-    "strength": 0.6124
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 29,
-
-    "value": 2,
-
-    "strength": 0.0882
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 32,
-
-    "value": 0,
-
-    "strength": 0.0212
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 33,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0.0478
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 36,
-
-    "value": 4,
-
-    "strength": 0.5439
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 37,
-
-    "value": 2,
-
-    "strength": 0.0808
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 38,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 40,
-
-    "value": 4,
-
-    "strength": 0.6107
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 41,
-
-    "value": 2,
-
-    "strength": 0.1714
-
-  },
-
-  {
-
-    "source": 43,
-
-    "target": 42,
-
-    "value": 2,
-
-    "strength": 0.2603
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 0,
-
-    "value": 2,
-
-    "strength": 0.0797
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 1,
-
-    "value": 10,
-
-    "strength": 1
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 2,
-
-    "value": 2,
-
-    "strength": 0.0777
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 3,
-
-    "value": 4,
-
-    "strength": 0.3518
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0101
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0052
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 10,
-
-    "value": 4,
-
-    "strength": 0.5325
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 12,
-
-    "value": 2,
-
-    "strength": 0.1392
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 13,
-
-    "value": 4,
-
-    "strength": 0.5015
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0555
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 15,
-
-    "value": 4,
-
-    "strength": 0.3668
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 16,
-
-    "value": 2,
-
-    "strength": 0.2813
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0453
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 18,
-
-    "value": 6,
-
-    "strength": 0.7636
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0011
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0114
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 25,
-
-    "value": 4,
-
-    "strength": 0.3093
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 26,
-
-    "value": 6,
-
-    "strength": 0.8208
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 27,
-
-    "value": 10,
-
-    "strength": 0.9933
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 28,
-
-    "value": 2,
-
-    "strength": 0.0853
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 29,
-
-    "value": 2,
-
-    "strength": 0.1573
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 32,
-
-    "value": 8,
-
-    "strength": 0.9413
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 33,
-
-    "value": 0,
-
-    "strength": 0.0051
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 36,
-
-    "value": 2,
-
-    "strength": 0.1581
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 37,
-
-    "value": 8,
-
-    "strength": 0.9314
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 38,
-
-    "value": 0,
-
-    "strength": 0.0215
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 40,
-
-    "value": 6,
-
-    "strength": 0.8219
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 41,
-
-    "value": 4,
-
-    "strength": 0.4444
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 42,
-
-    "value": 4,
-
-    "strength": 0.6015
-
-  },
-
-  {
-
-    "source": 44,
-
-    "target": 43,
-
-    "value": 4,
-
-    "strength": 0.4778
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0034
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 3,
-
-    "value": 0,
-
-    "strength": 0.0527
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 4,
-
-    "value": 2,
-
-    "strength": 0.0771
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 6,
-
-    "value": 0,
-
-    "strength": 0.041
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0051
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 8,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 9,
-
-    "value": 2,
-
-    "strength": 0.1905
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 11,
-
-    "value": 2,
-
-    "strength": 0.1816
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 12,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 17,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0.0082
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0.033
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0354
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 26,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 27,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 28,
-
-    "value": 0,
-
-    "strength": 0.0033
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 29,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 30,
-
-    "value": 0,
-
-    "strength": 0.0268
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 31,
-
-    "value": 0,
-
-    "strength": 0.0195
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 32,
-
-    "value": 0,
-
-    "strength": 0.011
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 33,
-
-    "value": 0,
-
-    "strength": 0.0317
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 34,
-
-    "value": 0,
-
-    "strength": 0.0466
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 36,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 37,
-
-    "value": 0,
-
-    "strength": 0.0009
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 38,
-
-    "value": 0,
-
-    "strength": 0.0458
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0.0294
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 40,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 41,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 42,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 43,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 45,
-
-    "target": 44,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0129
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 1,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0058
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 4,
-
-    "value": 0,
-
-    "strength": 0.0077
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 6,
-
-    "value": 2,
-
-    "strength": 0.0859
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0654
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0046
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0105
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 11,
-
-    "value": 2,
-
-    "strength": 0.1017
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0082
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 13,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 14,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 17,
-
-    "value": 0,
-
-    "strength": 0.004
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 18,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0.0362
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0442
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 21,
-
-    "value": 2,
-
-    "strength": 0.2823
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0.0083
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0079
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 25,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 26,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 27,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 28,
-
-    "value": 0,
-
-    "strength": 0.0212
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 29,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 30,
-
-    "value": 2,
-
-    "strength": 0.0924
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 31,
-
-    "value": 2,
-
-    "strength": 0.2574
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 32,
-
-    "value": 0,
-
-    "strength": 0.001
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 33,
-
-    "value": 0,
-
-    "strength": 0.0329
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 34,
-
-    "value": 2,
-
-    "strength": 0.1157
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 36,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 37,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 38,
-
-    "value": 0,
-
-    "strength": 0.0655
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0.0655
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 40,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 41,
-
-    "value": 0,
-
-    "strength": 0.0003
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 42,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 43,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 44,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 46,
-
-    "target": 45,
-
-    "value": 2,
-
-    "strength": 0.0739
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 0,
-
-    "value": 2,
-
-    "strength": 0.1483
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 1,
-
-    "value": 8,
-
-    "strength": 0.9897
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0529
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 3,
-
-    "value": 4,
-
-    "strength": 0.6079
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0035
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0205
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 9,
-
-    "value": 0,
-
-    "strength": 0.0092
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 10,
-
-    "value": 2,
-
-    "strength": 0.1329
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0466
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 13,
-
-    "value": 6,
-
-    "strength": 0.7185
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 14,
-
-    "value": 2,
-
-    "strength": 0.1343
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 16,
-
-    "value": 4,
-
-    "strength": 0.7006
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0589
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 18,
-
-    "value": 2,
-
-    "strength": 0.1747
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0332
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 21,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0125
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 25,
-
-    "value": 2,
-
-    "strength": 0.1635
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 26,
-
-    "value": 4,
-
-    "strength": 0.339
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 27,
-
-    "value": 8,
-
-    "strength": 0.966
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 29,
-
-    "value": 0,
-
-    "strength": 0.0524
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 31,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 32,
-
-    "value": 6,
-
-    "strength": 0.8648
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 33,
-
-    "value": 4,
-
-    "strength": 0.5096
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 34,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 36,
-
-    "value": 2,
-
-    "strength": 0.217
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 37,
-
-    "value": 8,
-
-    "strength": 0.9641
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 38,
-
-    "value": 0,
-
-    "strength": 0.0261
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 40,
-
-    "value": 6,
-
-    "strength": 0.8262
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 41,
-
-    "value": 2,
-
-    "strength": 0.2807
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 42,
-
-    "value": 4,
-
-    "strength": 0.56
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 43,
-
-    "value": 4,
-
-    "strength": 0.5589
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 44,
-
-    "value": 8,
-
-    "strength": 0.9438
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 45,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 47,
-
-    "target": 46,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 0,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0603
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 2,
-
-    "value": 2,
-
-    "strength": 0.0889
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 5,
-
-    "value": 0,
-
-    "strength": 0.0036
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 6,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0451
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0322
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 11,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 12,
-
-    "value": 2,
-
-    "strength": 0.1352
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0002
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 14,
-
-    "value": 2,
-
-    "strength": 0.0843
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 15,
-
-    "value": 2,
-
-    "strength": 0.1763
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 16,
-
-    "value": 2,
-
-    "strength": 0.126
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 17,
-
-    "value": 4,
-
-    "strength": 0.4885
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0044
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0.0012
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0194
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 21,
-
-    "value": 0,
-
-    "strength": 0.07
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0.066
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0.0192
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0.0412
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 25,
-
-    "value": 0,
-
-    "strength": 0.0223
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 26,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 27,
-
-    "value": 4,
-
-    "strength": 0.6198
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 28,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 29,
-
-    "value": 0,
-
-    "strength": 0.0641
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 30,
-
-    "value": 0,
-
-    "strength": 0.0682
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 31,
-
-    "value": 0,
-
-    "strength": 0.0289
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 32,
-
-    "value": 0,
-
-    "strength": 0.0032
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 33,
-
-    "value": 2,
-
-    "strength": 0.1165
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 34,
-
-    "value": 0,
-
-    "strength": 0.0144
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0.0511
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 36,
-
-    "value": 2,
-
-    "strength": 0.0904
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 37,
-
-    "value": 2,
-
-    "strength": 0.1626
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 38,
-
-    "value": 2,
-
-    "strength": 0.0974
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0.004
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 40,
-
-    "value": 2,
-
-    "strength": 0.2102
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 41,
-
-    "value": 2,
-
-    "strength": 0.1065
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 42,
-
-    "value": 0,
-
-    "strength": 0.0217
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 43,
-
-    "value": 0,
-
-    "strength": 0.0365
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 44,
-
-    "value": 0,
-
-    "strength": 0.0421
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 45,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 46,
-
-    "value": 0,
-
-    "strength": 0.0124
-
-  },
-
-  {
-
-    "source": 48,
-
-    "target": 47,
-
-    "value": 2,
-
-    "strength": 0.1616
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 0,
-
-    "value": 0,
-
-    "strength": 0.0574
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 1,
-
-    "value": 0,
-
-    "strength": 0.0411
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0592
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0126
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0116
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 8,
-
-    "value": 0,
-
-    "strength": 0.0026
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 10,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 11,
-
-    "value": 0,
-
-    "strength": 0.0435
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0017
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 13,
-
-    "value": 0,
-
-    "strength": 0.0002
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 14,
-
-    "value": 0,
-
-    "strength": 0.0071
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 16,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0026
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 18,
-
-    "value": 0,
-
-    "strength": 0.0316
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0064
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0074
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 25,
-
-    "value": 0,
-
-    "strength": 0.0056
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 26,
-
-    "value": 0,
-
-    "strength": 0.0321
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 27,
-
-    "value": 0,
-
-    "strength": 0.0287
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 28,
-
-    "value": 4,
-
-    "strength": 0.678
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 29,
-
-    "value": 0,
-
-    "strength": 0.0071
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 31,
-
-    "value": 0,
-
-    "strength": 0.017
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 32,
-
-    "value": 4,
-
-    "strength": 0.3621
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 33,
-
-    "value": 0,
-
-    "strength": 0.0003
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 34,
-
-    "value": 0,
-
-    "strength": 0.0025
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 36,
-
-    "value": 0,
-
-    "strength": 0.0671
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 37,
-
-    "value": 0,
-
-    "strength": 0.0023
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 38,
-
-    "value": 2,
-
-    "strength": 0.1133
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 40,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 41,
-
-    "value": 0,
-
-    "strength": 0.0123
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 42,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 43,
-
-    "value": 0,
-
-    "strength": 0.0023
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 44,
-
-    "value": 0,
-
-    "strength": 0.0647
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 45,
-
-    "value": 0,
-
-    "strength": 0.0014
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 46,
-
-    "value": 2,
-
-    "strength": 0.0968
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 47,
-
-    "value": 0,
-
-    "strength": 0.0342
-
-  },
-
-  {
-
-    "source": 49,
-
-    "target": 48,
-
-    "value": 0,
-
-    "strength": 0.0085
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 0,
-
-    "value": 2,
-
-    "strength": 0.2618
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 1,
-
-    "value": 4,
-
-    "strength": 0.5321
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 2,
-
-    "value": 0,
-
-    "strength": 0.0454
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 3,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 4,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 5,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 6,
-
-    "value": 0,
-
-    "strength": 0.0167
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 7,
-
-    "value": 0,
-
-    "strength": 0.0055
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 8,
-
-    "value": 2,
-
-    "strength": 0.0919
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 9,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 10,
-
-    "value": 0,
-
-    "strength": 0.0053
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 11,
-
-    "value": 0,
-
-    "strength": 0.0154
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 12,
-
-    "value": 0,
-
-    "strength": 0.0269
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 13,
-
-    "value": 2,
-
-    "strength": 0.262
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 14,
-
-    "value": 2,
-
-    "strength": 0.1878
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 15,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 16,
-
-    "value": 0,
-
-    "strength": 0.0051
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 17,
-
-    "value": 0,
-
-    "strength": 0.0317
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 18,
-
-    "value": 4,
-
-    "strength": 0.3375
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 19,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 20,
-
-    "value": 0,
-
-    "strength": 0.0414
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 21,
-
-    "value": 0,
-
-    "strength": 0.0005
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 22,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 23,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 24,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 25,
-
-    "value": 2,
-
-    "strength": 0.1126
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 26,
-
-    "value": 6,
-
-    "strength": 0.8824
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 27,
-
-    "value": 2,
-
-    "strength": 0.0955
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 28,
-
-    "value": 4,
-
-    "strength": 0.5332
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 29,
-
-    "value": 0,
-
-    "strength": 0.0341
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 30,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 31,
-
-    "value": 0,
-
-    "strength": 0.0009
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 32,
-
-    "value": 8,
-
-    "strength": 0.9491
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 33,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 34,
-
-    "value": 0,
-
-    "strength": 0.0004
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 35,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 36,
-
-    "value": 2,
-
-    "strength": 0.1936
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 37,
-
-    "value": 2,
-
-    "strength": 0.2415
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 38,
-
-    "value": 4,
-
-    "strength": 0.313
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 39,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 40,
-
-    "value": 2,
-
-    "strength": 0.1185
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 41,
-
-    "value": 0,
-
-    "strength": 0.0611
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 42,
-
-    "value": 0,
-
-    "strength": 0.0352
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 43,
-
-    "value": 0,
-
-    "strength": 0.0201
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 44,
-
-    "value": 6,
-
-    "strength": 0.7199
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 45,
-
-    "value": 0,
-
-    "strength": 0
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 46,
-
-    "value": 0,
-
-    "strength": 0.0224
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 47,
-
-    "value": 4,
-
-    "strength": 0.5514
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 48,
-
-    "value": 0,
-
-    "strength": 0.0268
-
-  },
-
-  {
-
-    "source": 50,
-
-    "target": 49,
-
-    "value": 6,
-
-    "strength": 0.7048
-
+    "value": 0.741
   }
-
 ]
-
-
-
     }
-
-
-
 </script>
-
-
-
 <script>
-
-
-
-//Constants for the SVG
-
-
-
-var width = 614,
-
-
-
-    height = 380;
-
-
-
-var padding = 1, // separation between circles
-
-    radius=5;
-
-
-
-var min_dist = 150;
-
-
-
-var color = d3.scale.category20();
-
-
-
-
-
-
-
-var force = d3.layout.force()
-
-
-
-    .charge(-1000)
-
-
-
-    .linkDistance(15)
-
-
-
-    .gravity(0.3)
-
-
-
-    .size([width, height]);
-
-
-
-
-
-
-
-
-
-
-
-//Append a SVG to the body of the html page. Assign this SVG as an object to svg
-
-
-
-var svg = d3.select("body").append("svg")
-
-
-
-    .attr("width", width)
-
-
-
-    .attr("height", height);
-
-
-
-
-
-
-
-//Read the data from the mis element 
-
-
-
-var mis = document.getElementById('mis').innerHTML;
-
-
-
-graph = JSON.parse(mis);
-
-
-
-
-
-
-
-//Creates the graph data structure out of the json data
-
-
-
-force.nodes(graph.nodes)
-
-
-
-    .links(graph.links)
-
-
-
-    .start();
-
-
-
-
-
-
-
-//Force Strength
-
-
-
-force.linkStrength(function(link) {
-
-
-
-	return link.value/18
-
-
-
-    });
-
-
-
-
-
-
-
-//Create all the line svgs but without locations yet
-
-
-
-var link = svg.selectAll(".link")
-
-    .data(graph.links)
-
-    .enter().append("line")
-
-    .attr("class", "link")
-
-    .style("stroke-width", function (d) {return Math.sqrt(d.value)});
-
-
-
-
-
-
-
-
-
-
-
-//Do the same with the circles for the nodes - no 
-
-
-
-var node = svg.selectAll(".node")
-
-
-
-    .data(graph.nodes)
-
-
-
-    .enter().append("g")
-
-
-
-    .attr("class", "node")
-
-
-
-    .call(force.drag);
-
-
-
-node.append("circle")
-
-
-
-    .attr("r", radius)
-
-
-
-    .style("fill", function (d) {
-
-
-
-    return color(d.group);
-
-
-
-})
-
-
-
-node.append("text")
-
-
-
-      .attr("dx", 10)
-
-
-
-      .attr("dy", ".35em")
-
-
-
-      .text(function(d) { return d.name })
-
-
-
-
-
-
-
-//Now we are giving the SVGs co-ordinates - the force layout is generating the co-ordinates which this code is using to update the attributes of the SVG elements
-
-
-
-force.on("tick", function () {
-
-
-
-
-
-    d3.selectAll("circle")
-
-        .each(circular(0.3))
-
-         .each(collide(0.5))
-
-
-
-        .attr("cx", function (d) {return d.x;})
-
-        .attr("cy", function (d) {return d.y;});
-
-
-
-    link.attr("x1", function (d) {return d.source.x;})
-
-        .attr("y1", function (d) {return d.source.y;})
-
-        .attr("x2", function (d) {return d.target.x;})
-
-        .attr("y2", function (d) {return d.target.y;});
-
-
-
-
-
-
-
-    d3.selectAll("text")
-
-      .attr("x", function (d) {return d.x;})
-
-      .attr("y", function (d) {return d.y;});
-
-
-
-});
-
-
-
-
-
-function collide(alpha) {
-
-  var quadtree = d3.geom.quadtree(graph.nodes);
-
-  return function(d) {
-
-    var rb = 2*radius + padding,
-
-        nx1 = d.x - rb,
-
-        nx2 = d.x + rb,
-
-        ny1 = d.y - rb,
-
-        ny2 = d.y + rb;
-
-    quadtree.visit(function(quad, x1, y1, x2, y2) {
-
-      if (quad.point && (quad.point !== d)) {
-
-        var x = d.x - quad.point.x,
-
-            y = d.y - quad.point.y,
-
-            l = Math.sqrt(x * x + y * y);
-
-          if (l < rb) {
-
-          l = (l - rb) / l * alpha;
-
-          d.x -= x *= l;
-
-          d.y -= y *= l;
-
-          quad.point.x += x;
-
-          quad.point.y += y;
-
-        }
-
-      }
-
-      return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
-
-    });
-
-  };
-
-}
-
-
-
-
-
-
-
-function circular(alpha) {
-
-  return function(d){
-
-    var origin={x: width/2,y: height/2};
-
-    var x = d.x - origin.x,
-
-        y = d.y - origin.y,
-
-        l = Math.sqrt(x * x + y * y);
-
-
-
-    if (l < min_dist - 0.005 | l > min_dist + 0.005 ) {
-
-
-
-        l = (l - min_dist) / l ;
-
-        l = 1 * alpha + (1-alpha)* (1-l);
-
-        d.x = origin.x + (d.x-origin.x)*l;
-
-        d.y = origin.y + (d.y-origin.y)*l;
-
-    }
-
-  };
-
-}
-
+        var mis = document.getElementById('mis').innerHTML;
+        graph = JSON.parse(mis);
   
+					
+
+						// Constants for the SVG
+						var width = 614,
+						    height = 350,
+						    margin = 25,
+						    padding = 1;
+						 
+						 
+
+						// ========== USER OPTIONS OR DEFAULT CHART OPTIONS ============
+						var radius = 7,
+								link_width = 0.8,
+								cutoff = 0.7,
+								node_size = 6,
+								link_strength =  0.7,
+						 		schema_size = 0.65,
+						 		edge_bundle = 0.7;
 
 
 
+						var min_dist = 200*schema_size;   // ## user option : schema_size
+
+				
+						var color = d3.scale.category20();
+
+          var force = d3.layout.force()
+                    .charge(-5000)
+										.linkDistance(2*radius + padding)
+										.gravity(0.8)
+										.size([width, height]);
+							
+							//Append a SVG to the body of the html page. Assign this SVG as an object to svg
+
+							var svg = d3.select("body").append("svg")
+                        .attr("width", width)
+                        .attr("height", height);
 
 
+							
 
+							//Force Strength
+							force.linkStrength(function(link) {
+								return link.value/15*link_strength;   // ## user option : Strength
+							});
 
-force.start();
+							//Create all the line svgs but without locations yet
+							display_links = [];
+							itm_nodes = [];
+							n=0;
+              graph.nodes.forEach(function(node){
+                node.x=width*Math.random();
+                node.y=height*Math.random();
+              });
+							//Pick only the links with positive value
+							graph.links.forEach(function (link,index){
 
+								if (link.value>cutoff) {
+									link.index = n;
+									n++;
+									display_links.push(link);
+									itm_nodes.push({
+										x:0.5*(graph.nodes[link.target].x + graph.nodes[link.source].x ),
+										y:0.5*(graph.nodes[link.target].y + graph.nodes[link.source].y ),
+										index:index 
+									});
+								}
+							});
 
+              console.log(itm_nodes[0])
+							
+							var link = svg.selectAll(".link")
+														.data(display_links)
+														.enter().append("path")
+														.attr("class", "link")
+														.style("stroke-width", function (d) {
+															return Math.max(0.0, (d.value-cutoff)*10)*link_width;
+														});
 
+							//Creates the graph data structure out of the json data
+							force.nodes(graph.nodes)
+								 .links(graph.links)
+								 .start();
+						
+							//Do the same with the circles for the nodes - no 
+							var node = svg.selectAll(".node")
+														.data(graph.nodes)
+														.enter().append("g")
+														.attr("class", "node")
+														.call(force.drag);
+
+							node.append("circle")
+							    .attr("r", node_size)
+							    .style("fill", function (d) {
+							    	return color(d.group);
+							    })
+
+							node.append("text")
+						      .attr("dx", 10)
+						      .attr("dy", ".35em")
+						      .text(function(d) { return d.name })
+
+						  
+
+						  // Now we are giving the SVGs co-ordinates - the force 
+						  // layout is generating the co-ordinates which this code 
+						  // is using to update the attributes of the SVG elements
+						  force.on('end', function() { 
+						  });
+
+						  force.on("tick", function () {
+                
+						  	 link_force(1-edge_bundle,1);
+              
+					      d3.selectAll("circle")
+					          .each(circular(0.8))
+					          // .each(split(0.5,width/2,height/2))
+					          .attr("cx", function (d) {return d.x;})
+					          .attr("cy", function (d) {return d.y;});
+
+					       // what does this line do??????
+						    link.attr("d",function(d){ 
+						    	return "M "+d.source.x + " "+d.source.y + " Q " + itm_nodes[d.index].x + " " + itm_nodes[d.index].y +" "+  d.target.x + " "  + d.target.y;});
+
+					      d3.selectAll("text")
+					        .attr("x", function (d) {return d.x;})
+					        .attr("y", function (d) {return d.y;});
+
+					      d3.selectAll("text")
+					      	.attr("x", function (d) {return width/2 + (d.x-width/2)*(12+Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)))/Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)) ;})
+					      	.attr("y", function (d) {return height/2 + (d.y-height/2)*(12+Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)))/Math.sqrt((d.x-width/2)*(d.x-width/2) + (d.y-height/2)*(d.y-height/2)) ;})
+						      .attr("dx", function(d) { return 0; })
+						      .attr("dy", ".35em")
+						      .attr("text-anchor", function(d) { return d.x < width/2 ? "end" : "start"; });
+						      // .attr("transform", function(d) { "rotate(180," +d.x+","+d.y+ ")"; });
+						  });
+
+						  // Alpha1 is the force to source and target nodes. 
+						  // Alpha2 is the force to other links.
+						  function link_force(alpha1,alpha2){
+
+						  	itm_nodes.forEach(function(item,index){
+
+						  		itm_nodes.forEach(function(item2,index2){
+						        if(index != index2){
+						          var l = Math.sqrt(Math.pow(item2.x - item.x,2) + Math.pow(item2.y - item.y,2) );
+						          item.x += alpha2/l*(item2.x - item.x);
+						          item.y += alpha2/l*(item2.y - item.y);  
+						        }
+						      });
+
+						      item.x += 0.3*(display_links[index].source.x - item.x);
+						      item.y += 0.3*(display_links[index].source.y - item.y);
+						      item.x += 0.3*(display_links[index].target.x - item.x);
+						      item.y += 0.3*(display_links[index].target.y - item.y);
+                  console.log(display_links[index].source.x);
+						    });
+						  } // link_force
+
+						  function collide(alpha){
+						    var quadtree = d3.geom.quadtree(graph.nodes);
+						    return function(d){
+						    	var rb = 2*radius + padding,
+						    			nx1 = d.x - rb,
+						          nx2 = d.x + rb,
+						          ny1 = d.y - rb,
+						          ny2 = d.y + rb;
+
+						      quadtree.visit(function(quad, x1, y1, x2, y2){
+						      	if (quad.point && (quad.point !== d)){
+						      		var x = d.x - quad.point.x,
+						              y = d.y - quad.point.y,
+						              l = Math.sqrt(x * x + y * y);
+
+						          if(l<rb){
+						          	l = (l - rb) / l * alpha;
+						            d.x -= x *= l;
+						            d.y -= y *= l;
+						          }
+						        }
+
+						        return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+						      });
+						    };
+						  } // collide
+
+						  function split(alpha,cx,cy) {
+						  	var quadtree = d3.geom.quadtree(graph.nodes);
+						  	return function(d){
+						  		var rb = 2*radius + padding,
+						          nx1 = d.x - rb,
+						          nx2 = d.x + rb,
+						          ny1 = d.y - rb,
+						          ny2 = d.y + rb;
+
+						      quadtree.visit(function(quad, x1, y1, x2, y2) {
+						      	if (quad.point && (quad.point !== d)) {
+						      		var x = d.x - quad.point.x,
+						              y = d.y - quad.point.y,
+						              l = Math.sqrt(x * x + y * y),
+						              mx = (d.x + quad.point.x)/2 -cx,
+						              my = (d.y + quad.point.y)/2 -cy,
+						              ml = Math.sqrt(mx * mx + my * my) ,
+						              rx =0,
+						              ry =0;
+
+						          if (l < rb) {
+						          	rx = cx + mx * (mx*(d.x -cx) + my*(d.y -cy))/ml/ml;
+						            ry = cy + my * (mx*(d.x -cx) + my*(d.y -cy))/ml/ml;
+						            d.x = rx + (d.x-rx) * rb/2 / Math.sqrt( (d.x-rx) * (d.x-rx) + (d.y-ry) * (d.y-ry));
+						            d.y = ry + (d.y-ry) * rb/2 / Math.sqrt( (d.x-rx) * (d.x-rx) + (d.y-ry) * (d.y-ry));
+						            rx = cx + mx * (mx*(quad.point.x -cx) + my*(quad.point.y -cy))/ml/ml;
+						            ry = cy + my * (mx*(quad.point.x -cx) + my*(quad.point.y -cy))/ml/ml;
+
+						            quad.point.x = rx + (quad.point.x-rx) * rb/2 / Math.sqrt( (quad.point.x-rx) * (quad.point.x-rx) + (quad.point.y-ry) * (quad.point.y-ry));
+						            quad.point.y = ry + (quad.point.y-ry) * rb/2 / Math.sqrt( (quad.point.x-rx) * (quad.point.x-rx) + (quad.point.y-ry) * (quad.point.y-ry));
+						          }
+						        }
+						        return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+						      });
+						    };
+						  } // split
+
+						  function circular(alpha) {
+						  	return function(d){
+						  		var origin={x: width/2,y: height/2};
+						      var x = d.x - origin.x,
+						          y = d.y - origin.y,
+						          l = Math.sqrt(x * x + y * y);
+
+						      if (l < min_dist - 0.005 | l > min_dist + 0.005 ){
+						          l = (l - min_dist) / l ;
+						          l = 1 * (1-alpha*Math.exp(-1*Math.abs(l))) + alpha*Math.exp(-1*Math.abs(l))* (1-l); 
+						          d.x = origin.x + (d.x-origin.x)*l;
+						          d.y = origin.y + (d.y-origin.y)*l;
+						      }
+						    };
+						  } // circular
+
+						  force.start();
 </script>
-

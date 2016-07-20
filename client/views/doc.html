@@ -13,11 +13,13 @@
 	<div class="docText">
 		<h2>D3 GRAPHS</h2>
 		<h3>1. Structure graph</h3>
+		<img src="./client/assets/graph1.png" height="300px" width="auto">
 		<p>Force-directed graph drawing algorithms assign forces among the set of edges and the set of nodes of a graph drawing. Spring-like attractive forces based on Hooke's law are used to attract pairs of endpoints of the graph's edges towards each other, while simultaneously repulsive forces like those of electrically charged particles based on Coulomb's law are used to separate all pairs of nodes. In this project, the spring-like attractive forces are proportional to the correlation between two nodes. If the correlation is negative, a repulsive force will be enforced.</p>
 
 		<p>Nodes start from random position. In equilibrium states for this system of forces, a node would tend to end up at a position that is closer to the group of nodes which it is higher correlated with, and be drawn further apart from the group of nodes which it is not (or even negatively) correlated with. </p>
 
 		<h3>2. Schemaball graph</h3>
+		<img src="./client/assets/graph2.png" height="300px" width="auto">
 		<p>Schemaball is a flexible schema visualizer for correlation. Structure graphs described above allow nodes to be display in a 2-dimensional pattern, which can sometime be overcomplicated and overwhelming. In the schemaball layout, we apply the same forces mentioned in the structure graph section. In addition, we introduce a new force to the circumference of a circle. This reduce the structure graphs to a 1-dimensional graph, which sometime gives a clearer look and better intuition. Also, in this graph we assume edges themselves would have attractive force to bend them toward other edges. Therefore, an edge won’t be just a straight line like structure graph, and it helps to observe the clustering structure between nodes.</p>
 		
 	</div>

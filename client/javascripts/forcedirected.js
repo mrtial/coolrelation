@@ -187,7 +187,7 @@
 							//Pick only the links with positive value
 							graph.links.forEach(function (link,index){
 
-								if (link.value>0.5) {
+								if (link.value>cutoff) {
 									link.index = n;
 									n++;
 									display_links.push(link);

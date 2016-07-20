@@ -1,34 +1,47 @@
 <div class="docContainer">
 	<h1>DOCS</h1>
+	<p>Coolrelation is a D3 visualization generator for correlation data. It not only just pushes data into D3 model, but also uses python algorithm to calculate the optimal initial parameters so that user can extract meaningful relational structure out the graph itself.  
+	</p>
+
 	<div class="docText">
-		<h2>ABOUT	</h2>
-		<div>
-			<p><b>Coolrelation</b> is a D3 visualization generator for correlation data. It not only just pushes data into D3 model, but also uses python algorithm to calculate the optimal initial parameters so that user can extract meaningful relational structure out the graph itself. </p>
-			
-		</div>
+		<h2>DATA FORMAT</h2>
+		<p>In order to process the data, user needs to format the csv file in a certain way. The file you provide should contain the correlation matrix itself AND groups column which specified the groups of each one. Colors will be assign to each group in “force directed graph” according to the group it belongs to.</p>
+		<img src="./client/assets/data_format.png" width="80%" height="auto">
 		
-	</div>
-	<div class="docText">
-		<h2>THE MODEL</h2>
-		<div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt dolor corporis deserunt eligendi excepturi omnis optio est! Itaque, quidem, minima quae maiores dolorum voluptate at, nihil magnam ad nesciunt perspiciatis!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente explicabo eos at obcaecati hic. Incidunt, modi quia officiis itaque? Ullam reiciendis quia harum animi? Temporibus fugit nesciunt corporis recusandae dignissimos.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ratione optio corporis ipsa explicabo natus tempora, assumenda, officiis numquam expedita possimus tempore at vero rerum quasi ut, quo dolorum suscipit.</p>
-		</div>
-		
-	</div>
-	
-	<div class="docText">
-		<h2>GRAPHIC ONE</h2>
-		<div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt dolor corporis deserunt eligendi excepturi omnis optio est! Itaque, quidem, minima quae maiores dolorum voluptate at, nihil magnam ad nesciunt perspiciatis!</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit ratione optio corporis ipsa explicabo natus tempora, assumenda, officiis numquam expedita possimus tempore at vero rerum quasi ut, quo dolorum suscipit.</p>
-		</div>
 	</div>
 
 	<div class="docText">
-		<h2>GRAPHIC TWO</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt dolor corporis deserunt eligendi excepturi omnis optio est! Itaque, quidem, minima quae maiores dolorum voluptate at, nihil magnam ad nesciunt perspiciatis!</p>
+		<h2>D3 GRAPHS</h2>
+		<h3>1. Structure graph</h3>
+		<p>Force-directed graph drawing algorithms assign forces among the set of edges and the set of nodes of a graph drawing. Spring-like attractive forces based on Hooke's law are used to attract pairs of endpoints of the graph's edges towards each other, while simultaneously repulsive forces like those of electrically charged particles based on Coulomb's law are used to separate all pairs of nodes. In this project, the spring-like attractive forces are proportional to the correlation between two nodes. If the correlation is negative, a repulsive force will be enforced.</p>
+
+		<p>Nodes start from random position. In equilibrium states for this system of forces, a node would tend to end up at a position that is closer to the group of nodes which it is higher correlated with, and be drawn further apart from the group of nodes which it is not (or even negatively) correlated with. </p>
+
+		<h3>2. Schemaball graph</h3>
+		<p>Schemaball is a flexible schema visualizer for correlation. Structure graphs described above allow nodes to be display in a 2-dimensional pattern, which can sometime be overcomplicated and overwhelming. In the schemaball layout, we apply the same forces mentioned in the structure graph section. In addition, we introduce a new force to the circumference of a circle. This reduce the structure graphs to a 1-dimensional graph, which sometime gives a clearer look and better intuition. Also, in this graph we assume edges themselves would have attractive force to bend them toward other edges. Therefore, an edge won’t be just a straight line like structure graph, and it helps to observe the clustering structure between nodes.</p>
+		
 	</div>
+
+	<div class="docText">
+		<h2>STYLE PARAMS</h2>
+		<ul>
+			<li>Graph type: switch between two graph with same csv data</li>
+			<li>Color schema : standard d3 scaler</li>
+			<li>Node_size ( 4 - 10 ) : the size of the node circle</li>
+			<li>Link_width ( 0 -3 ) : the width between 2 nodes, the larger correlation between the two, the wider the link is.</li>
+			<li>Display_cutoff: Only show the edges when the correlation is higher than the cutoff. Please note that even if the correlation is lower than the cutoff and therefore is not shown in the graph, it will still work under the background to move the nodes accordingly.</li>
+		</ul>
+	</div>
+
+	<div class="docText">
+		<h2>MODEL PARAMS</h2>
+		<ul>
+			<li>Link strength (0.25~4) : this parameter sets the strength of the force from an edge that pull two nodes together (or push apart when the correlation is negative.) The larger the number, the stronger the strength.</li>
+			<li>Schemaball size : The radius of the schemaball.</li>
+			<li>Edge Bundling force :  The force that bends the edge toward each other. When the parameter is set to be zero, the edge would be just a straight line.</li>
+		</ul>
+	</div>
+
+	<div class="whitespace"></div>
 
 </div>

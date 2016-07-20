@@ -20,9 +20,11 @@
 				<h3>Style Settings</h3><hr>
 				<div>
 					<label>color plate</label>
-				  <input type="radio" name="radiogroup" ng-click="vm.chartOption.option[0].color='category20'" checked="checked"> <img src="./client/assets/color1.png" height="20px" width="auto">
-				  <input type="radio" name="radiogroup" ng-click="vm.chartOption.option[0].color = 'category20b'"> <img src="./client/assets/color2.png" height="20px" width="auto">
-				  <input type="radio" name="radiogroup" ng-click="vm.chartOption.option[0].color = 'category20c'"> <img src="./client/assets/color3.png" height="20px" width="auto">
+					<div id="colorbox">
+						<input type="radio" name="radiogroup" ng-click="vm.chartOption.option[0].color='category20'" checked="checked"> <img src="./client/assets/color1.png" height="20px" width="70%"><br>
+						<input type="radio" name="radiogroup" ng-click="vm.chartOption.option[0].color = 'category20b'"> <img src="./client/assets/color2.png" height="20px" width="70%"><br>
+						<input type="radio" name="radiogroup" ng-click="vm.chartOption.option[0].color = 'category20c'"> <img src="./client/assets/color3.png" height="20px" width="70%">
+					</div>
 				</div>
 				<div>
 					<label>node size</label>

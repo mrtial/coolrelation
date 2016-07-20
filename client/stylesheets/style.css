@@ -2,7 +2,8 @@ html{
 	height: 100%;
 	width: 100%;
 	display: block;
-	font-family: 'Roboto', sans-serif;
+	/*font-family: 'Roboto', sans-serif;*/
+	font-family: 'Open Sans', sans-serif;
 	/*overflow: hidden;*/
 }
 
@@ -264,22 +265,28 @@ iframe{
 }
 
 
+
+/* ========== DOC PAGE ========== */
+
 .docText{
-	display: inline-flex;
+	/*display: inline-flex;*/
 	align-items: flex-start;
 	margin-bottom: 30px;
 }
 
-.docText h2{
-	width: 300px;
-	/*font-size: 35px;*/
+
+/*.docText h2{
+	width: 40%;
 	margin-top: 0;
-	margin-right: 50px;
 	text-align: right;
 }
-
+*/
 .docText p{
 	margin-top:0;
+}
+
+.docTitle{
+	width: 40%;
 }
 
 /* ========== TUTORIAL PAGE ========== */
@@ -379,6 +386,9 @@ label{
   width: calc(100% - (#{$range-label-width + 13px}));
 }
 
+#colorbox{
+	margin-bottom: 20px;
+}
 
 /* ========== D3 PLOT ========== */
 .d3plot{

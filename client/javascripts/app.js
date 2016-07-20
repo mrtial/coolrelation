@@ -71,7 +71,6 @@
 
 		    });
 		    // $location.url('/'); // location after login.
-		    
 		  }]);
 
 		//Called when login fails

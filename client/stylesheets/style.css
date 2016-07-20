@@ -268,8 +268,34 @@ iframe{
 	font-size: 40px;
 }
 
+#teampic{
+	display: block;
+	margin:auto;
+}
 
+#introBox{
+	display: inline-flex;
+	align-items: flex-start;
+}
 
+.profile{
+	width: 100%;
+	padding:20px;
+}
+
+.profile h2{
+	text-align:center;
+}
+
+.social_link img{
+	margin-right: 5px;
+}
+
+.position{
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	line-height: 40px;
+}
 /* ========== DOC PAGE ========== */
 
 .docText{

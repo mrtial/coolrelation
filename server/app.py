@@ -120,6 +120,7 @@ class GenerateD3(Resource):
 			"radious":"",
 			"link_strength":"",
 			"schema_size":"",
+			"edge_bundle":"",
 			}
 		] 
 

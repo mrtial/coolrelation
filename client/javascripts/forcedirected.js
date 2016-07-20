@@ -41,7 +41,6 @@
 					
 					function runD3(chartData,chartOption, force){
 						force.stop();
-						console.log("force stop");
 						var user_option = chartOption.option[0];
 
 						// Constants for the SVG
@@ -57,17 +56,19 @@
 								cutoff = Number(user_option.cutoff) || .5,
 								node_size = user_option.node_size || 4,
 								link_strength = Number(user_option.link_strength) || 1,
-						 		schema_size = Number(user_option.schema_size) || 1;
+						 		schema_size = Number(user_option.schema_size) || 1,
+						 		edge_bundle = Number(user_option.edge_bundle) || 0.7;
 
-						 		console.log("user_option.schema_size:", user_option.schema_size)
+
 
 						var min_dist = 200*schema_size;   // ## user option : schema_size
 
-						if(user_option.cutoff==="0"){ cutoff = 0}
+						if(user_option.cutoff==="0"){ cutoff = 0};
+						if(user_option.edge_bundle==="0"){ edge_bundle = 0};
 
 						var color = d3.scale.category20();
-						if(user_option.color==="category20b"){color = d3.scale.category20b()}
-						if(user_option.color==="category20c"){color = d3.scale.category20c()}
+						if(user_option.color==="category20b"){color = d3.scale.category20b()};
+						if(user_option.color==="category20c"){color = d3.scale.category20c()};
 
 
 
@@ -236,14 +237,11 @@
 						  // layout is generating the co-ordinates which this code 
 						  // is using to update the attributes of the SVG elements
 						  force.on('end', function() { 
-						    console.log('ended!'); 
 						  });
 
 						  force.on("tick", function () {
 
-
-						  	console.log("tick2");
-						  	link_force(0.3,1);
+						  	link_force(1-edge_bundle,1);
 
 					      d3.selectAll("circle")
 					          .each(circular(0.8))
@@ -282,10 +280,10 @@
 						        }
 						      });
 
-						      item.x += alpha1*(display_links[index].source.x - item.x);
-						      item.y += alpha1*(display_links[index].source.y - item.y);
-						      item.x += alpha1*(display_links[index].target.x - item.x);
-						      item.y += alpha1*(display_links[index].target.y - item.y);
+						      item.x += Math.min(Math.max(alpha1,0.01),0.99)*(display_links[index].source.x - item.x);
+						      item.y += Math.min(Math.max(alpha1,0.01),0.99)*(display_links[index].source.y - item.y);
+						      item.x += Math.min(Math.max(alpha1,0.01),0.99)*(display_links[index].target.x - item.x);
+						      item.y += Math.min(Math.max(alpha1,0.01),0.99)*(display_links[index].target.y - item.y);
 						    });
 						  } // link_force
 

@@ -269,26 +269,30 @@ iframe{
 }
 
 #teampic{
-	display: block;
-	margin:auto;
+	position: relative;
+	display: inline;
+	margin-right:30px;
 }
 
 #introBox{
+	margin-right: 20px;
+	margin-left: 5px;
 	display: inline-flex;
 	align-items: flex-start;
-}
-
-.profile{
-	width: 100%;
-	padding:20px;
+	margin-top: 20px;
+	/*border: 1px solid #888888;*/
+	padding: 15px;
+	box-shadow: 5px 5px 20px #888888;
 }
 
 .profile h2{
-	text-align:center;
+	margin:0;
 }
+
 
 .social_link img{
 	margin-right: 5px;
+	float: left;
 }
 
 .position{

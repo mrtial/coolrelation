@@ -1,3 +1,4 @@
+/* GENERAL SETTINGS */
 html{
 	height: 100%;
 	width: 100%;
@@ -19,9 +20,7 @@ footer{
 	bottom: 0;
 	left:0;
 	z-index: 0;
-	/*display: none;*/
 }
-
 
 .container{
 	position: relative;
@@ -29,7 +28,6 @@ footer{
 	margin-right: auto;
 	width: 95%;
 	top:70px;
-	/*border:1px dashed blue;*/
 }
 
 a{
@@ -164,32 +162,40 @@ li a:hover{
 .leftbox, .rightbox{
 	width: 50%;
 	z-index: 100;
-	/*border: 1px solid red;*/
 }
 
 .title{
 	font-family: 'Roboto', sans-serif;
-	font-size: 50px;
-	line-height: 70px;
-	/*text-align: right;*/
+	/*line-height: 70px;*/
+	/*font-size: 50px;*/
+	
+	/*make the font-size responsive to viewport*/
+	font-size: 4vw; 
+	line-height: 9vh;
+}
+
+.leftbox .title{
+	position: relative;
+	margin-top:20%;
 }
 
 #quickgen{
 	background-color: #35B729;
 	border:none;
 	border-radius: 10px;
-	font-size: 20px;
+	font-size: 1.5vw;
 	/*font-weight: 100;*/
-	padding: 10px 20px;
-}
-#quickgen a{
-	color:white;
+	padding: 1.5% 3%;
+
+	display: inline-flex;
+	align-items:center;
 }
 
-.leftbox .title{
-	position: relative;
-	margin-top:120px;
+#quickgen a{
+	color:white;
+	vertical-align:middle;
 }
+
 .rightbox{
 	position:relative; 
 	/*border: 1px solid red;*/
@@ -197,14 +203,16 @@ li a:hover{
 }
 
 #sample img{
-	width: 90px;
+	width: 12%;
 	height: auto;
-	margin-top: 30px;
+	margin-top: 5%;
 }
 
 #footnote{
 	position: relative;
-	top:50px;
+	width: 50%;
+	top:20%;
+	left:2.5%;
 }
 
 /* ========== D3 SCREEN ========== */
@@ -385,10 +393,9 @@ iframe{
 /* ========== GENERATOR PAGE ========== */
 .generatorContainer{
 	position: relative;
-	height:680px;
+	/*height:680px;*/
 	width: 100%;
 	display: inline-flex;
-	/*border: 1px solid red;*/
 }
 
 /* ========== CONTROL PANEL ========== */

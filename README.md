@@ -11,7 +11,7 @@ __Correlation__ ([wikipedia](https://en.wikipedia.org/wiki/Correlation_and_depen
 
 ### HOW IT WORKS?
 
-![screenshoot of index page]
+![screenshoot of index page](https://github.com/mrtial/coolrelation/blob/master/client/assets/website_screen.png)
 
 An app like this should be very easy and intuitive for user. So I made the UI very simple and clean. In order to maximize user experience, it doesn't require user to signup or login before they try it out. User can go directly to the generator and upload their correlation matrix csv data (the file must be formated in a certain way so that the data can be processed correctly. see __DATA FORMAT__ section for more detail.) 
 

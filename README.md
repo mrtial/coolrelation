@@ -1,7 +1,6 @@
 # Coolrelation
 #### Super Fast and Easy Correlation Matrix Visualization Generator
 
----
 ## THE PROJECT
 
 D3 is an incredibly power data visualization tool written in javascript. But in order to use it, it requires some basic understanding of HTML, SVG , CSS and Javascript. Therefore, I build Coolrelation, a D3 visualization generator for correlation data. It currently has two different graphs that helps user to explore the structure and find insights out of their correlation matrix data.
@@ -31,7 +30,7 @@ The file user provide should contain the __correlation matrix__ itself __AND__ a
 
 
 ## D3 MODEL & GRAPHS
----
+
 ### Force-Directed Graph
 
 [graph 1]
@@ -64,7 +63,7 @@ Schemaball is a flexible schema visualizer for correlation. Structure graphs des
 
 
 ## CONTACT INFO
----
+
 
 Coolrelation is a work-in-progress project. Some functionalities are still under development. It currently has two different types of graphs for user to choose from. However, in the future, it will gradually adds more graph options alone with graph settings. If you have any suggestions or feedbacks, please feel free to reach out to me. Thanks!
 

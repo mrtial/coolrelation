@@ -22,6 +22,7 @@ svg{
   position: relative;
   left:50%;
   transform: translate(-50%);
+
 }
 
 
@@ -4736,9 +4737,10 @@ svg{
 					
 
 						// Constants for the SVG
-						var width = 614,
-						    height = 350,
-						    margin = 25,
+						var width = window.screen.width*.426,
+						    height = width*.57;
+
+						var margin = 25,
 						    padding = 1;
 						 
 						 
@@ -4762,8 +4764,8 @@ svg{
           var force = d3.layout.force()
                     .charge(-5000)
 										.linkDistance(2*radius + padding)
-										.gravity(0.8)
-										.size([width, height]);
+										.gravity(0.8);
+										// .size([width, height]);
 							
 							//Append a SVG to the body of the html page. Assign this SVG as an object to svg
 
@@ -4802,7 +4804,6 @@ svg{
 								}
 							});
 
-              console.log(itm_nodes[0])
 							
 							var link = svg.selectAll(".link")
 														.data(display_links)
@@ -4888,7 +4889,7 @@ svg{
 						      item.y += 0.3*(display_links[index].source.y - item.y);
 						      item.x += 0.3*(display_links[index].target.x - item.x);
 						      item.y += 0.3*(display_links[index].target.y - item.y);
-                  console.log(display_links[index].source.x);
+
 						    });
 						  } // link_force
 

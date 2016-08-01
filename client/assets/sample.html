@@ -4737,7 +4737,8 @@ svg{
 					
 
 						// Constants for the SVG
-						var width = window.screen.width*.426,
+						var width =  window.innerWidth,
+
 						    height = width*.57;
 
 						var margin = 25,
@@ -4756,7 +4757,7 @@ svg{
 
 
 
-						var min_dist = 200*schema_size;   // ## user option : schema_size
+						var min_dist = height/2*1.2*schema_size;   // ## user option : schema_size
 
 				
 						var color = d3.scale.category20();

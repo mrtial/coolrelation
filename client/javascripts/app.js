@@ -6,6 +6,10 @@
 		.config(config)
 		.config(auth0)
 		.run(checkToken)
+		// .run(function(auth) {
+  // 	// This hooks all auth events to check everything as soon as the app starts
+  // 		auth.hookEvents();
+		// });
 
 	// ROUTES using $routeProvider
 	function config($routeProvider, $locationProvider){

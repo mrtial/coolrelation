@@ -13,9 +13,12 @@
 		// Get/ Re-Set State everytime user refresh the page (change location)
 		.run(function($rootScope, auth, store, jwtHelper, $location) {
 		  $rootScope.$on('$locationChangeStart', function() {
+		  	console.log('locationChangeStart')
+		  	
 
 		    var token = store.get('token');
 		    if (token) {
+		    	$rootScope.watch = true;
 		      if (!jwtHelper.isTokenExpired(token)) {
 		        if (!auth.isAuthenticated) {
 		          //Re-authenticate user if token is valid
@@ -81,6 +84,8 @@
 		// Called when login is successful
 		authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', '$rootScope',
 		  function($location, profilePromise, idToken, store, $rootScope) {
+		    var current_path = $location.path();
+
 		    // Successfully log in
 		    console.log("Login Success");
 		    // Access to user profile and token
@@ -89,7 +94,8 @@
 		      store.set('token', idToken);
 		      $rootScope.watch = true;
 		    });
-		    // $location.url('/'); // location after login.
+		    debugger
+		    $location.url(current_path); // location after login.
 		  }]);
 
 		//Called when login fails

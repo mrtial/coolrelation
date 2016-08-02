@@ -62,7 +62,7 @@ class AllMatrixApi(Resource):
 
 
 	def post(self):
-		from IPython import embed; embed()
+		# from IPython import embed; embed()
 
 		data = request.json
 

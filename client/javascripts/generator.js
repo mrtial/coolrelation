@@ -7,6 +7,7 @@
 		var vm = this;
 		vm.auth = auth;
 		vm.path = $location.path();
+		console.log(vm.path)
 		vm.uploadText=true;
 		
 		// ========= CONTROL PANEL =========
@@ -115,6 +116,8 @@
 			// if yes, move on
 			vm.exportDB(chartOption, chartData)
 			// set ajex request to get the file
+
+			console.log("EXPORT HTML function is not available for now.")
 		}
 
 		// SHARE PNG FILE
@@ -169,12 +172,14 @@
 					var user_id = auth.profile.user_id
 					var data = [vm.chartOption, vm.chartData, user_id];
 
-					$http.post('/api/data', data).then(function successSend(){
-						// send flash msg!
-						console.log("post complete!")
-					}, function catchErr(){
-						// some error handling
-					});
+					// STOP post to db for now
+					console.log("tempory stop adding data to DB for now")
+					// $http.post('/api/data', data).then(function successSend(){
+					// 	// send flash msg!
+					// 	console.log("post complete!")
+					// }, function catchErr(){
+					// 	// some error handling
+					// });
 				}
 			} // if(data)
 		} // exportDB
@@ -185,7 +190,7 @@
 			// 	$location.path(vm.path);
 			// });
 			auth.signin();
-			$location.path(vm.path);
+			// $location.path(vm.path);
 		}
 
 

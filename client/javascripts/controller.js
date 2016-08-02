@@ -28,6 +28,7 @@
 	function navbarController(auth, store, $scope, $rootScope, $location){
 		var vm = this;
 		vm.dropdown = false;
+		vm.auth = auth;
 
 		if($location.host()==="localhost"){
 			vm.local = true;
@@ -45,32 +46,34 @@
 		})
 		
 		// GET current user from local storage
-		var current = store.get('profile');
+		// var current = store.get('profile');
 		
-		if(current){
-			vm.username = current.name;
-			vm.picture = current.picture;
-		}
+		// if(current){
+		// 	vm.username = current.name;
+		// 	vm.picture = current.picture;
+		// }
 
 
-		vm.login = function(){
-			// Set popup to true to use popup
-			// Store 'profile' & 'token' in local storage
-	    auth.signin({popup: true}, function(profile, token){
-        // set username & picture inside navbar
-      	vm.username = profile['name'];
-      	vm.picture = profile['picture'];
-	      }, function(err){
-	        // If anything goes wrong
-      	});
-		}
+		// vm.login = function(){
+
+		// 	// Set popup to true to use popup
+		// 	// Store 'profile' & 'token' in local storage
+	 //    auth.signin({popup: true}, function(profile, token){
+  //       // set username & picture inside navbar
+  //     	vm.username = profile['name'];
+  //     	vm.picture = profile['picture'];
+	 //      }, function(err){
+	 //        // If anything goes wrong
+  //     	});
+		// }
 
 		vm.logout = function(){
+			auth.signout();
 			store.remove('profile');
 			store.remove('token');
 			store.remove('tutorial')
 			$rootScope.watch = false;
-			// $location.path("/");
+			$location.path("/");
 		}
 	};
 

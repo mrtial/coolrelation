@@ -5,7 +5,7 @@
 
 	function generatorController(FileUploader, store, auth, $http, $location, $scope){
 		var vm = this;
-		window.vm = vm;
+		vm.auth = auth;
 		vm.path = $location.path();
 		vm.uploadText=true;
 		
@@ -89,9 +89,6 @@
 			vm.uploadText=true;
 			vm.loader=false;
 			vm.d3show = false;
-			// clean d3 data & remove svg from DOM
-			// vm.chartData="";
-			// vm.chartOption="";
 			vm.removeNode();
 			
 		}
@@ -184,9 +181,11 @@
 
 		// ============= HELPER FUNCTION ==============
 		function requireLogin(){
-			auth.signin({popup: true},function(profile, token){
-				$location.path(vm.path);
-			});
+			// auth.signin({popup: true},function(profile, token){
+			// 	$location.path(vm.path);
+			// });
+			auth.signin();
+			$location.path(vm.path);
 		}
 
 

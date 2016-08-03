@@ -62,15 +62,12 @@ class AllMatrixApi(Resource):
 
 
 	def post(self):
-		# from IPython import embed; embed()
-
 		data = request.json
 
 		chart_option = json.dumps(data[0])
 		chart_data = json.dumps(data[1])
 		user_id = json.dumps(data[2])
 
-		# from IPython import embed; embed()
 		# make file a python class instance so it can be store in db
 		d = MatrixData(chart_option, chart_data, user_id)
 	
@@ -96,8 +93,9 @@ class GenerateD3(Resource):
 		temp = file.split("\r\n")
 		
 		for row in temp:
-			s = re.split('(?!\B"[^"]*),(?![^"]*"\B)',row)
-			data.append(s)
+			if row!='':
+				s = re.split('(?!\B"[^"]*),(?![^"]*"\B)',row)		
+				data.append(s)		
 
 		df = DataFrame(data=data)
 

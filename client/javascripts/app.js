@@ -94,8 +94,7 @@
 		      store.set('token', idToken);
 		      $rootScope.watch = true;
 		    });
-		    debugger
-		    $location.url(current_path); // location after login.
+		    $location.url('/generator'); // location after login.
 		  }]);
 
 		//Called when login fails

@@ -85,7 +85,7 @@
 		authProvider.on('loginSuccess', ['$location', 'profilePromise', 'idToken', 'store', '$rootScope',
 		  function($location, profilePromise, idToken, store, $rootScope) {
 		    var current_path = $location.path();
-
+		    debugger
 		    // Successfully log in
 		    console.log("Login Success");
 		    // Access to user profile and token
@@ -94,7 +94,7 @@
 		      store.set('token', idToken);
 		      $rootScope.watch = true;
 		    });
-		    $location.url('/generator'); // location after login.
+		    // $location.url(current_path); // location after login.
 		  }]);
 
 		//Called when login fails

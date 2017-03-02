@@ -7,7 +7,6 @@
 		var vm = this;
 		vm.auth = auth;
 		vm.path = $location.path();
-		console.log(vm.path)
 		vm.uploadText=true;
 		
 		// ========= CONTROL PANEL =========
@@ -173,7 +172,7 @@
 					var data = [vm.chartOption, vm.chartData, user_id];
 
 					// STOP post to db for now
-					console.log("tempory stop adding data to DB for now")
+					console.log("stop adding data to DB for now")
 					// $http.post('/api/data', data).then(function successSend(){
 					// 	// send flash msg!
 					// 	console.log("post complete!")
@@ -184,13 +183,13 @@
 			} // if(data)
 		} // exportDB
 
+
 		// ============= HELPER FUNCTION ==============
 		function requireLogin(){
 			// auth.signin({popup: true},function(profile, token){
-			// 	$location.path(vm.path);
+			// $location.path(vm.path);
 			// });
 			auth.signin();
-			// $location.path(vm.path);
 		}
 
 
